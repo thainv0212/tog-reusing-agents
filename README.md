@@ -1,0 +1,1 @@
+# This repository contains source code and data for paper "Reusing Multimodal Agents: Efficient Evaluation of Sound Designs in Games" submitted to IEEE Transactions on Games.

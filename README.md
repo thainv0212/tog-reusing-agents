@@ -8,6 +8,6 @@ Please note that due to library conflicts, each folder has a different python en
 
 ## Acknowledgments
 We acknowledge the following open-source projects that inspired this work:
-- [Repo1](https://github.com/miguelsvasco/gmc)
-- [Repo2](https://github.com/miguelsvasco/muse)
-- [Repo3](https://github.com/hegde95/Agents_that_Listen)
+- [GMC](https://github.com/miguelsvasco/gmc)
+- [MUSE](https://github.com/miguelsvasco/muse)
+- [Vizdoom Sound](https://github.com/hegde95/Agents_that_Listen)

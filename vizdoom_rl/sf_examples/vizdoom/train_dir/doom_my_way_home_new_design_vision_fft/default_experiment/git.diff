@@ -1,0 +1,13 @@
+diff --git a/sample_factory/algo/learning/learner.py b/sample_factory/algo/learning/learner.py
+index ed19b5f..e1c16b6 100644
+--- a/sample_factory/algo/learning/learner.py
++++ b/sample_factory/algo/learning/learner.py
+@@ -278,7 +278,7 @@ class Learner(Configurable):
+                 # noinspection PyBroadException
+                 try:
+                     log.warning("Loading state from checkpoint %s...", latest_checkpoint)
+-                    checkpoint_dict = torch.load(latest_checkpoint, map_location=device)
++                    checkpoint_dict = torch.load(latest_checkpoint, map_location=device, weights_only=False)
+                     return checkpoint_dict
+                 except Exception:
+                     log.exception(f"Could not load from checkpoint, attempt {attempt}")

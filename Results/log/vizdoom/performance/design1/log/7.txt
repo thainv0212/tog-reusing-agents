@@ -1,0 +1,243 @@
+/home/thai/anaconda3/envs/vizdoom/bin/python /home/thai/sonic_doom/sf_examples/vizdoom/enjoy_vizdoom.py --env=doom_basic_new_design --train_dir=train_dir/vizdoom0_gmc --encoder_type=gmc --use_rnn=True --env_frameskip=4 --use_sound --max_num_episodes=100 --seed=7
+[2025-07-14 11:34:25,478][108141] register_encoder_factory: <function make_vizdoom_encoder at 0x713f83634b80>
+[2025-07-14 11:34:25,486][108141] Loading existing experiment configuration from train_dir/vizdoom0_gmc/default_experiment/config.json
+[2025-07-14 11:34:25,486][108141] Overriding arg 'seed' with value 7 passed from command line
+[2025-07-14 11:34:25,486][108141] Adding new argument 'no_render'=False that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'save_video'=False that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'video_frames'=1000000000.0 that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'video_name'=None that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'max_num_frames'=1000000000.0 that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'max_num_episodes'=100 that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'push_to_hub'=False that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'hf_repository'=None that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'policy_index'=0 that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'eval_deterministic'=False that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'train_script'=None that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'enjoy_script'=None that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'sample_env_episodes'=256 that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'csv_folder_name'=None that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Adding new argument 'record_to'=None that is not in the saved config file!
+[2025-07-14 11:34:25,486][108141] Using frameskip 4 and render_action_repeat=1 for evaluation
+[2025-07-14 11:34:25,501][108141] Doom resolution: 160x120, resize resolution: (128, 72)
+/home/thai/anaconda3/envs/vizdoom/lib/python3.12/site-packages/gymnasium/core.py:311: UserWarning: WARN: env.num_agents to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.num_agents` for environment variables or `env.get_wrapper_attr('num_agents')` that will search the reminding wrappers.
+  logger.warn(
+/home/thai/anaconda3/envs/vizdoom/lib/python3.12/site-packages/gymnasium/core.py:311: UserWarning: WARN: env.is_multiagent to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.is_multiagent` for environment variables or `env.get_wrapper_attr('is_multiagent')` that will search the reminding wrappers.
+  logger.warn(
+[2025-07-14 11:34:25,502][108141] RunningMeanStd input shape: (3, 72, 128)
+[2025-07-14 11:34:25,502][108141] RunningMeanStd input shape: (2520, 2)
+[2025-07-14 11:34:25,503][108141] RunningMeanStd input shape: (1,)
+VizdoomConvEncoder: input_channels=3
+Conv encoder output size: 512
+VizdoomConvEncoder: input_channels=3
+Conv encoder output size: 512
+Loading gmc info <All keys matched successfully>
+[2025-07-14 11:34:25,833][108141] Loading state from checkpoint train_dir/vizdoom0_gmc/default_experiment/checkpoint_p0/checkpoint_000076192_312082432.pth...
+[2025-07-14 11:34:26,796][108141] Avg episode rewards: #0: 0.750, true rewards: #0: 0.750
+[2025-07-14 11:34:26,796][108141] Avg episode reward: 0.750, avg true_objective: 0.750
+[2025-07-14 11:34:27,006][108141] Avg episode rewards: #0: 0.730, true rewards: #0: 0.730
+[2025-07-14 11:34:27,006][108141] Avg episode reward: 0.730, avg true_objective: 0.730
+[2025-07-14 11:34:27,105][108141] Avg episode rewards: #0: 0.803, true rewards: #0: 0.803
+[2025-07-14 11:34:27,105][108141] Avg episode reward: 0.803, avg true_objective: 0.803
+[2025-07-14 11:34:27,302][108141] Avg episode rewards: #0: 0.773, true rewards: #0: 0.773
+[2025-07-14 11:34:27,303][108141] Avg episode reward: 0.773, avg true_objective: 0.773
+[2025-07-14 11:34:27,436][108141] Avg episode rewards: #0: 0.792, true rewards: #0: 0.792
+[2025-07-14 11:34:27,436][108141] Avg episode reward: 0.792, avg true_objective: 0.792
+[2025-07-14 11:34:27,537][108141] Avg episode rewards: #0: 0.818, true rewards: #0: 0.818
+[2025-07-14 11:34:27,537][108141] Avg episode reward: 0.818, avg true_objective: 0.818
+[2025-07-14 11:34:27,638][108141] Avg episode rewards: #0: 0.837, true rewards: #0: 0.837
+[2025-07-14 11:34:27,638][108141] Avg episode reward: 0.837, avg true_objective: 0.837
+[2025-07-14 11:34:27,797][108141] Avg episode rewards: #0: 0.836, true rewards: #0: 0.836
+[2025-07-14 11:34:27,797][108141] Avg episode reward: 0.836, avg true_objective: 0.836
+[2025-07-14 11:34:28,005][108141] Avg episode rewards: #0: 0.822, true rewards: #0: 0.822
+[2025-07-14 11:34:28,005][108141] Avg episode reward: 0.822, avg true_objective: 0.822
+[2025-07-14 11:34:28,163][108141] Avg episode rewards: #0: 0.823, true rewards: #0: 0.823
+[2025-07-14 11:34:28,163][108141] Avg episode reward: 0.823, avg true_objective: 0.823
+[2025-07-14 11:34:28,290][108141] Avg episode rewards: #0: 0.831, true rewards: #0: 0.831
+[2025-07-14 11:34:28,291][108141] Avg episode reward: 0.831, avg true_objective: 0.831
+[2025-07-14 11:34:28,539][108141] Avg episode rewards: #0: 0.821, true rewards: #0: 0.821
+[2025-07-14 11:34:28,540][108141] Avg episode reward: 0.821, avg true_objective: 0.821
+[2025-07-14 11:34:28,740][108141] Avg episode rewards: #0: 0.818, true rewards: #0: 0.818
+[2025-07-14 11:34:28,740][108141] Avg episode reward: 0.818, avg true_objective: 0.818
+[2025-07-14 11:34:28,848][108141] Avg episode rewards: #0: 0.828, true rewards: #0: 0.828
+[2025-07-14 11:34:28,849][108141] Avg episode reward: 0.828, avg true_objective: 0.828
+[2025-07-14 11:34:28,955][108141] Avg episode rewards: #0: 0.836, true rewards: #0: 0.836
+[2025-07-14 11:34:28,956][108141] Avg episode reward: 0.836, avg true_objective: 0.836
+[2025-07-14 11:34:29,188][108141] Avg episode rewards: #0: 0.831, true rewards: #0: 0.831
+[2025-07-14 11:34:29,188][108141] Avg episode reward: 0.831, avg true_objective: 0.831
+[2025-07-14 11:34:29,428][108141] Avg episode rewards: #0: 0.824, true rewards: #0: 0.824
+[2025-07-14 11:34:29,428][108141] Avg episode reward: 0.824, avg true_objective: 0.824
+[2025-07-14 11:34:29,682][108141] Avg episode rewards: #0: 0.817, true rewards: #0: 0.817
+[2025-07-14 11:34:29,683][108141] Avg episode reward: 0.817, avg true_objective: 0.817
+[2025-07-14 11:34:29,803][108141] Avg episode rewards: #0: 0.824, true rewards: #0: 0.824
+[2025-07-14 11:34:29,803][108141] Avg episode reward: 0.824, avg true_objective: 0.824
+[2025-07-14 11:34:29,882][108141] Num frames 100...
+[2025-07-14 11:34:30,067][108141] Avg episode rewards: #0: 0.817, true rewards: #0: 0.817
+[2025-07-14 11:34:30,067][108141] Avg episode reward: 0.817, avg true_objective: 0.817
+[2025-07-14 11:34:30,206][108141] Avg episode rewards: #0: 0.821, true rewards: #0: 0.821
+[2025-07-14 11:34:30,206][108141] Avg episode reward: 0.821, avg true_objective: 0.821
+[2025-07-14 11:34:30,381][108141] Avg episode rewards: #0: 0.821, true rewards: #0: 0.821
+[2025-07-14 11:34:30,382][108141] Avg episode reward: 0.821, avg true_objective: 0.821
+[2025-07-14 11:34:30,607][108141] Avg episode rewards: #0: 0.818, true rewards: #0: 0.818
+[2025-07-14 11:34:30,608][108141] Avg episode reward: 0.818, avg true_objective: 0.818
+[2025-07-14 11:34:30,812][108141] Avg episode rewards: #0: 0.817, true rewards: #0: 0.817
+[2025-07-14 11:34:30,812][108141] Avg episode reward: 0.817, avg true_objective: 0.817
+[2025-07-14 11:34:30,975][108141] Avg episode rewards: #0: 0.819, true rewards: #0: 0.819
+[2025-07-14 11:34:30,975][108141] Avg episode reward: 0.819, avg true_objective: 0.819
+[2025-07-14 11:34:31,084][108141] Avg episode rewards: #0: 0.824, true rewards: #0: 0.824
+[2025-07-14 11:34:31,084][108141] Avg episode reward: 0.824, avg true_objective: 0.824
+[2025-07-14 11:34:31,285][108141] Avg episode rewards: #0: 0.823, true rewards: #0: 0.823
+[2025-07-14 11:34:31,286][108141] Avg episode reward: 0.823, avg true_objective: 0.823
+[2025-07-14 11:34:31,517][108141] Avg episode rewards: #0: 0.819, true rewards: #0: 0.819
+[2025-07-14 11:34:31,517][108141] Avg episode reward: 0.819, avg true_objective: 0.819
+[2025-07-14 11:34:31,697][108141] Avg episode rewards: #0: 0.817, true rewards: #0: 0.817
+[2025-07-14 11:34:31,697][108141] Avg episode reward: 0.817, avg true_objective: 0.817
+[2025-07-14 11:34:31,833][108141] Avg episode rewards: #0: 0.820, true rewards: #0: 0.820
+[2025-07-14 11:34:31,834][108141] Avg episode reward: 0.820, avg true_objective: 0.820
+[2025-07-14 11:34:32,060][108141] Avg episode rewards: #0: 0.818, true rewards: #0: 0.818
+[2025-07-14 11:34:32,060][108141] Avg episode reward: 0.818, avg true_objective: 0.818
+[2025-07-14 11:34:32,227][108141] Avg episode rewards: #0: 0.818, true rewards: #0: 0.818
+[2025-07-14 11:34:32,227][108141] Avg episode reward: 0.818, avg true_objective: 0.818
+[2025-07-14 11:34:32,343][108141] Avg episode rewards: #0: 0.822, true rewards: #0: 0.822
+[2025-07-14 11:34:32,343][108141] Avg episode reward: 0.822, avg true_objective: 0.822
+[2025-07-14 11:34:32,610][108141] Avg episode rewards: #0: 0.818, true rewards: #0: 0.818
+[2025-07-14 11:34:32,610][108141] Avg episode reward: 0.818, avg true_objective: 0.818
+[2025-07-14 11:34:32,765][108141] Avg episode rewards: #0: 0.819, true rewards: #0: 0.819
+[2025-07-14 11:34:32,766][108141] Avg episode reward: 0.819, avg true_objective: 0.819
+[2025-07-14 11:34:33,020][108141] Avg episode rewards: #0: 0.816, true rewards: #0: 0.816
+[2025-07-14 11:34:33,021][108141] Avg episode reward: 0.816, avg true_objective: 0.816
+[2025-07-14 11:34:33,137][108141] Avg episode rewards: #0: 0.820, true rewards: #0: 0.820
+[2025-07-14 11:34:33,138][108141] Avg episode reward: 0.820, avg true_objective: 0.820
+[2025-07-14 11:34:33,361][108141] Avg episode rewards: #0: 0.818, true rewards: #0: 0.818
+[2025-07-14 11:34:33,361][108141] Avg episode reward: 0.818, avg true_objective: 0.818
+[2025-07-14 11:34:33,407][108141] Num frames 200...
+[2025-07-14 11:34:33,671][108141] Avg episode rewards: #0: 0.810, true rewards: #0: 0.810
+[2025-07-14 11:34:33,671][108141] Avg episode reward: 0.810, avg true_objective: 0.810
+[2025-07-14 11:34:33,912][108141] Avg episode rewards: #0: 0.808, true rewards: #0: 0.808
+[2025-07-14 11:34:33,913][108141] Avg episode reward: 0.808, avg true_objective: 0.808
+[2025-07-14 11:34:34,150][108141] Avg episode rewards: #0: 0.805, true rewards: #0: 0.805
+[2025-07-14 11:34:34,151][108141] Avg episode reward: 0.805, avg true_objective: 0.805
+[2025-07-14 11:34:34,346][108141] Avg episode rewards: #0: 0.805, true rewards: #0: 0.805
+[2025-07-14 11:34:34,346][108141] Avg episode reward: 0.805, avg true_objective: 0.805
+[2025-07-14 11:34:34,565][108141] Avg episode rewards: #0: 0.805, true rewards: #0: 0.805
+[2025-07-14 11:34:34,566][108141] Avg episode reward: 0.805, avg true_objective: 0.805
+[2025-07-14 11:34:34,793][108141] Avg episode rewards: #0: 0.803, true rewards: #0: 0.803
+[2025-07-14 11:34:34,794][108141] Avg episode reward: 0.803, avg true_objective: 0.803
+[2025-07-14 11:34:35,040][108141] Avg episode rewards: #0: 0.801, true rewards: #0: 0.801
+[2025-07-14 11:34:35,040][108141] Avg episode reward: 0.801, avg true_objective: 0.801
+[2025-07-14 11:34:35,290][108141] Avg episode rewards: #0: 0.799, true rewards: #0: 0.799
+[2025-07-14 11:34:35,290][108141] Avg episode reward: 0.799, avg true_objective: 0.799
+[2025-07-14 11:34:35,421][108141] Avg episode rewards: #0: 0.802, true rewards: #0: 0.802
+[2025-07-14 11:34:35,421][108141] Avg episode reward: 0.802, avg true_objective: 0.802
+[2025-07-14 11:34:35,628][108141] Avg episode rewards: #0: 0.801, true rewards: #0: 0.801
+[2025-07-14 11:34:35,629][108141] Avg episode reward: 0.801, avg true_objective: 0.801
+[2025-07-14 11:34:35,872][108141] Avg episode rewards: #0: 0.800, true rewards: #0: 0.800
+[2025-07-14 11:34:35,872][108141] Avg episode reward: 0.800, avg true_objective: 0.800
+[2025-07-14 11:34:36,051][108141] Avg episode rewards: #0: 0.800, true rewards: #0: 0.800
+[2025-07-14 11:34:36,051][108141] Avg episode reward: 0.800, avg true_objective: 0.800
+[2025-07-14 11:34:36,238][108141] Avg episode rewards: #0: 0.801, true rewards: #0: 0.801
+[2025-07-14 11:34:36,238][108141] Avg episode reward: 0.801, avg true_objective: 0.801
+[2025-07-14 11:34:36,405][108141] Avg episode rewards: #0: 0.802, true rewards: #0: 0.802
+[2025-07-14 11:34:36,406][108141] Avg episode reward: 0.802, avg true_objective: 0.802
+[2025-07-14 11:34:36,579][108141] Avg episode rewards: #0: 0.803, true rewards: #0: 0.803
+[2025-07-14 11:34:36,579][108141] Avg episode reward: 0.803, avg true_objective: 0.803
+[2025-07-14 11:34:36,668][108141] Num frames 300...
+[2025-07-14 11:34:36,795][108141] Avg episode rewards: #0: 0.802, true rewards: #0: 0.802
+[2025-07-14 11:34:36,795][108141] Avg episode reward: 0.802, avg true_objective: 0.802
+[2025-07-14 11:34:37,013][108141] Avg episode rewards: #0: 0.799, true rewards: #0: 0.799
+[2025-07-14 11:34:37,014][108141] Avg episode reward: 0.799, avg true_objective: 0.799
+[2025-07-14 11:34:37,117][108141] Avg episode rewards: #0: 0.802, true rewards: #0: 0.802
+[2025-07-14 11:34:37,118][108141] Avg episode reward: 0.802, avg true_objective: 0.802
+[2025-07-14 11:34:37,365][108141] Avg episode rewards: #0: 0.799, true rewards: #0: 0.799
+[2025-07-14 11:34:37,365][108141] Avg episode reward: 0.799, avg true_objective: 0.799
+[2025-07-14 11:34:37,567][108141] Avg episode rewards: #0: 0.799, true rewards: #0: 0.799
+[2025-07-14 11:34:37,568][108141] Avg episode reward: 0.799, avg true_objective: 0.799
+[2025-07-14 11:34:37,725][108141] Avg episode rewards: #0: 0.800, true rewards: #0: 0.800
+[2025-07-14 11:34:37,725][108141] Avg episode reward: 0.800, avg true_objective: 0.800
+[2025-07-14 11:34:37,940][108141] Avg episode rewards: #0: 0.799, true rewards: #0: 0.799
+[2025-07-14 11:34:37,940][108141] Avg episode reward: 0.799, avg true_objective: 0.799
+[2025-07-14 11:34:38,164][108141] Avg episode rewards: #0: 0.798, true rewards: #0: 0.798
+[2025-07-14 11:34:38,165][108141] Avg episode reward: 0.798, avg true_objective: 0.798
+[2025-07-14 11:34:38,289][108141] Avg episode rewards: #0: 0.801, true rewards: #0: 0.801
+[2025-07-14 11:34:38,289][108141] Avg episode reward: 0.801, avg true_objective: 0.801
+[2025-07-14 11:34:38,465][108141] Avg episode rewards: #0: 0.801, true rewards: #0: 0.801
+[2025-07-14 11:34:38,465][108141] Avg episode reward: 0.801, avg true_objective: 0.801
+[2025-07-14 11:34:38,589][108141] Avg episode rewards: #0: 0.803, true rewards: #0: 0.803
+[2025-07-14 11:34:38,589][108141] Avg episode reward: 0.803, avg true_objective: 0.803
+[2025-07-14 11:34:38,810][108141] Avg episode rewards: #0: 0.803, true rewards: #0: 0.803
+[2025-07-14 11:34:38,811][108141] Avg episode reward: 0.803, avg true_objective: 0.803
+[2025-07-14 11:34:39,036][108141] Avg episode rewards: #0: 0.802, true rewards: #0: 0.802
+[2025-07-14 11:34:39,036][108141] Avg episode reward: 0.802, avg true_objective: 0.802
+[2025-07-14 11:34:39,130][108141] Avg episode rewards: #0: 0.804, true rewards: #0: 0.804
+[2025-07-14 11:34:39,130][108141] Avg episode reward: 0.804, avg true_objective: 0.804
+[2025-07-14 11:34:39,347][108141] Avg episode rewards: #0: 0.803, true rewards: #0: 0.803
+[2025-07-14 11:34:39,348][108141] Avg episode reward: 0.803, avg true_objective: 0.803
+[2025-07-14 11:34:39,576][108141] Avg episode rewards: #0: 0.802, true rewards: #0: 0.802
+[2025-07-14 11:34:39,576][108141] Avg episode reward: 0.802, avg true_objective: 0.802
+[2025-07-14 11:34:39,695][108141] Avg episode rewards: #0: 0.805, true rewards: #0: 0.805
+[2025-07-14 11:34:39,695][108141] Avg episode reward: 0.805, avg true_objective: 0.805
+[2025-07-14 11:34:39,810][108141] Avg episode rewards: #0: 0.807, true rewards: #0: 0.807
+[2025-07-14 11:34:39,810][108141] Avg episode reward: 0.807, avg true_objective: 0.807
+[2025-07-14 11:34:40,046][108141] Avg episode rewards: #0: 0.806, true rewards: #0: 0.806
+[2025-07-14 11:34:40,046][108141] Avg episode reward: 0.806, avg true_objective: 0.806
+[2025-07-14 11:34:40,196][108141] Num frames 400...
+[2025-07-14 11:34:40,272][108141] Avg episode rewards: #0: 0.805, true rewards: #0: 0.805
+[2025-07-14 11:34:40,272][108141] Avg episode reward: 0.805, avg true_objective: 0.805
+[2025-07-14 11:34:40,420][108141] Avg episode rewards: #0: 0.806, true rewards: #0: 0.806
+[2025-07-14 11:34:40,421][108141] Avg episode reward: 0.806, avg true_objective: 0.806
+[2025-07-14 11:34:40,601][108141] Avg episode rewards: #0: 0.806, true rewards: #0: 0.806
+[2025-07-14 11:34:40,601][108141] Avg episode reward: 0.806, avg true_objective: 0.806
+[2025-07-14 11:34:40,733][108141] Avg episode rewards: #0: 0.808, true rewards: #0: 0.808
+[2025-07-14 11:34:40,733][108141] Avg episode reward: 0.808, avg true_objective: 0.808
+[2025-07-14 11:34:40,933][108141] Avg episode rewards: #0: 0.807, true rewards: #0: 0.807
+[2025-07-14 11:34:40,933][108141] Avg episode reward: 0.807, avg true_objective: 0.807
+[2025-07-14 11:34:41,115][108141] Avg episode rewards: #0: 0.808, true rewards: #0: 0.808
+[2025-07-14 11:34:41,116][108141] Avg episode reward: 0.808, avg true_objective: 0.808
+[2025-07-14 11:34:41,351][108141] Avg episode rewards: #0: 0.806, true rewards: #0: 0.806
+[2025-07-14 11:34:41,352][108141] Avg episode reward: 0.806, avg true_objective: 0.806
+[2025-07-14 11:34:41,462][108141] Avg episode rewards: #0: 0.808, true rewards: #0: 0.808
+[2025-07-14 11:34:41,462][108141] Avg episode reward: 0.808, avg true_objective: 0.808
+[2025-07-14 11:34:41,732][108141] Avg episode rewards: #0: 0.807, true rewards: #0: 0.807
+[2025-07-14 11:34:41,732][108141] Avg episode reward: 0.807, avg true_objective: 0.807
+[2025-07-14 11:34:41,887][108141] Avg episode rewards: #0: 0.807, true rewards: #0: 0.807
+[2025-07-14 11:34:41,887][108141] Avg episode reward: 0.807, avg true_objective: 0.807
+[2025-07-14 11:34:42,118][108141] Avg episode rewards: #0: 0.806, true rewards: #0: 0.806
+[2025-07-14 11:34:42,118][108141] Avg episode reward: 0.806, avg true_objective: 0.806
+[2025-07-14 11:34:42,237][108141] Avg episode rewards: #0: 0.808, true rewards: #0: 0.808
+[2025-07-14 11:34:42,238][108141] Avg episode reward: 0.808, avg true_objective: 0.808
+[2025-07-14 11:34:42,397][108141] Avg episode rewards: #0: 0.809, true rewards: #0: 0.809
+[2025-07-14 11:34:42,398][108141] Avg episode reward: 0.809, avg true_objective: 0.809
+[2025-07-14 11:34:42,645][108141] Avg episode rewards: #0: 0.807, true rewards: #0: 0.807
+[2025-07-14 11:34:42,645][108141] Avg episode reward: 0.807, avg true_objective: 0.807
+[2025-07-14 11:34:42,858][108141] Avg episode rewards: #0: 0.807, true rewards: #0: 0.807
+[2025-07-14 11:34:42,859][108141] Avg episode reward: 0.807, avg true_objective: 0.807
+[2025-07-14 11:34:43,085][108141] Avg episode rewards: #0: 0.807, true rewards: #0: 0.807
+[2025-07-14 11:34:43,085][108141] Avg episode reward: 0.807, avg true_objective: 0.807
+[2025-07-14 11:34:43,203][108141] Avg episode rewards: #0: 0.808, true rewards: #0: 0.808
+[2025-07-14 11:34:43,203][108141] Avg episode reward: 0.808, avg true_objective: 0.808
+[2025-07-14 11:34:43,433][108141] Avg episode rewards: #0: 0.808, true rewards: #0: 0.808
+[2025-07-14 11:34:43,434][108141] Avg episode reward: 0.808, avg true_objective: 0.808
+[2025-07-14 11:34:43,659][108141] Avg episode rewards: #0: 0.807, true rewards: #0: 0.807
+[2025-07-14 11:34:43,659][108141] Avg episode reward: 0.807, avg true_objective: 0.807
+[2025-07-14 11:34:43,718][108141] Num frames 500...
+[2025-07-14 11:34:43,914][108141] Avg episode rewards: #0: 0.806, true rewards: #0: 0.806
+[2025-07-14 11:34:43,914][108141] Avg episode reward: 0.806, avg true_objective: 0.806
+[2025-07-14 11:34:44,129][108141] Avg episode rewards: #0: 0.805, true rewards: #0: 0.805
+[2025-07-14 11:34:44,129][108141] Avg episode reward: 0.805, avg true_objective: 0.805
+[2025-07-14 11:34:44,368][108141] Avg episode rewards: #0: 0.804, true rewards: #0: 0.804
+[2025-07-14 11:34:44,368][108141] Avg episode reward: 0.804, avg true_objective: 0.804
+[2025-07-14 11:34:44,574][108141] Avg episode rewards: #0: 0.804, true rewards: #0: 0.804
+[2025-07-14 11:34:44,575][108141] Avg episode reward: 0.804, avg true_objective: 0.804
+[2025-07-14 11:34:44,693][108141] Avg episode rewards: #0: 0.806, true rewards: #0: 0.806
+[2025-07-14 11:34:44,693][108141] Avg episode reward: 0.806, avg true_objective: 0.806
+[2025-07-14 11:34:44,949][108141] Avg episode rewards: #0: 0.805, true rewards: #0: 0.805
+[2025-07-14 11:34:44,949][108141] Avg episode reward: 0.805, avg true_objective: 0.805
+[2025-07-14 11:34:45,141][108141] Avg episode rewards: #0: 0.805, true rewards: #0: 0.805
+[2025-07-14 11:34:45,141][108141] Avg episode reward: 0.805, avg true_objective: 0.805
+[2025-07-14 11:34:45,254][108141] Avg episode rewards: #0: 0.806, true rewards: #0: 0.806
+[2025-07-14 11:34:45,254][108141] Avg episode reward: 0.806, avg true_objective: 0.806
+[2025-07-14 11:34:45,374][108141] Avg episode rewards: #0: 0.808, true rewards: #0: 0.808
+[2025-07-14 11:34:45,375][108141] Avg episode reward: 0.808, avg true_objective: 0.808
+[ALSOFT] (WW) 1 Buffer not deleted
+(0, 0.807800018787384)
+
+Process finished with exit code 1

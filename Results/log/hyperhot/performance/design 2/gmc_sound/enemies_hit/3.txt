@@ -1,0 +1,204 @@
+Using only sound observations
+Eval Episode: 0/100
+**** Eval Episode: 1/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.818
+Eval Episode: 1/100
+**** Eval Episode: 2/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.818
+Eval Episode: 2/100
+**** Eval Episode: 3/100	Episode total reward: 1.000	0.007	Episode discounted reward: 0.279
+Eval Episode: 3/100
+**** Eval Episode: 4/100	Episode total reward: 2.000	0.022	Episode discounted reward: 1.280
+Eval Episode: 4/100
+**** Eval Episode: 5/100	Episode total reward: 3.000	0.015	Episode discounted reward: 1.183
+Eval Episode: 5/100
+**** Eval Episode: 6/100	Episode total reward: 4.000	0.023	Episode discounted reward: 1.701
+Eval Episode: 6/100
+**** Eval Episode: 7/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.810
+Eval Episode: 7/100
+**** Eval Episode: 8/100	Episode total reward: 2.000	0.035	Episode discounted reward: 1.459
+Eval Episode: 8/100
+**** Eval Episode: 9/100	Episode total reward: 0.000	0.000	Episode discounted reward: 0.000
+Eval Episode: 9/100
+**** Eval Episode: 10/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.818
+Eval Episode: 10/100
+**** Eval Episode: 11/100	Episode total reward: 0.000	0.000	Episode discounted reward: 0.000
+Eval Episode: 11/100
+**** Eval Episode: 12/100	Episode total reward: 3.000	0.007	Episode discounted reward: 0.893
+Eval Episode: 12/100
+**** Eval Episode: 13/100	Episode total reward: 3.000	0.034	Episode discounted reward: 1.954
+Eval Episode: 13/100
+**** Eval Episode: 14/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.662
+Eval Episode: 14/100
+**** Eval Episode: 15/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.810
+Eval Episode: 15/100
+**** Eval Episode: 16/100	Episode total reward: 2.000	0.022	Episode discounted reward: 1.293
+Eval Episode: 16/100
+**** Eval Episode: 17/100	Episode total reward: 0.000	0.000	Episode discounted reward: 0.000
+Eval Episode: 17/100
+**** Eval Episode: 18/100	Episode total reward: 1.000	0.008	Episode discounted reward: 0.683
+Eval Episode: 18/100
+**** Eval Episode: 19/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.802
+Eval Episode: 19/100
+**** Eval Episode: 20/100	Episode total reward: 1.000	0.037	Episode discounted reward: 0.810
+Eval Episode: 20/100
+**** Eval Episode: 21/100	Episode total reward: 1.000	0.008	Episode discounted reward: 0.696
+Eval Episode: 21/100
+**** Eval Episode: 22/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.683
+Eval Episode: 22/100
+**** Eval Episode: 23/100	Episode total reward: 1.000	0.020	Episode discounted reward: 0.818
+Eval Episode: 23/100
+**** Eval Episode: 24/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.818
+Eval Episode: 24/100
+**** Eval Episode: 25/100	Episode total reward: 2.000	0.035	Episode discounted reward: 1.459
+Eval Episode: 25/100
+**** Eval Episode: 26/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.810
+Eval Episode: 26/100
+**** Eval Episode: 27/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.810
+Eval Episode: 27/100
+**** Eval Episode: 28/100	Episode total reward: 2.000	0.035	Episode discounted reward: 1.459
+Eval Episode: 28/100
+**** Eval Episode: 29/100	Episode total reward: 3.000	0.019	Episode discounted reward: 1.387
+Eval Episode: 29/100
+**** Eval Episode: 30/100	Episode total reward: 1.000	0.008	Episode discounted reward: 0.683
+Eval Episode: 30/100
+**** Eval Episode: 31/100	Episode total reward: 2.000	0.025	Episode discounted reward: 1.335
+Eval Episode: 31/100
+**** Eval Episode: 32/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.599
+Eval Episode: 32/100
+**** Eval Episode: 33/100	Episode total reward: 1.000	0.010	Episode discounted reward: 0.381
+Eval Episode: 33/100
+**** Eval Episode: 34/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.802
+Eval Episode: 34/100
+**** Eval Episode: 35/100	Episode total reward: 0.000	0.000	Episode discounted reward: 0.000
+Eval Episode: 35/100
+**** Eval Episode: 36/100	Episode total reward: 4.000	0.026	Episode discounted reward: 1.867
+Eval Episode: 36/100
+**** Eval Episode: 37/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.810
+Eval Episode: 37/100
+**** Eval Episode: 38/100	Episode total reward: 1.000	0.015	Episode discounted reward: 0.593
+Eval Episode: 38/100
+**** Eval Episode: 39/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.802
+Eval Episode: 39/100
+**** Eval Episode: 40/100	Episode total reward: 4.000	0.014	Episode discounted reward: 1.227
+Eval Episode: 40/100
+**** Eval Episode: 41/100	Episode total reward: 3.000	0.007	Episode discounted reward: 0.976
+Eval Episode: 41/100
+**** Eval Episode: 42/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.599
+Eval Episode: 42/100
+**** Eval Episode: 43/100	Episode total reward: 2.000	0.022	Episode discounted reward: 1.467
+Eval Episode: 43/100
+**** Eval Episode: 44/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.818
+Eval Episode: 44/100
+**** Eval Episode: 45/100	Episode total reward: 3.000	0.008	Episode discounted reward: 1.353
+Eval Episode: 45/100
+**** Eval Episode: 46/100	Episode total reward: 2.000	0.022	Episode discounted reward: 1.293
+Eval Episode: 46/100
+**** Eval Episode: 47/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.818
+Eval Episode: 47/100
+**** Eval Episode: 48/100	Episode total reward: 1.000	0.015	Episode discounted reward: 0.599
+Eval Episode: 48/100
+**** Eval Episode: 49/100	Episode total reward: 4.000	0.026	Episode discounted reward: 2.196
+Eval Episode: 49/100
+**** Eval Episode: 50/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.810
+Eval Episode: 50/100
+**** Eval Episode: 51/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.818
+Eval Episode: 51/100
+**** Eval Episode: 52/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.810
+Eval Episode: 52/100
+**** Eval Episode: 53/100	Episode total reward: 0.000	0.000	Episode discounted reward: 0.000
+Eval Episode: 53/100
+**** Eval Episode: 54/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.810
+Eval Episode: 54/100
+**** Eval Episode: 55/100	Episode total reward: 3.000	0.024	Episode discounted reward: 1.918
+Eval Episode: 55/100
+**** Eval Episode: 56/100	Episode total reward: 3.000	0.016	Episode discounted reward: 1.952
+Eval Episode: 56/100
+**** Eval Episode: 57/100	Episode total reward: 4.000	0.026	Episode discounted reward: 1.867
+Eval Episode: 57/100
+**** Eval Episode: 58/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.810
+Eval Episode: 58/100
+**** Eval Episode: 59/100	Episode total reward: 2.000	0.035	Episode discounted reward: 1.467
+Eval Episode: 59/100
+**** Eval Episode: 60/100	Episode total reward: 3.000	0.015	Episode discounted reward: 1.183
+Eval Episode: 60/100
+**** Eval Episode: 61/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.802
+Eval Episode: 61/100
+**** Eval Episode: 62/100	Episode total reward: 3.000	0.015	Episode discounted reward: 1.650
+Eval Episode: 62/100
+**** Eval Episode: 63/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.810
+Eval Episode: 63/100
+**** Eval Episode: 64/100	Episode total reward: 0.000	0.000	Episode discounted reward: 0.000
+Eval Episode: 64/100
+**** Eval Episode: 65/100	Episode total reward: 4.000	0.012	Episode discounted reward: 1.542
+Eval Episode: 65/100
+**** Eval Episode: 66/100	Episode total reward: 4.000	0.026	Episode discounted reward: 2.029
+Eval Episode: 66/100
+**** Eval Episode: 67/100	Episode total reward: 2.000	0.035	Episode discounted reward: 1.444
+Eval Episode: 67/100
+**** Eval Episode: 68/100	Episode total reward: 2.000	0.022	Episode discounted reward: 1.074
+Eval Episode: 68/100
+**** Eval Episode: 69/100	Episode total reward: 3.000	0.016	Episode discounted reward: 1.952
+Eval Episode: 69/100
+**** Eval Episode: 70/100	Episode total reward: 0.000	0.000	Episode discounted reward: 0.000
+Eval Episode: 70/100
+**** Eval Episode: 71/100	Episode total reward: 3.000	0.013	Episode discounted reward: 1.372
+Eval Episode: 71/100
+**** Eval Episode: 72/100	Episode total reward: 2.000	0.016	Episode discounted reward: 1.074
+Eval Episode: 72/100
+**** Eval Episode: 73/100	Episode total reward: 2.000	0.013	Episode discounted reward: 1.074
+Eval Episode: 73/100
+**** Eval Episode: 74/100	Episode total reward: 3.000	0.016	Episode discounted reward: 1.818
+Eval Episode: 74/100
+**** Eval Episode: 75/100	Episode total reward: 2.000	0.022	Episode discounted reward: 1.280
+Eval Episode: 75/100
+**** Eval Episode: 76/100	Episode total reward: 2.000	0.022	Episode discounted reward: 1.293
+Eval Episode: 76/100
+**** Eval Episode: 77/100	Episode total reward: 1.000	0.026	Episode discounted reward: 0.802
+Eval Episode: 77/100
+**** Eval Episode: 78/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.794
+Eval Episode: 78/100
+**** Eval Episode: 79/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.683
+Eval Episode: 79/100
+**** Eval Episode: 80/100	Episode total reward: 2.000	0.035	Episode discounted reward: 1.459
+Eval Episode: 80/100
+**** Eval Episode: 81/100	Episode total reward: 0.000	0.000	Episode discounted reward: 0.000
+Eval Episode: 81/100
+**** Eval Episode: 82/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.818
+Eval Episode: 82/100
+**** Eval Episode: 83/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.802
+Eval Episode: 83/100
+**** Eval Episode: 84/100	Episode total reward: 1.000	0.018	Episode discounted reward: 0.818
+Eval Episode: 84/100
+**** Eval Episode: 85/100	Episode total reward: 3.000	0.034	Episode discounted reward: 1.989
+Eval Episode: 85/100
+**** Eval Episode: 86/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.810
+Eval Episode: 86/100
+**** Eval Episode: 87/100	Episode total reward: 3.000	0.023	Episode discounted reward: 1.537
+Eval Episode: 87/100
+**** Eval Episode: 88/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.810
+Eval Episode: 88/100
+**** Eval Episode: 89/100	Episode total reward: 3.000	0.023	Episode discounted reward: 1.537
+Eval Episode: 89/100
+**** Eval Episode: 90/100	Episode total reward: 2.000	0.035	Episode discounted reward: 1.467
+Eval Episode: 90/100
+**** Eval Episode: 91/100	Episode total reward: 4.000	0.026	Episode discounted reward: 1.843
+Eval Episode: 91/100
+**** Eval Episode: 92/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.818
+Eval Episode: 92/100
+**** Eval Episode: 93/100	Episode total reward: 1.000	0.008	Episode discounted reward: 0.696
+Eval Episode: 93/100
+**** Eval Episode: 94/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.810
+Eval Episode: 94/100
+**** Eval Episode: 95/100	Episode total reward: 0.000	0.000	Episode discounted reward: 0.000
+Eval Episode: 95/100
+**** Eval Episode: 96/100	Episode total reward: 4.000	0.021	Episode discounted reward: 1.720
+Eval Episode: 96/100
+**** Eval Episode: 97/100	Episode total reward: 1.000	0.038	Episode discounted reward: 0.802
+Eval Episode: 97/100
+**** Eval Episode: 98/100	Episode total reward: 2.000	0.020	Episode discounted reward: 1.095
+Eval Episode: 98/100
+**** Eval Episode: 99/100	Episode total reward: 1.000	0.015	Episode discounted reward: 0.599
+Eval Episode: 99/100
+INFO - hyperhot_muse_dqn_eval_pipeline - Completed after 0:00:29
+**** Eval Episode: 100/100	Episode total reward: 1.000	0.016	Episode discounted reward: 0.810
+
+Process finished with exit code 0

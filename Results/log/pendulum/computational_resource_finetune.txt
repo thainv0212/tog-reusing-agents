@@ -1,0 +1,2 @@
+bwd_flops_per_step: 251346944
+trainable_params: 9,664

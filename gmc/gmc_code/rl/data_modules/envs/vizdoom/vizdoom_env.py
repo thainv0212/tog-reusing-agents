@@ -21,7 +21,7 @@ from sample_factory.utils.utils import log, project_tmp_dir
 import vizdoom as vzd
 import math
 from torch import Tensor
-from typing import Dict, Optional, Sequence, Union
+from typing import Sequence
 from gymnasium.spaces import Discrete
 
 
@@ -87,18 +87,18 @@ def key_to_action_default(key):
 
 class VizdoomEnv(gym.Env):
     def __init__(
-            self,
-            action_space,
-            config_file,
-            coord_limits=None,
-            max_histogram_length=200,
-            show_automap=False,
-            skip_frames=1,
-            async_mode=False,
-            record_to=None,
-            render_mode: Optional[str] = None,
-            use_auto_aim_support: bool = False,
-            use_sonic_aim_support: bool = False
+        self,
+        action_space,
+        config_file,
+        coord_limits=None,
+        max_histogram_length=200,
+        show_automap=False,
+        skip_frames=1,
+        async_mode=False,
+        record_to=None,
+        render_mode: Optional[str] = None,
+        use_auto_aim_support: bool = False,
+        use_sonic_aim_support: bool = False,
     ):
         self.initialized = False
 
@@ -192,28 +192,34 @@ class VizdoomEnv(gym.Env):
         If None is passed, the seed is generated randomly.
         """
         self.rng, self.curr_seed = seeding.np_random(seed=seed)
-        self.curr_seed = self.curr_seed % (2 ** 32)  # Doom only supports 32-bit seeds
+        self.curr_seed = self.curr_seed % (2**32)  # Doom only supports 32-bit seeds
         return [self.curr_seed, self.rng]
 
     def calc_observation_space(self):
         self.aud_len = 2520
         sound_high = [[32767, 32767]] * self.aud_len
         sound_low = [[-32767, -32767]] * self.aud_len
-        self.observation_space_img = gym.spaces.Box(0, 255, (self.screen_h, self.screen_w, self.channels),
-                                                    dtype=np.uint8)
-        self.observation_space = gym.spaces.Dict({
-            'img': self.observation_space_img,
-            'sound': gym.spaces.Box(
-                low=np.array(sound_low, dtype=np.int16), high=np.array(sound_high, dtype=np.int16),
-            ),
-        })
+        self.observation_space_img = gym.spaces.Box(
+            0, 255, (self.screen_h, self.screen_w, self.channels), dtype=np.uint8
+        )
+        self.observation_space = gym.spaces.Dict(
+            {
+                "img": self.observation_space_img,
+                "sound": gym.spaces.Box(
+                    low=np.array(sound_low, dtype=np.int16),
+                    high=np.array(sound_high, dtype=np.int16),
+                ),
+            }
+        )
 
     def _set_game_mode(self, mode):
         if mode == "replay":
             self.game.set_mode(Mode.PLAYER)
         else:
             if self.async_mode:
-                log.info("Starting in async mode! Use this only for testing, otherwise PLAYER mode is much faster")
+                log.info(
+                    "Starting in async mode! Use this only for testing, otherwise PLAYER mode is much faster"
+                )
                 self.game.set_mode(Mode.ASYNC_PLAYER)
             else:
                 self.game.set_mode(Mode.PLAYER)
@@ -227,14 +233,18 @@ class VizdoomEnv(gym.Env):
         self.game.set_audio_sampling_rate(SamplingRate.SR_22050)
         self.game.set_audio_buffer_size(self.skip_frames)
         if self.use_auto_aim_support:
-            self.game.set_available_buttons(self.game.get_available_buttons() + [vzd.Button.TURN_LEFT_RIGHT_DELTA])
+            self.game.set_available_buttons(
+                self.game.get_available_buttons() + [vzd.Button.TURN_LEFT_RIGHT_DELTA]
+            )
             self.game.set_objects_info_enabled(True)
 
         # if self.use_auto_aim_support:
         #     self.game.set_console_enabled(True)
 
         if self.use_sonic_aim_support:
-            self.game.add_game_args("-file ./gmc_code/rl/data_modules/envs/vizdoom/sound.wad")
+            self.game.add_game_args(
+                "-file ./gmc_code/rl/data_modules/envs/vizdoom/sound.wad"
+            )
             self.game.set_objects_info_enabled(True)
             # self.game.set_console_enabled(True)
 
@@ -274,7 +284,10 @@ class VizdoomEnv(gym.Env):
                         init_attempt,
                     )
             except Exception as exc:
-                log.warning("VizDoom game.init() threw an exception %r. Terminate process...", exc)
+                log.warning(
+                    "VizDoom game.init() threw an exception %r. Terminate process...",
+                    exc,
+                )
                 from sample_factory.envs.env_utils import EnvCriticalError
 
                 raise EnvCriticalError()
@@ -335,7 +348,9 @@ class VizdoomEnv(gym.Env):
 
     def _black_screen(self):
         if self.black_screen is None:
-            self.black_screen = np.zeros(self.observation_space['img'].shape, dtype=np.uint8)
+            self.black_screen = np.zeros(
+                self.observation_space["img"].shape, dtype=np.uint8
+            )
         return self.black_screen
 
     def _game_variables_dict(self, state):
@@ -392,7 +407,9 @@ class VizdoomEnv(gym.Env):
             pass
 
         if img is None:
-            log.error("Game returned None screen buffer! This is not supposed to happen!")
+            log.error(
+                "Game returned None screen buffer! This is not supposed to happen!"
+            )
             img = self._black_screen()
             audio = self.zeros([2520, 0])
 
@@ -409,8 +426,10 @@ class VizdoomEnv(gym.Env):
 
         self._num_episodes += 1
 
-        return {'img': np.transpose(img, (1, 2, 0)),
-                'audio': audio}, {}  # since Gym 0.26.0, we return dict as second return value
+        return {
+            "img": np.transpose(img, (1, 2, 0)),
+            "audio": audio,
+        }, {}  # since Gym 0.26.0, we return dict as second return value
 
     def _convert_actions(self, actions):
         """Convert actions from gym action space to the action space expected by Doom game."""
@@ -437,14 +456,20 @@ class VizdoomEnv(gym.Env):
                 num_non_idle_actions = spaces[i].n - 1
                 action_one_hot = np.zeros(num_non_idle_actions, dtype=np.uint8)
                 if action > 0:
-                    action_one_hot[action - 1] = 1  # 0th action in each subspace is a no-op
+                    action_one_hot[action - 1] = (
+                        1  # 0th action in each subspace is a no-op
+                    )
 
                 actions_flattened.extend(action_one_hot)
             elif isinstance(spaces[i], gym.spaces.Box):
                 # continuous action
-                actions_flattened.extend(list(action * self.delta_actions_scaling_factor))
+                actions_flattened.extend(
+                    list(action * self.delta_actions_scaling_factor)
+                )
             else:
-                raise NotImplementedError(f"Action subspace type {type(spaces[i])} is not supported!")
+                raise NotImplementedError(
+                    f"Action subspace type {type(spaces[i])} is not supported!"
+                )
 
         return actions_flattened
 
@@ -477,7 +502,7 @@ class VizdoomEnv(gym.Env):
 
         self._vizdoom_variables_bug_workaround(info, done)
 
-        return {'img': observation, 'audio': audio_buffer}, done, info
+        return {"img": observation, "audio": audio_buffer}, done, info
 
     def step(self, actions) -> Tuple[np.ndarray, float, bool, bool, Dict]:
         """
@@ -492,11 +517,15 @@ class VizdoomEnv(gym.Env):
             actions_flattened = self._convert_actions(actions)
 
         if self.use_auto_aim_support:
-            turn_left, turn_right = auto_aim(-1, 45, self.game.get_state().objects, P_Name="DoomPlayer")
+            turn_left, turn_right = auto_aim(
+                -1, 45, self.game.get_state().objects, P_Name="DoomPlayer"
+            )
             turn_delta = (turn_right - turn_left) * 3
             actions_flattened += [turn_delta]
         if self.use_sonic_aim_support:
-            self.last_sonic_time = sonic_aim(500, 45, self.game.get_state().objects, self.game, self.last_sonic_time)
+            self.last_sonic_time = sonic_aim(
+                500, 45, self.game.get_state().objects, self.game, self.last_sonic_time
+            )
         default_info = {"num_frames": self.skip_frames}
         reward = self.game.make_action(actions_flattened, self.skip_frames)
         state = self.game.get_state()
@@ -608,8 +637,12 @@ class VizdoomEnv(gym.Env):
         agent_x, agent_y = info["pos"]["agent_x"], info["pos"]["agent_y"]
 
         # Get agent coordinates normalized to [0, 1]
-        dx = (agent_x - self.coord_limits[0]) / (self.coord_limits[2] - self.coord_limits[0])
-        dy = (agent_y - self.coord_limits[1]) / (self.coord_limits[3] - self.coord_limits[1])
+        dx = (agent_x - self.coord_limits[0]) / (
+            self.coord_limits[2] - self.coord_limits[0]
+        )
+        dy = (agent_y - self.coord_limits[1]) / (
+            self.coord_limits[3] - self.coord_limits[1]
+        )
 
         # Rescale coordinates to histogram dimensions
         # Subtract eps to exclude upper bound of dx, dy
@@ -652,7 +685,9 @@ class VizdoomEnv(gym.Env):
 
         # noinspection PyProtectedMember
         def start_listener():
-            with Listener(on_press=doom._keyboard_on_press, on_release=doom._keyboard_on_release) as listener:
+            with Listener(
+                on_press=doom._keyboard_on_press, on_release=doom._keyboard_on_release
+            ) as listener:
                 listener.join()
 
         listener_thread = Thread(target=start_listener)
@@ -673,12 +708,18 @@ class VizdoomEnv(gym.Env):
                 actions = [0] * num_actions
                 for action in doom._current_actions:
                     if isinstance(action, int):
-                        actions[action] = 1  # 1 for buttons currently pressed, 0 otherwise
+                        actions[action] = (
+                            1  # 1 for buttons currently pressed, 0 otherwise
+                        )
                     else:
                         if action == "turn_left":
-                            actions[turn_delta_action_idx] = -doom.delta_actions_scaling_factor
+                            actions[
+                                turn_delta_action_idx
+                            ] = -doom.delta_actions_scaling_factor
                         elif action == "turn_right":
-                            actions[turn_delta_action_idx] = doom.delta_actions_scaling_factor
+                            actions[turn_delta_action_idx] = (
+                                doom.delta_actions_scaling_factor
+                            )
 
                 for frame in range(skip_frames):
                     doom._actions_flattened = actions
@@ -740,7 +781,11 @@ class VizdoomEnv(gym.Env):
             doom.game.advance_action()
             r = doom.game.get_last_reward()
             episode_reward += r
-            log.info("Episode reward: %.3f, time so far: %.1f s", episode_reward, time.time() - start)
+            log.info(
+                "Episode reward: %.3f, time so far: %.1f s",
+                episode_reward,
+                time.time() - start,
+            )
 
         log.info("Finishing replay")
         doom.close()
@@ -748,11 +793,25 @@ class VizdoomEnv(gym.Env):
 
 # Enemy health values (Doom II standard + Others found in ViZDoom)
 ENEMY_HEALTH = {
-    "Zombieman": 20, "ShotgunGuy": 30, "ChaingunGuy": 70, "MarineChainsawVzd": 70, "DoomImp": 60,
-    "Demon": 150, "Spectre": 150, "Cacodemon": 400, "HellKnight": 500,
-    "BaronOfHell": 1000, "Arachnotron": 500, "Revenant": 300, "Fatso": 600,
-    "PainElemental": 400, "Archvile": 700, "SpiderMastermind": 3000,
-    "Cyberdemon": 4000, "WolfensteinSS": 50, "LostSoul": 100
+    "Zombieman": 20,
+    "ShotgunGuy": 30,
+    "ChaingunGuy": 70,
+    "MarineChainsawVzd": 70,
+    "DoomImp": 60,
+    "Demon": 150,
+    "Spectre": 150,
+    "Cacodemon": 400,
+    "HellKnight": 500,
+    "BaronOfHell": 1000,
+    "Arachnotron": 500,
+    "Revenant": 300,
+    "Fatso": 600,
+    "PainElemental": 400,
+    "Archvile": 700,
+    "SpiderMastermind": 3000,
+    "Cyberdemon": 4000,
+    "WolfensteinSS": 50,
+    "LostSoul": 100,
 }
 
 
@@ -796,15 +855,17 @@ def auto_aim(Distance_T, Angle_T, objects, P_Name="DoomPlayer"):
 
             # Calculate distance from player
             distance = math.sqrt(
-                (enemy_pos[0] - Player_Coordination[0]) ** 2 +
-                (enemy_pos[1] - Player_Coordination[1]) ** 2
+                (enemy_pos[0] - Player_Coordination[0]) ** 2
+                + (enemy_pos[1] - Player_Coordination[1]) ** 2
             )
 
             # Calculate angle difference (in degrees)
-            angle_to_enemy = math.degrees(math.atan2(
-                enemy_pos[1] - Player_Coordination[1],
-                enemy_pos[0] - Player_Coordination[0]
-            ))
+            angle_to_enemy = math.degrees(
+                math.atan2(
+                    enemy_pos[1] - Player_Coordination[1],
+                    enemy_pos[0] - Player_Coordination[0],
+                )
+            )
             angle_diff = angle_to_enemy - Player_Angle
 
             # Normalize angle difference (-180 to 180 degrees)
@@ -814,14 +875,16 @@ def auto_aim(Distance_T, Angle_T, objects, P_Name="DoomPlayer"):
             # print(f"[DEBUG] 🔍 Checking enemy {obj.name} at distance {distance:.2f}, angle diff {angle_diff:.2f}")
 
             # Ensure enemy detection is within allowed range
-            if (Distance_T == -1 or distance <= Distance_T) and \
-                    (Angle_T == -1 or abs(angle_diff) <= Angle_T):
-
+            if (Distance_T == -1 or distance <= Distance_T) and (
+                Angle_T == -1 or abs(angle_diff) <= Angle_T
+            ):
                 # Get enemy base HP
                 enemy_hp = ENEMY_HEALTH[obj.name]
 
                 # Prioritize closest first, then highest HP if distances are equal
-                if distance < Target_Distance or (distance == Target_Distance and enemy_hp > Target_HP):
+                if distance < Target_Distance or (
+                    distance == Target_Distance and enemy_hp > Target_HP
+                ):
                     Target_Enemy = obj
                     Target_Distance = distance
                     Target_Angle = angle_diff
@@ -894,29 +957,33 @@ def sonic_aim(Distance_T, Angle_T, objects, game, last_play_time, P_Name="DoomPl
 
             # Calculate distance from player
             distance = math.sqrt(
-                (enemy_pos[0] - Player_Coordination[0]) ** 2 +
-                (enemy_pos[1] - Player_Coordination[1]) ** 2
+                (enemy_pos[0] - Player_Coordination[0]) ** 2
+                + (enemy_pos[1] - Player_Coordination[1]) ** 2
             )
 
             # Calculate angle difference (in degrees)
-            angle_to_enemy = math.degrees(math.atan2(
-                enemy_pos[1] - Player_Coordination[1],
-                enemy_pos[0] - Player_Coordination[0]
-            ))
+            angle_to_enemy = math.degrees(
+                math.atan2(
+                    enemy_pos[1] - Player_Coordination[1],
+                    enemy_pos[0] - Player_Coordination[0],
+                )
+            )
             angle_diff = angle_to_enemy - Player_Angle
 
             # Normalize angle difference (-180 to 180 degrees)
             angle_diff = (angle_diff + 180) % 360 - 180
 
             # Ensure enemy detection is within allowed range
-            if (Distance_T == -1 or distance <= Distance_T) and \
-                    (Angle_T == -1 or abs(angle_diff) <= Angle_T):
-
+            if (Distance_T == -1 or distance <= Distance_T) and (
+                Angle_T == -1 or abs(angle_diff) <= Angle_T
+            ):
                 # Get enemy base HP
                 enemy_hp = ENEMY_HEALTH[obj.name]
 
                 # Prioritize closest first, then highest HP if distances are equal
-                if distance < Target_Distance or (distance == Target_Distance and enemy_hp > Target_HP):
+                if distance < Target_Distance or (
+                    distance == Target_Distance and enemy_hp > Target_HP
+                ):
                     Target_Enemy = obj
                     Target_Distance = distance
                     Target_Angle = angle_diff
@@ -928,9 +995,13 @@ def sonic_aim(Distance_T, Angle_T, objects, game, last_play_time, P_Name="DoomPl
     # 🔊 Play sound only if enemy is within `Angle_T`
     current_time = time.time()
 
-    if abs(Target_Angle) <= Angle_T and (current_time - last_play_time >= sound_duration):
+    if abs(Target_Angle) <= Angle_T and (
+        current_time - last_play_time >= sound_duration
+    ):
         # Choose the closest sound file based on angle alignment
-        volume_index = round((1.0 - (abs(Target_Angle) / Angle_T)) * 10)  # Scale to 0-10
+        volume_index = round(
+            (1.0 - (abs(Target_Angle) / Angle_T)) * 10
+        )  # Scale to 0-10
         volume_index = max(0, min(10, volume_index))  # Ensure it stays within 0-10
 
         # Play the appropriate sound file
@@ -985,7 +1056,9 @@ class SetResolutionWrapper(gym.Wrapper):
         super(SetResolutionWrapper, self).__init__(env)
         if target_resolution not in resolutions:
             raise gym.error.Error(
-                'Error - The specified resolution "{}" is not supported by Vizdoom.'.format(target_resolution),
+                'Error - The specified resolution "{}" is not supported by Vizdoom.'.format(
+                    target_resolution
+                ),
             )
 
         orig_obs_space = self.observation_space
@@ -1022,7 +1095,10 @@ class TimeLimitWrapper(gym.core.Wrapper):
         self._terminate_in = self._random_limit()
 
     def _random_limit(self):
-        return np.random.randint(-self._variation_steps, self._variation_steps + 1) + self._limit
+        return (
+            np.random.randint(-self._variation_steps, self._variation_steps + 1)
+            + self._limit
+        )
 
     def reset(self, **kwargs):
         self._num_steps = 0
@@ -1046,7 +1122,9 @@ class TimeLimitWrapper(gym.core.Wrapper):
 class CustomResizeWrapper(gym.core.Wrapper):
     """Resize observation frames to specified (w,h) and convert to grayscale."""
 
-    def __init__(self, env, w, h, grayscale=True, add_channel_dim=False, area_interpolation=False):
+    def __init__(
+        self, env, w, h, grayscale=True, add_channel_dim=False, area_interpolation=False
+    ):
         super(CustomResizeWrapper, self).__init__(env)
 
         self.w = w
@@ -1059,7 +1137,7 @@ class CustomResizeWrapper(gym.core.Wrapper):
             # TODO: does this even work?
             new_spaces = {}
             for key, space in env.observation_space.spaces.items():
-                if key == 'img':
+                if key == "img":
                     new_spaces[key] = self._calc_new_obs_space(space)
                 else:
                     new_spaces[key] = space
@@ -1071,13 +1149,17 @@ class CustomResizeWrapper(gym.core.Wrapper):
         low, high = old_space.low.flat[0], old_space.high.flat[0]
 
         if self.grayscale:
-            new_shape = [self.h, self.w, 1] if self.add_channel_dim else [self.h, self.w]
+            new_shape = (
+                [self.h, self.w, 1] if self.add_channel_dim else [self.h, self.w]
+            )
         else:
             if len(old_space.shape) > 2:
                 channels = old_space.shape[-1]
                 new_shape = [self.h, self.w, channels]
             else:
-                new_shape = [self.h, self.w, 1] if self.add_channel_dim else [self.h, self.w]
+                new_shape = (
+                    [self.h, self.w, 1] if self.add_channel_dim else [self.h, self.w]
+                )
 
         return spaces.Box(low, high, shape=new_shape, dtype=old_space.dtype)
 
@@ -1098,7 +1180,7 @@ class CustomResizeWrapper(gym.core.Wrapper):
         if isinstance(obs, dict):
             new_obs = {}
             for key, value in obs.items():
-                if key == 'img':
+                if key == "img":
                     new_obs[key] = self._convert_obs(value)
                 else:
                     new_obs[key] = value
@@ -1122,7 +1204,7 @@ class CustomPixelFormatWrapper(ObservationWrapper):
         super().__init__(env)
 
         if isinstance(env.observation_space, gym.spaces.Dict):
-            img_obs_space = env.observation_space['img']
+            img_obs_space = env.observation_space["img"]
             self.dict_obs_space = True
         else:
             img_obs_space = env.observation_space
@@ -1146,18 +1228,22 @@ class CustomPixelFormatWrapper(ObservationWrapper):
 
         if self.dict_obs_space:
             dtype = (
-                env.observation_space.spaces['img'].dtype
-                if env.observation_space.spaces['img'].dtype is not None
+                env.observation_space.spaces["img"].dtype
+                if env.observation_space.spaces["img"].dtype is not None
                 else np.float32
             )
         else:
-            dtype = env.observation_space.dtype if env.observation_space.dtype is not None else np.float32
+            dtype = (
+                env.observation_space.dtype
+                if env.observation_space.dtype is not None
+                else np.float32
+            )
 
         new_img_obs_space = spaces.Box(low, high, shape=new_shape, dtype=dtype)
 
         if self.dict_obs_space:
             self.observation_space = env.observation_space
-            self.observation_space.spaces['img'] = new_img_obs_space
+            self.observation_space.spaces["img"] = new_img_obs_space
         else:
             self.observation_space = new_img_obs_space
 
@@ -1178,7 +1264,7 @@ class CustomPixelFormatWrapper(ObservationWrapper):
             return observation
 
         if self.dict_obs_space:
-            observation['img'] = self._transpose(observation['img'])
+            observation["img"] = self._transpose(observation["img"])
         else:
             observation = self._transpose(observation)
         return observation
@@ -1227,11 +1313,16 @@ class MultiplayerStatsWrapper(gym.Wrapper):
 
             player_count = int(info.get("PLAYER_COUNT", 1))
             player_num = int(info.get("PLAYER_NUMBER", 0))
-            fragcounts = [int(info.get(f"PLAYER{pi}_FRAGCOUNT", -100000)) for pi in range(1, player_count + 1)]
+            fragcounts = [
+                int(info.get(f"PLAYER{pi}_FRAGCOUNT", -100000))
+                for pi in range(1, player_count + 1)
+            ]
             places = list(np.argsort(fragcounts))
 
             final_place = places.index(player_num)
-            final_place = player_count - final_place  # inverse, because fragcount is sorted in increasing order
+            final_place = (
+                player_count - final_place
+            )  # inverse, because fragcount is sorted in increasing order
             extra_info["FINAL_PLACE"] = final_place
 
             if final_place > 1:
@@ -1240,7 +1331,9 @@ class MultiplayerStatsWrapper(gym.Wrapper):
                 # we won, let's log gap to 2nd place
                 assert places.index(player_num) == player_count - 1
                 fragcounts.sort(reverse=True)
-                extra_info["LEADER_GAP"] = fragcounts[1] - fragcounts[0]  # should be negative or 0
+                extra_info["LEADER_GAP"] = (
+                    fragcounts[1] - fragcounts[0]
+                )  # should be negative or 0
                 assert extra_info["LEADER_GAP"] <= 0
             else:
                 extra_info["LEADER_GAP"] = 0
@@ -1270,17 +1363,17 @@ class MultiplayerStatsWrapper(gym.Wrapper):
 
 class DoomSpec:
     def __init__(
-            self,
-            name,
-            env_spec_file,
-            action_space,
-            reward_scaling=1.0,
-            default_timeout=-1,
-            num_agents=1,
-            num_bots=0,
-            respawn_delay=0,
-            timelimit=4.0,
-            extra_wrappers=None,
+        self,
+        name,
+        env_spec_file,
+        action_space,
+        reward_scaling=1.0,
+        default_timeout=-1,
+        num_agents=1,
+        num_bots=0,
+        respawn_delay=0,
+        timelimit=4.0,
+        extra_wrappers=None,
     ):
         self.name = name
         self.env_spec_file = env_spec_file
@@ -1316,20 +1409,6 @@ DOOM_ENVS = [
         default_timeout=300,
     ),
     DoomSpec(
-        "doom_basic_new_design_3",
-        "basic_new_design_3.cfg",
-        Discrete(1 + 3),  # idle, left, right, attack
-        reward_scaling=0.01,
-        default_timeout=300,
-    ),
-    DoomSpec(
-        "doom_basic_new_design_4",
-        "basic_new_design_4.cfg",
-        Discrete(1 + 3),  # idle, left, right, attack
-        reward_scaling=0.01,
-        default_timeout=300,
-    ),
-    DoomSpec(
         "doom_basic",
         "basic.cfg",
         Discrete(1 + 3),  # idle, left, right, attack
@@ -1339,8 +1418,16 @@ DOOM_ENVS = [
 ]
 
 
-def make_vizdoom_env(doom_spec, use_auto_aim_support=False, use_sonic_aim_support=False, res_w=128, res_h=72,
-                     skip_frames=4, async_mode=False, render_mode='human'):
+def make_vizdoom_env(
+    doom_spec,
+    use_auto_aim_support=False,
+    use_sonic_aim_support=False,
+    res_w=128,
+    res_h=72,
+    skip_frames=4,
+    async_mode=False,
+    render_mode="human",
+):
     env = VizdoomEnv(
         doom_spec.action_space,
         doom_spec.env_spec_file,
@@ -1353,7 +1440,7 @@ def make_vizdoom_env(doom_spec, use_auto_aim_support=False, use_sonic_aim_suppor
     env = MultiplayerStatsWrapper(env)
     resolution = "160x120"
     env = SetResolutionWrapper(env, resolution)
-    h, w, channels = env.observation_space['img'].shape
+    h, w, channels = env.observation_space["img"].shape
     if w != res_w or h != res_h:
         env = CustomResizeWrapper(env, res_w, res_h, grayscale=False)
     env = TimeLimitWrapper(env, limit=300, random_variation_steps=0)
@@ -1375,4 +1462,4 @@ if __name__ == "__main__":
             continue
         print(count)
     env.close()
-    print('a')
+    print("a")

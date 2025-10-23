@@ -1,0 +1,4 @@
+bwd_flops_per_step_critic: 64650240
+bwd_flops_per_step_actor: 129103872
+bwd_flops_per_step_total: 193754112
+trainable_params: 340268

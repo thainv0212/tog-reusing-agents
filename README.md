@@ -3,6 +3,7 @@
 - gmc: containing source code to train multimodal encoder and reinforcement learning agents for pendulum game.
 - hyperhot_rl: containing source code to train reinforcement learning agent for hyperhot game.
 - vizdoom_rl: containing source code to train reinforcement learning agents for vizdoom game.
+
 Please note that due to library conflicts, each folder has a different python environment. Please follow instructions on each folder to install environments.
 
 ## Acknowledgments

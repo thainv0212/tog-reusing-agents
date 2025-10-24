@@ -1,5 +1,4 @@
-Validation DataLoader 0:   0%|          | 0/16 [00:00<?, ?it/s]/home/thai/anaconda3/envs/GMC3/lib/python3.8/site-packages/torch/nn/modules/conv.py:456: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at /opt/conda/conda-bld/pytorch_1712608851799/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
-  return F.conv2d(input, weight, bias, self.stride,
+Validation DataLoader 0:   0%|          | 0/16 [00:00<?, ?it/s]
 Validation DataLoader 0: 100%|██████████| 16/16 [00:00<00:00, 75.67it/s]loss 6.668435096740723
 image_sound_sim 0.9977119565010071
 image_joint_sim 0.9997986555099487

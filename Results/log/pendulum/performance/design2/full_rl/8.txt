@@ -1,10 +1,4 @@
 Global seed set to 8
-Error loading model: Error(s) in loading state_dict for PendulumNullModel:
-	Unexpected key(s) in state_dict: "image_processor.image_features.0.weight", "image_processor.image_features.2.weight", "image_processor.projector.weight", "image_processor.projector.bias", "sound_processor.snd_features.0.weight", "sound_processor.snd_features.0.bias", "sound_processor.snd_features.2.weight", "sound_processor.snd_features.2.bias", "sound_processor.projector.weight", "sound_processor.projector.bias", "joint_processor.img_features.0.weight", "joint_processor.img_features.2.weight", "joint_processor.snd_features.0.weight", "joint_processor.snd_features.0.bias", "joint_processor.snd_features.2.weight", "joint_processor.snd_features.2.bias", "joint_processor.projector.weight", "joint_processor.projector.bias", "encoder.feature_extractor.0.weight", "encoder.feature_extractor.0.bias", "encoder.feature_extractor.2.weight", "encoder.feature_extractor.2.bias". 
-/home/thai/anaconda3/envs/GMC3/lib/python3.8/site-packages/pytorch_lightning/core/lightning.py:22: LightningDeprecationWarning: pytorch_lightning.core.lightning.LightningModule has been deprecated in v1.7 and will be removed in v1.9. Use the equivalent class from the pytorch_lightning.core.module.LightningModule class instead.
-  rank_zero_deprecation(
-/home/thai/anaconda3/envs/GMC3/lib/python3.8/site-packages/pytorch_lightning/loggers/base.py:35: LightningDeprecationWarning: The `pytorch_lightning.loggers.base.LightningLoggerBase` is deprecated in v1.7 and will be removed in v1.9. Please use `pytorch_lightning.loggers.logger.Logger` instead.
-  rank_zero_deprecation(
 Eval Episode: 0/100
 **** Eval Episode: 1/100	Episode avg reward: -0.405
 Eval Episode: 1/100

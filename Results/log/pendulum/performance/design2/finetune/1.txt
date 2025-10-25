@@ -1,8 +1,5 @@
 Global seed set to 1
-/home/thai/anaconda3/envs/GMC3/lib/python3.8/site-packages/pytorch_lightning/core/lightning.py:22: LightningDeprecationWarning: pytorch_lightning.core.lightning.LightningModule has been deprecated in v1.7 and will be removed in v1.9. Use the equivalent class from the pytorch_lightning.core.module.LightningModule class instead.
-  rank_zero_deprecation(
-/home/thai/anaconda3/envs/GMC3/lib/python3.8/site-packages/pytorch_lightning/loggers/base.py:35: LightningDeprecationWarning: The `pytorch_lightning.loggers.base.LightningLoggerBase` is deprecated in v1.7 and will be removed in v1.9. Please use `pytorch_lightning.loggers.logger.Logger` instead.
-  rank_zero_deprecation(
+
 Eval Episode: 0/100
 **** Eval Episode: 1/100	Episode avg reward: -0.786
 Eval Episode: 1/100

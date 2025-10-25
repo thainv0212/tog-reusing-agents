@@ -1,4 +1,3 @@
-/home/thai/anaconda3/envs/vizdoom/bin/python /home/thai/sonic_doom/sf_examples/vizdoom/enjoy_vizdoom.py --env=doom_basic_new_design --train_dir=train_dir/vizdoom0_gmc --encoder_type=gmc --use_rnn=True --env_frameskip=4 --use_sound --max_num_episodes=100 --seed=3
 [2025-07-14 11:31:29,317][105362] register_encoder_factory: <function make_vizdoom_encoder at 0x75c1c3f2cb80>
 [2025-07-14 11:31:29,324][105362] Loading existing experiment configuration from train_dir/vizdoom0_gmc/default_experiment/config.json
 [2025-07-14 11:31:29,324][105362] Overriding arg 'seed' with value 3 passed from command line
@@ -19,10 +18,6 @@
 [2025-07-14 11:31:29,325][105362] Adding new argument 'record_to'=None that is not in the saved config file!
 [2025-07-14 11:31:29,325][105362] Using frameskip 4 and render_action_repeat=1 for evaluation
 [2025-07-14 11:31:29,339][105362] Doom resolution: 160x120, resize resolution: (128, 72)
-/home/thai/anaconda3/envs/vizdoom/lib/python3.12/site-packages/gymnasium/core.py:311: UserWarning: WARN: env.num_agents to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.num_agents` for environment variables or `env.get_wrapper_attr('num_agents')` that will search the reminding wrappers.
-  logger.warn(
-/home/thai/anaconda3/envs/vizdoom/lib/python3.12/site-packages/gymnasium/core.py:311: UserWarning: WARN: env.is_multiagent to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.is_multiagent` for environment variables or `env.get_wrapper_attr('is_multiagent')` that will search the reminding wrappers.
-  logger.warn(
 [2025-07-14 11:31:29,339][105362] RunningMeanStd input shape: (3, 72, 128)
 [2025-07-14 11:31:29,340][105362] RunningMeanStd input shape: (2520, 2)
 [2025-07-14 11:31:29,340][105362] RunningMeanStd input shape: (1,)

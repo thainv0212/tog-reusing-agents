@@ -113,7 +113,7 @@
   "wandb_group": null,
   "wandb_job_type": "SF",
   "wandb_tags": [],
-  "wandb_dir": "/mnt/SAMSUNG870/Thai/sonic_doom_gmc/wandb",
+  "wandb_dir": "",
   "with_pbt": false,
   "pbt_mix_policies_in_one_env": true,
   "pbt_period_env_steps": 5000000,
@@ -142,7 +142,7 @@
   "wide_aspect_ratio": false,
   "eval_env_frameskip": 4,
   "fps": 35,
-  "command_line": "--env=doom_basic_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_gmc --encoder_type=gmc --gmc_model_file=/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/trained_models/vizdoom/gmc_vizdoom0_model.pth.tar --use_sound",
+  "command_line": "--env=doom_basic_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_gmc --encoder_type=gmc --gmc_model_file=gmc_code/rl/trained_models/vizdoom/gmc_vizdoom0_model.pth.tar --use_sound",
   "cli_args": {
     "algo": "APPO",
     "env": "doom_basic_new_design",
@@ -155,9 +155,9 @@
     "use_rnn": true,
     "env_frameskip": 4,
     "encoder_type": "gmc",
-    "gmc_model_file": "/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/trained_models/vizdoom/gmc_vizdoom0_model.pth.tar",
+    "gmc_model_file": "gmc_code/rl/trained_models/vizdoom/gmc_vizdoom0_model.pth.tar",
     "wide_aspect_ratio": false
   },
   "git_hash": "aa3eb206f783830e06dc7683d4a043fe603377a5",
-  "git_repo_name": "git@github.com:thainv0212/sonic_doom_gmc.git"
+  "git_repo_name": ""
 }

@@ -113,7 +113,7 @@
   "wandb_group": null,
   "wandb_job_type": "SF",
   "wandb_tags": [],
-  "wandb_dir": "/mnt/SAMSUNG870/Thai/sonic_doom_gmc/wandb",
+  "wandb_dir": "",
   "with_pbt": false,
   "pbt_mix_policies_in_one_env": true,
   "pbt_period_env_steps": 5000000,
@@ -160,5 +160,5 @@
     "wide_aspect_ratio": false
   },
   "git_hash": "00e1c08813df10fa15c403861fb925e80c1ff48e",
-  "git_repo_name": "git@github.com:thainv0212/sonic_doom_gmc.git"
+  "git_repo_name": ""
 }

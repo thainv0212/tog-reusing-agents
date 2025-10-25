@@ -3,7 +3,7 @@
 conda env create -f env.yml
 conda activate GMC3
 ```
-Datasets in use to train multimodal encoders are available [here].(https://huggingface.co/datasets/anonymous2120/tog_anonymous/tree/main)
+Datasets in use to train multimodal encoders are available [here](https://huggingface.co/datasets/anonymous2120/tog_anonymous/tree/main).
 ## - Train Model
 ### - Train multimodal encoder model (for all games)
 ```bash 

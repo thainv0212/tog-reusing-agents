@@ -1,6 +1,6 @@
 # This repository contains source code and data for paper "Reusing Multimodal Agents: Efficient Evaluation of Sound Designs in Games"
 ## Folder structure:
-- gmc: containing source code to train multimodal encoder and reinforcement learning agents for pendulum game.
+- gmc: containing source code to train multimodal encoder for all games and reinforcement learning agents for pendulum game.
 - hyperhot_rl: containing source code to train reinforcement learning agent for hyperhot game.
 - vizdoom_rl: containing source code to train reinforcement learning agents for vizdoom game.
 

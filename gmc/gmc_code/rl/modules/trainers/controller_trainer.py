@@ -14,6 +14,11 @@ from gmc_code.rl.architectures.downstream.buffers import PendulumReplayMemory
 from gmc_code.rl.architectures.downstream.policy import PendulumPolicy
 from torch.utils.flop_counter import FlopCounterMode
 
+
+def count_trainable(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+
 class ControllerLearner(LightningModule):
     def __init__(
             self,
@@ -61,6 +66,7 @@ class ControllerLearner(LightningModule):
         self.eval_frequency = train_config["eval_frequency"]
         self.eval_length = train_config["eval_length"]
         self.memory_size = train_config["memory_size"]
+        print("trainable_params:", count_trainable(self.controller))
 
     # Reset environment
     def reset_env(self):
@@ -459,30 +465,33 @@ class DDPGLearner(ControllerLearner):
                 reward_batch
                 + self.gamma * (1.0 - terminal_batch) * target_next_state_action_values
         )
-        # with FlopCounterMode(self.controller.critic) as fc:
-        state_action_values = self.controller.critic([state_batch, action_batch])
+        with FlopCounterMode(self.controller.critic) as fc:
+            state_action_values = self.controller.critic([state_batch, action_batch])
 
-        critic_loss = F.mse_loss(
-            state_action_values.double(),
-            target_state_action_values.double(),
-            reduction="mean",
-        )
-        self.controller.critic.zero_grad()
-        critic_loss.backward()
-        # print(fc.get_total_flops())
-        # torch.nn.utils.clip_grad_norm_(policy_net.parameters(), 1)
-        self.critic_optim.step()
+            critic_loss = F.mse_loss(
+                state_action_values.double(),
+                target_state_action_values.double(),
+                reduction="mean",
+            )
+            self.controller.critic.zero_grad()
+            critic_loss.backward()
+
+            # torch.nn.utils.clip_grad_norm_(policy_net.parameters(), 1)
+            self.critic_optim.step()
+        print('bwd_flops_per_step_critic:', fc.get_total_flops())
 
         # Update actor
-        # with FlopCounterMode(self.controller.actor) as fc2:
-        actor_loss = -self.controller.critic(
-            [state_batch, self.controller.actor(state_batch)]
-        ).mean()
-        self.controller.actor.zero_grad()
-        actor_loss.backward()
-        # print(fc2.get_total_flops())
-        # torch.nn.utils.clip_grad_norm_(policy_net.parameters(), 1)
-        self.actor_optim.step()
+        with FlopCounterMode(self.controller.actor) as fc2:
+            actor_loss = -self.controller.critic(
+                [state_batch, self.controller.actor(state_batch)]
+            ).mean()
+            self.controller.actor.zero_grad()
+            actor_loss.backward()
+            #
+            # torch.nn.utils.clip_grad_norm_(policy_net.parameters(), 1)
+            self.actor_optim.step()
+        print('bwd_flops_per_step_actor:', fc2.get_total_flops())
+        print('bwd_flops_per_step_total:', fc.get_total_flops() + fc2.get_total_flops())
 
         soft_update(self.controller.actor_target, self.controller.actor, self.tau)
         soft_update(self.controller.critic_target, self.controller.critic, self.tau)

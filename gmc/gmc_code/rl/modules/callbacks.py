@@ -12,16 +12,16 @@ class OnEndModelTrainingPendulum(Callback):
         self.scenario = scenario
         self._fc = None
 
-    # def on_init_end(self, trainer):
-    #     print(f"Initialised Model Trainer with {trainer.default_root_dir}")
-    # def on_before_backward(self, trainer, pl_module, loss):
-    #     self._fc = FlopCounterMode()  # start the counter
-    #     self._fc.__enter__()
-    #
-    # def on_after_backward(self, trainer, pl_module):
-    #     flops = self._fc.get_total_flops()
-    #     self._fc.__exit__(None, None, None)
-    #     pl_module.log("bwd_flops", flops, on_step=True, prog_bar=True)
+    def on_init_end(self, trainer):
+        print(f"Initialised Model Trainer with {trainer.default_root_dir}")
+    def on_before_backward(self, trainer, pl_module, loss):
+        self._fc = FlopCounterMode()  # start the counter
+        self._fc.__enter__()
+    
+    def on_after_backward(self, trainer, pl_module):
+        flops = self._fc.get_total_flops()
+        self._fc.__exit__(None, None, None)
+        pl_module.log("bwd_flops", flops, on_step=True, prog_bar=True)
 
     def on_train_end(self, trainer, pl_module):
 

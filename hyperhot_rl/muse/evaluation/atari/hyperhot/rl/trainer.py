@@ -11,7 +11,12 @@ from pytorch_lightning.loggers import TensorBoardLogger
 from muse.evaluation.atari.hyperhot.rl.joint_frame_buffer import JointFrameBuffer
 
 Transition = namedtuple(
-    'Transition', ('state', 'action', 'next_state', 'reward', 'terminal'))
+    "Transition", ("state", "action", "next_state", "reward", "terminal")
+)
+
+
+def count_trainable(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 
 def _discount_rewards(rewards, gamma):
@@ -75,14 +80,16 @@ class FixedHorizonAverageMeter(object):
 
 
 class EpsGreedyPolicy(object):
-    def __init__(self,
-                 policy_network,
-                 action_space,
-                 eps_initial=1,
-                 eps_end=0.01,
-                 n_annealing_frames=1000000,
-                 replay_buffer_start_size=50000,
-                 eps_evaluation=0.0):
+    def __init__(
+        self,
+        policy_network,
+        action_space,
+        eps_initial=1,
+        eps_end=0.01,
+        n_annealing_frames=1000000,
+        replay_buffer_start_size=50000,
+        eps_evaluation=0.0,
+    ):
         self.policy_network = policy_network
         self.action_space = action_space
         self.eps_initial = eps_initial
@@ -97,9 +104,12 @@ class EpsGreedyPolicy(object):
         elif frame_number < self.replay_buffer_start_size:
             eps = 1.0
         else:
-            eps = self.eps_initial + (self.eps_end - self.eps_initial) * (
-                    frame_number -
-                    self.replay_buffer_start_size) / self.n_annealing_frames
+            eps = (
+                self.eps_initial
+                + (self.eps_end - self.eps_initial)
+                * (frame_number - self.replay_buffer_start_size)
+                / self.n_annealing_frames
+            )
             eps = max(eps, self.eps_end)
 
         if np.random.rand(1) > eps:
@@ -108,23 +118,38 @@ class EpsGreedyPolicy(object):
                 # second column on max result is index of where max element was
                 # found, so we pick action with the larger expected
                 # reward.
-                return self.policy_network(state).max(
-                    1)[1].detach().cpu().numpy()
+                return self.policy_network(state).max(1)[1].detach().cpu().numpy()
         else:
             return np.array([self.action_space.sample()])
 
 
 class DQNTrainer(object):
-    def __init__(self, dqn, env, frames_per_state, gamma, learning_rate,
-                 batch_size, memory_size, policy_network_update_freq,
-                 target_network_update_freq, eps_initial, eps_end, eps_decay,
-                 replay_buffer_start_size, cuda, preprocess_observation_cb,
-                 postprocess_observation_cb, eval_process_observation_cb, env_name=None):
-        assert hasattr(preprocess_observation_cb, '__call__')
-        assert hasattr(postprocess_observation_cb, '__call__')
-        assert hasattr(eval_process_observation_cb, '__call__')
+    def __init__(
+        self,
+        dqn,
+        env,
+        frames_per_state,
+        gamma,
+        learning_rate,
+        batch_size,
+        memory_size,
+        policy_network_update_freq,
+        target_network_update_freq,
+        eps_initial,
+        eps_end,
+        eps_decay,
+        replay_buffer_start_size,
+        cuda,
+        preprocess_observation_cb,
+        postprocess_observation_cb,
+        eval_process_observation_cb,
+        env_name=None,
+    ):
+        assert hasattr(preprocess_observation_cb, "__call__")
+        assert hasattr(postprocess_observation_cb, "__call__")
+        assert hasattr(eval_process_observation_cb, "__call__")
 
-        self.device = 'cuda' if cuda else 'cpu'
+        self.device = "cuda" if cuda else "cpu"
 
         self.dqn = dqn
         self.env = env
@@ -137,7 +162,8 @@ class DQNTrainer(object):
         self.frame_buffer = JointFrameBuffer(
             frames_per_state,
             preprocessor=preprocess_observation_cb,
-            postprocessor=postprocess_observation_cb)
+            postprocessor=postprocess_observation_cb,
+        )
 
         self.policy = EpsGreedyPolicy(
             self.dqn.net,
@@ -146,7 +172,8 @@ class DQNTrainer(object):
             eps_end=eps_end,
             n_annealing_frames=eps_decay,
             replay_buffer_start_size=replay_buffer_start_size,
-            eps_evaluation=0.0)
+            eps_evaluation=0.0,
+        )
 
         self.gamma = gamma
         self.batch_size = batch_size
@@ -158,19 +185,20 @@ class DQNTrainer(object):
             self.env_name = env_name
         else:
             self.env_name = "hyperhot"
-        self.logger = TensorBoardLogger("trained_models/evaluation/log", name=self.env_name)
+        self.logger = TensorBoardLogger(
+            "trained_models/evaluation/log", name=self.env_name
+        )
 
-    def eval(self, frame_number, episode_number, n_eval_episodes,
-             post_eval_cb):
-        print(f'**** Eval Episode: {episode_number}')
+    def eval(self, frame_number, episode_number, n_eval_episodes, post_eval_cb):
+        print(f"**** Eval Episode: {episode_number}")
 
         self.dqn.eval()
 
         observations = []
         total_rewards = []
-        self.env.reset(**{'soft_reset': False})  # force a reset
+        self.env.reset(**{"soft_reset": False})  # force a reset
         for episode in range(n_eval_episodes):
-            print(f'=====Eval epoch: {episode}/{n_eval_episodes}')
+            print(f"=====Eval epoch: {episode}/{n_eval_episodes}")
             self.frame_buffer.reset()
             observation = self.env.reset()
             self.frame_buffer.append(observation)
@@ -181,8 +209,7 @@ class DQNTrainer(object):
 
             done = False
             while not done:
-                action = self.policy.select_action(
-                    state, frame_number, evaluation=True)
+                action = self.policy.select_action(state, frame_number, evaluation=True)
 
                 next_observation, reward, done, info = self.env.step(action)
                 self.frame_buffer.append(next_observation)
@@ -190,23 +217,25 @@ class DQNTrainer(object):
 
                 episode_rewards.append(reward)
                 episode_observations.append(
-                    self.eval_process_observation_cb(next_observation))
+                    self.eval_process_observation_cb(next_observation)
+                )
 
-            total_rewards.append(
-                _discount_rewards(episode_rewards, self.gamma))
+            total_rewards.append(_discount_rewards(episode_rewards, self.gamma))
             observations.append(episode_observations)
 
-        info['frame_number'] = frame_number
-        info['eval_avg_reward'] = np.mean(total_rewards)
-        info['eval_observations'] = observations
+        info["frame_number"] = frame_number
+        info["eval_avg_reward"] = np.mean(total_rewards)
+        info["eval_observations"] = observations
         post_eval_cb(info)
 
-    def train(self,
-              max_frames,
-              eval_frequency,
-              eval_length,
-              post_episode_cb=None,
-              post_eval_cb=None):
+    def train(
+        self,
+        max_frames,
+        eval_frequency,
+        eval_length,
+        post_episode_cb=None,
+        post_eval_cb=None,
+    ):
         if post_episode_cb is None:
             post_episode_cb = lambda x: None
         if post_eval_cb is None:
@@ -228,9 +257,7 @@ class DQNTrainer(object):
                 self.frame_buffer.append(observation)
                 state = self.frame_buffer.get_state()
 
-                print(
-                    f'Train Episode: {episode_number} - {frame_number}/{max_frames}'
-                )
+                print(f"Train Episode: {episode_number} - {frame_number}/{max_frames}")
 
                 episode_rewards = []
 
@@ -238,21 +265,24 @@ class DQNTrainer(object):
 
             action = self.policy.select_action(state, frame_number)
             next_observation, reward, done, info = self.env.step(action)
-            self.env.render(mode='human')
+            self.env.render(mode="human")
 
             self.frame_buffer.append(next_observation)
             next_state = self.frame_buffer.get_state()
-            torch_action, torch_reward = (torch.from_numpy(action).to(
-                self.device), torch.tensor([reward], device=self.device))
-            self.memory.push(state, torch_action, next_state, torch_reward,
-                             done)
+            torch_action, torch_reward = (
+                torch.from_numpy(action).to(self.device),
+                torch.tensor([reward], device=self.device),
+            )
+            self.memory.push(state, torch_action, next_state, torch_reward, done)
             state = next_state
 
             replay_memory_filled = frame_number > self.replay_buffer_start_size
             update_policy_network = (
-                                            frame_number % self.policy_network_update_freq) == 0
+                frame_number % self.policy_network_update_freq
+            ) == 0
             update_target_network = (
-                                            frame_number % self.target_network_update_freq) == 0
+                frame_number % self.target_network_update_freq
+            ) == 0
             if update_policy_network and replay_memory_filled:
                 loss = self.optimize_model()
                 avg_losses.update(loss)
@@ -263,38 +293,43 @@ class DQNTrainer(object):
             should_log = frame_number % 500 == 0
             if should_log and replay_memory_filled:
                 print(
-                    f'===> Train Episode: {episode_number} - {frame_number}/{max_frames}\t'
-                    f'Episode avg loss: {avg_losses.avg:.3f}\t'
-                    f'Episode avg reward: {avg_episode_total_reward.avg:.3f}\t'
-                    f'ReplayBuf avg reward: {self.memory.avg_reward():.3f}')
-                self.logger.experiment.add_scalar("avg_loss", avg_losses.avg, frame_number)
-                self.logger.experiment.add_scalar("avg_reward", avg_episode_total_reward.avg, frame_number)
-                self.logger.experiment.add_scalar("avg_replay_reward", self.memory.avg_reward(), frame_number)
+                    f"===> Train Episode: {episode_number} - {frame_number}/{max_frames}\t"
+                    f"Episode avg loss: {avg_losses.avg:.3f}\t"
+                    f"Episode avg reward: {avg_episode_total_reward.avg:.3f}\t"
+                    f"ReplayBuf avg reward: {self.memory.avg_reward():.3f}"
+                )
+                self.logger.experiment.add_scalar(
+                    "avg_loss", avg_losses.avg, frame_number
+                )
+                self.logger.experiment.add_scalar(
+                    "avg_reward", avg_episode_total_reward.avg, frame_number
+                )
+                self.logger.experiment.add_scalar(
+                    "avg_replay_reward", self.memory.avg_reward(), frame_number
+                )
             elif should_log and (not replay_memory_filled):
-                print(f'Fill ReplayMemory: {frame_number}/{self.memory_size}')
+                print(f"Fill ReplayMemory: {frame_number}/{self.memory_size}")
 
             avg_rewards.update(reward)
             episode_rewards.append(reward)
             if done:
-                total_episode_reward = _discount_rewards(
-                    episode_rewards, self.gamma)
+                total_episode_reward = _discount_rewards(episode_rewards, self.gamma)
                 avg_episode_total_reward.update(total_episode_reward)
                 info = {
-                    'frame_number': frame_number,
-                    'avg_loss': avg_losses.avg,
-                    'avg_reward': avg_rewards.avg,
-                    'avg_episode_total_reward': avg_episode_total_reward.avg,
-                    'last_episode_total_reward': total_episode_reward,
-                    'replay_buf_avg_reward': self.memory.avg_reward()
+                    "frame_number": frame_number,
+                    "avg_loss": avg_losses.avg,
+                    "avg_reward": avg_rewards.avg,
+                    "avg_episode_total_reward": avg_episode_total_reward.avg,
+                    "last_episode_total_reward": total_episode_reward,
+                    "replay_buf_avg_reward": self.memory.avg_reward(),
                 }
                 post_episode_cb(info)
                 episode_number += 1
                 new_episode = True
 
-                should_eval = (episode_number % eval_frequency == 0)
+                should_eval = episode_number % eval_frequency == 0
                 if should_eval:
-                    self.eval(frame_number, episode_number, eval_length,
-                              post_eval_cb)
+                    self.eval(frame_number, episode_number, eval_length, post_eval_cb)
                     self.dqn.train()
 
             frame_number += 1
@@ -312,41 +347,43 @@ class DQNTrainer(object):
         next_state_batch = torch.cat(batch.next_state)
         action_batch = torch.cat(batch.action).unsqueeze(1)
         reward_batch = torch.cat(batch.reward).unsqueeze(1)
-        terminal_batch = torch.tensor(
-            batch.terminal, dtype=torch.float).to(self.device).unsqueeze(1)
+        terminal_batch = (
+            torch.tensor(batch.terminal, dtype=torch.float).to(self.device).unsqueeze(1)
+        )
 
         # Compute Q(s_t, a) - the model computes Q(s_t, :), then we
         # select the columns of actions taken. These are the actions
         # which would've been taken for each batch state according to
         # policy network
-        # with FlopCounterMode() as fc:
-        state_action_values = self.dqn.net(state_batch).gather(1, action_batch)
+        with FlopCounterMode() as fc:
+            state_action_values = self.dqn.net(state_batch).gather(1, action_batch)
 
-        # Compute V(s_{t+1}) for all next states. Expected values of
-        # actions for non_final_next_states are computed based on the
-        # "older" target_net; selecting their best reward with max(1)[0].
-        # This is merged based on the mask, such that we'll have either
-        # the expected state value or 0 in case the state was final.
+            # Compute V(s_{t+1}) for all next states. Expected values of
+            # actions for non_final_next_states are computed based on the
+            # "older" target_net; selecting their best reward with max(1)[0].
+            # This is merged based on the mask, such that we'll have either
+            # the expected state value or 0 in case the state was final.
 
-        # DQN:
-        # next_state_values = self.dqn.target(next_state_batch).max(
-        #     1)[0].view(-1, 1).detach()
+            # DQN:
+            # next_state_values = self.dqn.target(next_state_batch).max(
+            #     1)[0].view(-1, 1).detach()
 
-        # DDQN
-        _, next_state_actions = self.dqn.net(next_state_batch).max(
-            1, keepdim=True)
-        next_state_values = self.dqn.target(next_state_batch).gather(
-            1, next_state_actions).detach()
+            # DDQN
+            _, next_state_actions = self.dqn.net(next_state_batch).max(1, keepdim=True)
+            next_state_values = (
+                self.dqn.target(next_state_batch).gather(1, next_state_actions).detach()
+            )
 
-        target_state_action_values = reward_batch + self.gamma * (
-                1.0 - terminal_batch) * next_state_values
+            target_state_action_values = (
+                reward_batch + self.gamma * (1.0 - terminal_batch) * next_state_values
+            )
 
-        # Compute Huber loss
-        loss = F.smooth_l1_loss(state_action_values,
-                                target_state_action_values)
-        self.optim.zero_grad()
-        loss.backward()
-        # print("FLOPS", fc.get_total_flops())
+            # Compute Huber loss
+            loss = F.smooth_l1_loss(state_action_values, target_state_action_values)
+            self.optim.zero_grad()
+            loss.backward()
+        print("bwd_flops_per_step", fc.get_total_flops())
+        print("trainable_params", count_trainable(self.dqn))
         for param in self.dqn.net.parameters():
             param.grad.data.clamp_(-1, 1)
         self.optim.step()

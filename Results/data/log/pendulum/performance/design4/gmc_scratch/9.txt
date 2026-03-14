@@ -1,0 +1,221 @@
+/home/thai/anaconda3/envs/GMC4/bin/python /mnt/DATA/Research/Laboratory/Research/gmc_no_modification/gmc_code/rl/main_rl.py -f with experiment.evaluation_mods=[1] experiment.stage=evaluate_downstream_controller experiment.scenario=pendulum3 experiment.seed=9
+/home/thai/anaconda3/envs/GMC4/lib/python3.10/site-packages/munch/__init__.py:24: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib pcm_route.c:878:(find_matching_chmap) Found no matching channel map
+ALSA lib pcm_route.c:878:(find_matching_chmap) Found no matching channel map
+ALSA lib pcm_route.c:878:(find_matching_chmap) Found no matching channel map
+ALSA lib pcm_route.c:878:(find_matching_chmap) Found no matching channel map
+WARNING:GMC_experiment_rl:No observers have been added to this run
+Global seed set to 9
+/home/thai/anaconda3/envs/GMC4/lib/python3.10/site-packages/pytorch_lightning/core/lightning.py:22: LightningDeprecationWarning: pytorch_lightning.core.lightning.LightningModule has been deprecated in v1.7 and will be removed in v1.9. Use the equivalent class from the pytorch_lightning.core.module.LightningModule class instead.
+  rank_zero_deprecation(
+/home/thai/anaconda3/envs/GMC4/lib/python3.10/site-packages/pytorch_lightning/loggers/base.py:35: LightningDeprecationWarning: The `pytorch_lightning.loggers.base.LightningLoggerBase` is deprecated in v1.7 and will be removed in v1.9. Please use `pytorch_lightning.loggers.logger.Logger` instead.
+  rank_zero_deprecation(
+trainable_params: 0
+Eval Episode: 0/100
+**** Eval Episode: 1/100	Episode avg reward: -0.429
+Eval Episode: 1/100
+**** Eval Episode: 2/100	Episode avg reward: -0.422
+Eval Episode: 2/100
+**** Eval Episode: 3/100	Episode avg reward: -5.500
+Eval Episode: 3/100
+**** Eval Episode: 4/100	Episode avg reward: -2.012
+Eval Episode: 4/100
+**** Eval Episode: 5/100	Episode avg reward: -0.426
+Eval Episode: 5/100
+**** Eval Episode: 6/100	Episode avg reward: -2.912
+Eval Episode: 6/100
+**** Eval Episode: 7/100	Episode avg reward: -2.411
+Eval Episode: 7/100
+**** Eval Episode: 8/100	Episode avg reward: -0.008
+Eval Episode: 8/100
+**** Eval Episode: 9/100	Episode avg reward: -2.398
+Eval Episode: 9/100
+**** Eval Episode: 10/100	Episode avg reward: -1.223
+Eval Episode: 10/100
+**** Eval Episode: 11/100	Episode avg reward: -1.636
+Eval Episode: 11/100
+**** Eval Episode: 12/100	Episode avg reward: -1.225
+Eval Episode: 12/100
+**** Eval Episode: 13/100	Episode avg reward: -1.205
+Eval Episode: 13/100
+**** Eval Episode: 14/100	Episode avg reward: -4.976
+Eval Episode: 14/100
+**** Eval Episode: 15/100	Episode avg reward: -0.425
+Eval Episode: 15/100
+**** Eval Episode: 16/100	Episode avg reward: -0.009
+Eval Episode: 16/100
+**** Eval Episode: 17/100	Episode avg reward: -1.239
+Eval Episode: 17/100
+**** Eval Episode: 18/100	Episode avg reward: -5.256
+Eval Episode: 18/100
+**** Eval Episode: 19/100	Episode avg reward: -0.426
+Eval Episode: 19/100
+**** Eval Episode: 20/100	Episode avg reward: -4.789
+Eval Episode: 20/100
+**** Eval Episode: 21/100	Episode avg reward: -4.657
+Eval Episode: 21/100
+**** Eval Episode: 22/100	Episode avg reward: -3.265
+Eval Episode: 22/100
+**** Eval Episode: 23/100	Episode avg reward: -4.774
+Eval Episode: 23/100
+**** Eval Episode: 24/100	Episode avg reward: -3.612
+Eval Episode: 24/100
+**** Eval Episode: 25/100	Episode avg reward: -0.415
+Eval Episode: 25/100
+**** Eval Episode: 26/100	Episode avg reward: -0.847
+Eval Episode: 26/100
+**** Eval Episode: 27/100	Episode avg reward: -2.387
+Eval Episode: 27/100
+**** Eval Episode: 28/100	Episode avg reward: -5.246
+Eval Episode: 28/100
+**** Eval Episode: 29/100	Episode avg reward: -0.830
+Eval Episode: 29/100
+**** Eval Episode: 30/100	Episode avg reward: -0.426
+Eval Episode: 30/100
+**** Eval Episode: 31/100	Episode avg reward: -0.008
+Eval Episode: 31/100
+**** Eval Episode: 32/100	Episode avg reward: -3.673
+Eval Episode: 32/100
+**** Eval Episode: 33/100	Episode avg reward: -1.232
+Eval Episode: 33/100
+**** Eval Episode: 34/100	Episode avg reward: -1.629
+Eval Episode: 34/100
+**** Eval Episode: 35/100	Episode avg reward: -5.046
+Eval Episode: 35/100
+**** Eval Episode: 36/100	Episode avg reward: -5.442
+Eval Episode: 36/100
+**** Eval Episode: 37/100	Episode avg reward: -1.586
+Eval Episode: 37/100
+**** Eval Episode: 38/100	Episode avg reward: -1.634
+Eval Episode: 38/100
+**** Eval Episode: 39/100	Episode avg reward: -2.875
+Eval Episode: 39/100
+**** Eval Episode: 40/100	Episode avg reward: -3.387
+Eval Episode: 40/100
+**** Eval Episode: 41/100	Episode avg reward: -1.639
+Eval Episode: 41/100
+**** Eval Episode: 42/100	Episode avg reward: -0.816
+Eval Episode: 42/100
+**** Eval Episode: 43/100	Episode avg reward: -2.056
+Eval Episode: 43/100
+**** Eval Episode: 44/100	Episode avg reward: -5.400
+Eval Episode: 44/100
+**** Eval Episode: 45/100	Episode avg reward: -2.876
+Eval Episode: 45/100
+**** Eval Episode: 46/100	Episode avg reward: -0.848
+Eval Episode: 46/100
+**** Eval Episode: 47/100	Episode avg reward: -4.905
+Eval Episode: 47/100
+**** Eval Episode: 48/100	Episode avg reward: -3.176
+Eval Episode: 48/100
+**** Eval Episode: 49/100	Episode avg reward: -2.549
+Eval Episode: 49/100
+**** Eval Episode: 50/100	Episode avg reward: -1.211
+Eval Episode: 50/100
+**** Eval Episode: 51/100	Episode avg reward: -0.828
+Eval Episode: 51/100
+**** Eval Episode: 52/100	Episode avg reward: -0.429
+Eval Episode: 52/100
+**** Eval Episode: 53/100	Episode avg reward: -5.161
+Eval Episode: 53/100
+**** Eval Episode: 54/100	Episode avg reward: -2.406
+Eval Episode: 54/100
+**** Eval Episode: 55/100	Episode avg reward: -1.241
+Eval Episode: 55/100
+**** Eval Episode: 56/100	Episode avg reward: -0.428
+Eval Episode: 56/100
+**** Eval Episode: 57/100	Episode avg reward: -1.244
+Eval Episode: 57/100
+**** Eval Episode: 58/100	Episode avg reward: -5.240
+Eval Episode: 58/100
+**** Eval Episode: 59/100	Episode avg reward: -0.422
+Eval Episode: 59/100
+**** Eval Episode: 60/100	Episode avg reward: -2.919
+Eval Episode: 60/100
+**** Eval Episode: 61/100	Episode avg reward: -5.071
+Eval Episode: 61/100
+**** Eval Episode: 62/100	Episode avg reward: -5.002
+Eval Episode: 62/100
+**** Eval Episode: 63/100	Episode avg reward: -0.423
+Eval Episode: 63/100
+**** Eval Episode: 64/100	Episode avg reward: -1.228
+Eval Episode: 64/100
+**** Eval Episode: 65/100	Episode avg reward: -2.812
+Eval Episode: 65/100
+**** Eval Episode: 66/100	Episode avg reward: -0.008
+Eval Episode: 66/100
+**** Eval Episode: 67/100	Episode avg reward: -0.427
+Eval Episode: 67/100
+**** Eval Episode: 68/100	Episode avg reward: -0.825
+Eval Episode: 68/100
+**** Eval Episode: 69/100	Episode avg reward: -5.288
+Eval Episode: 69/100
+**** Eval Episode: 70/100	Episode avg reward: -2.468
+Eval Episode: 70/100
+**** Eval Episode: 71/100	Episode avg reward: -1.228
+Eval Episode: 71/100
+**** Eval Episode: 72/100	Episode avg reward: -2.051
+Eval Episode: 72/100
+**** Eval Episode: 73/100	Episode avg reward: -0.425
+Eval Episode: 73/100
+**** Eval Episode: 74/100	Episode avg reward: -0.428
+Eval Episode: 74/100
+**** Eval Episode: 75/100	Episode avg reward: -0.425
+Eval Episode: 75/100
+**** Eval Episode: 76/100	Episode avg reward: -0.828
+Eval Episode: 76/100
+**** Eval Episode: 77/100	Episode avg reward: -0.842
+Eval Episode: 77/100
+**** Eval Episode: 78/100	Episode avg reward: -0.008
+Eval Episode: 78/100
+**** Eval Episode: 79/100	Episode avg reward: -2.855
+Eval Episode: 79/100
+**** Eval Episode: 80/100	Episode avg reward: -1.614
+Eval Episode: 80/100
+**** Eval Episode: 81/100	Episode avg reward: -3.454
+Eval Episode: 81/100
+**** Eval Episode: 82/100	Episode avg reward: -2.815
+Eval Episode: 82/100
+**** Eval Episode: 83/100	Episode avg reward: -0.839
+Eval Episode: 83/100
+**** Eval Episode: 84/100	Episode avg reward: -0.428
+Eval Episode: 84/100
+**** Eval Episode: 85/100	Episode avg reward: -2.423
+Eval Episode: 85/100
+**** Eval Episode: 86/100	Episode avg reward: -1.240
+Eval Episode: 86/100
+**** Eval Episode: 87/100	Episode avg reward: -1.606
+Eval Episode: 87/100
+**** Eval Episode: 88/100	Episode avg reward: -2.429
+Eval Episode: 88/100
+**** Eval Episode: 89/100	Episode avg reward: -3.189
+Eval Episode: 89/100
+**** Eval Episode: 90/100	Episode avg reward: -0.425
+Eval Episode: 90/100
+**** Eval Episode: 91/100	Episode avg reward: -4.741
+Eval Episode: 91/100
+**** Eval Episode: 92/100	Episode avg reward: -4.683
+Eval Episode: 92/100
+**** Eval Episode: 93/100	Episode avg reward: -3.675
+Eval Episode: 93/100
+**** Eval Episode: 94/100	Episode avg reward: -0.426
+Eval Episode: 94/100
+**** Eval Episode: 95/100	Episode avg reward: -2.783
+Eval Episode: 95/100
+**** Eval Episode: 96/100	Episode avg reward: -2.814
+Eval Episode: 96/100
+**** Eval Episode: 97/100	Episode avg reward: -1.226
+Eval Episode: 97/100
+**** Eval Episode: 98/100	Episode avg reward: -2.408
+Eval Episode: 98/100
+**** Eval Episode: 99/100	Episode avg reward: -3.017
+Eval Episode: 99/100
+**** Eval Episode: 100/100	Episode avg reward: -0.426
+**** Final score: Agent reward: -2.170 +- 1.675
+Execution time: 29.664422 seconds
+
+Process finished with exit code 0

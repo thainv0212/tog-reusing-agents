@@ -1,0 +1,381 @@
+python -m sf_examples.vizdoom.enjoy_vizdoom --env=doom_basic_new_design_4_2 --use_rnn=True --env_frameskip=4 --use_sound --max_num_episodes=100 --encoder_type=gmc --train_dir=train_dir/vizdoom0_gmc --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/trained_models/vizdoom13/gmc_vizdoom13_model_pretrain.pth.tar --audio_encoder=fft --seed=5
+/home/icelab/anaconda3/envs/GMC4/lib/python3.10/site-packages/lightning_utilities/core/imports.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+[2026-02-12 07:21:31,114][12033] register_encoder_factory: <function make_vizdoom_encoder at 0x7e9f57e7b760>
+[2026-02-12 07:21:31,119][12033] Loading existing experiment configuration from train_dir/vizdoom0_gmc/default_experiment/config.json
+[2026-02-12 07:21:31,119][12033] Overriding arg 'env' with value 'doom_basic_new_design_4_2' passed from command line
+[2026-02-12 07:21:31,119][12033] Overriding arg 'seed' with value 5 passed from command line
+[2026-02-12 07:21:31,119][12033] Overriding arg 'audio_encoder' with value 'fft' passed from command line
+[2026-02-12 07:21:31,119][12033] Overriding arg 'gmc_model_file' with value '/mnt/DATA/Thai/gmc_improve/gmc_code/rl/trained_models/vizdoom13/gmc_vizdoom13_model_pretrain.pth.tar' passed from command line
+[2026-02-12 07:21:31,119][12033] Adding new argument 'comm_model_file'=None that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'no_render'=False that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'save_video'=False that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'video_frames'=1000000000.0 that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'video_name'=None that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'max_num_frames'=1000000000.0 that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'max_num_episodes'=100 that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'push_to_hub'=False that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'hf_repository'=None that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'policy_index'=0 that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'eval_deterministic'=False that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'train_script'=None that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'enjoy_script'=None that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'sample_env_episodes'=256 that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'csv_folder_name'=None that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Adding new argument 'record_to'=None that is not in the saved config file!
+[2026-02-12 07:21:31,119][12033] Using frameskip 4 and render_action_repeat=1 for evaluation
+[2026-02-12 07:21:31,128][12033] Doom resolution: 160x120, resize resolution: (128, 72)
+/home/icelab/anaconda3/envs/GMC4/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: WARN: env.num_agents to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.num_agents` for environment variables or `env.get_wrapper_attr('num_agents')` that will search the reminding wrappers.
+  logger.warn(
+/home/icelab/anaconda3/envs/GMC4/lib/python3.10/site-packages/gymnasium/core.py:311: UserWarning: WARN: env.is_multiagent to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.is_multiagent` for environment variables or `env.get_wrapper_attr('is_multiagent')` that will search the reminding wrappers.
+  logger.warn(
+[2026-02-12 07:21:31,129][12033] RunningMeanStd input shape: (3, 72, 128)
+[2026-02-12 07:21:31,129][12033] RunningMeanStd input shape: (2520, 2)
+[2026-02-12 07:21:31,129][12033] RunningMeanStd input shape: (1,)
+VizdoomConvEncoder: input_channels=3
+Conv encoder output size: 512
+VizdoomConvEncoder: input_channels=3
+Conv encoder output size: 512
+Loading gmc info <All keys matched successfully>
+load checkpoint ['train_dir/vizdoom0_gmc/default_experiment/checkpoint_p0/checkpoint_000121313_496898048.pth', 'train_dir/vizdoom0_gmc/default_experiment/checkpoint_p0/checkpoint_000122072_500006912.pth']
+[2026-02-12 07:21:31,510][12033] Loading state from checkpoint train_dir/vizdoom0_gmc/default_experiment/checkpoint_p0/checkpoint_000122072_500006912.pth...
+[2026-02-12 07:21:31,647][12033] test for 100 episode
+[2026-02-12 07:21:32,097][12033] Episode finished for agent 0 at 2 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 0
+[2026-02-12 07:21:32,166][12033] Avg episode rewards: #0: 0.950, true rewards: #0: 0.950
+[2026-02-12 07:21:32,166][12033] Avg episode reward: 0.950, avg true_objective: 0.950
+[2026-02-12 07:21:32,207][12033] Episode finished for agent 0 at 4 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 1
+[2026-02-12 07:21:32,259][12033] Avg episode rewards: #0: 0.950, true rewards: #0: 0.950
+[2026-02-12 07:21:32,259][12033] Avg episode reward: 0.950, avg true_objective: 0.950
+[2026-02-12 07:21:32,340][12033] Episode finished for agent 0 at 9 frames. Reward: 0.830, true_objective: 0.830. Kill: 1. Health: 100. Death: 0. Num episode: 2
+[2026-02-12 07:21:32,410][12033] Avg episode rewards: #0: 0.910, true rewards: #0: 0.910
+[2026-02-12 07:21:32,411][12033] Avg episode reward: 0.910, avg true_objective: 0.910
+[2026-02-12 07:21:33,680][12033] Episode finished for agent 0 at 84 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 3
+[2026-02-12 07:21:33,750][12033] Avg episode rewards: #0: -0.317, true rewards: #0: -0.317
+[2026-02-12 07:21:33,750][12033] Avg episode reward: -0.317, avg true_objective: -0.317
+[2026-02-12 07:21:33,792][12033] Episode finished for agent 0 at 86 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 4
+[2026-02-12 07:21:33,845][12033] Avg episode rewards: #0: -0.064, true rewards: #0: -0.064
+[2026-02-12 07:21:33,845][12033] Avg episode reward: -0.064, avg true_objective: -0.064
+[2026-02-12 07:21:34,089][12033] Num frames 100...
+[2026-02-12 07:21:35,142][12033] Episode finished for agent 0 at 161 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 5
+[2026-02-12 07:21:35,212][12033] Avg episode rewards: #0: -0.720, true rewards: #0: -0.720
+[2026-02-12 07:21:35,213][12033] Avg episode reward: -0.720, avg true_objective: -0.720
+[2026-02-12 07:21:35,358][12033] Episode finished for agent 0 at 169 frames. Reward: 0.640, true_objective: 0.640. Kill: 1. Health: 100. Death: 0. Num episode: 6
+[2026-02-12 07:21:35,411][12033] Avg episode rewards: #0: -0.526, true rewards: #0: -0.526
+[2026-02-12 07:21:35,411][12033] Avg episode reward: -0.526, avg true_objective: -0.526
+[2026-02-12 07:21:35,493][12033] Episode finished for agent 0 at 174 frames. Reward: 0.830, true_objective: 0.830. Kill: 1. Health: 100. Death: 0. Num episode: 7
+[2026-02-12 07:21:35,564][12033] Avg episode rewards: #0: -0.356, true rewards: #0: -0.356
+[2026-02-12 07:21:35,564][12033] Avg episode reward: -0.356, avg true_objective: -0.356
+[2026-02-12 07:21:36,011][12033] Num frames 200...
+[2026-02-12 07:21:36,839][12033] Episode finished for agent 0 at 249 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 8
+[2026-02-12 07:21:36,909][12033] Avg episode rewards: #0: -0.761, true rewards: #0: -0.761
+[2026-02-12 07:21:36,910][12033] Avg episode reward: -0.761, avg true_objective: -0.761
+[2026-02-12 07:21:37,021][12033] Episode finished for agent 0 at 255 frames. Reward: 0.790, true_objective: 0.790. Kill: 1. Health: 100. Death: 0. Num episode: 9
+[2026-02-12 07:21:37,074][12033] Avg episode rewards: #0: -0.606, true rewards: #0: -0.606
+[2026-02-12 07:21:37,074][12033] Avg episode reward: -0.606, avg true_objective: -0.606
+[2026-02-12 07:21:37,191][12033] Episode finished for agent 0 at 262 frames. Reward: 0.750, true_objective: 0.750. Kill: 1. Health: 100. Death: 0. Num episode: 10
+[2026-02-12 07:21:37,261][12033] Avg episode rewards: #0: -0.483, true rewards: #0: -0.483
+[2026-02-12 07:21:37,261][12033] Avg episode reward: -0.483, avg true_objective: -0.483
+[2026-02-12 07:21:37,912][12033] Num frames 300...
+[2026-02-12 07:21:38,549][12033] Episode finished for agent 0 at 337 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 11
+[2026-02-12 07:21:38,620][12033] Avg episode rewards: #0: -0.776, true rewards: #0: -0.776
+[2026-02-12 07:21:38,620][12033] Avg episode reward: -0.776, avg true_objective: -0.776
+[2026-02-12 07:21:39,704][12033] Num frames 400...
+[2026-02-12 07:21:39,913][12033] Episode finished for agent 0 at 412 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 12
+[2026-02-12 07:21:39,984][12033] Avg episode rewards: #0: -1.024, true rewards: #0: -1.024
+[2026-02-12 07:21:39,984][12033] Avg episode reward: -1.024, avg true_objective: -1.024
+[2026-02-12 07:21:40,031][12033] Episode finished for agent 0 at 415 frames. Reward: 0.910, true_objective: 0.910. Kill: 1. Health: 100. Death: 0. Num episode: 13
+[2026-02-12 07:21:40,101][12033] Avg episode rewards: #0: -0.886, true rewards: #0: -0.886
+[2026-02-12 07:21:40,101][12033] Avg episode reward: -0.886, avg true_objective: -0.886
+[2026-02-12 07:21:41,401][12033] Episode finished for agent 0 at 490 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 14
+[2026-02-12 07:21:41,471][12033] Avg episode rewards: #0: -1.093, true rewards: #0: -1.093
+[2026-02-12 07:21:41,471][12033] Avg episode reward: -1.093, avg true_objective: -1.093
+[2026-02-12 07:21:41,513][12033] Episode finished for agent 0 at 492 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 15
+[2026-02-12 07:21:41,566][12033] Avg episode rewards: #0: -0.966, true rewards: #0: -0.966
+[2026-02-12 07:21:41,566][12033] Avg episode reward: -0.966, avg true_objective: -0.966
+[2026-02-12 07:21:41,607][12033] Episode finished for agent 0 at 494 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 16
+[2026-02-12 07:21:41,660][12033] Avg episode rewards: #0: -0.853, true rewards: #0: -0.853
+[2026-02-12 07:21:41,660][12033] Avg episode reward: -0.853, avg true_objective: -0.853
+[2026-02-12 07:21:41,765][12033] Num frames 500...
+[2026-02-12 07:21:42,941][12033] Episode finished for agent 0 at 569 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 17
+[2026-02-12 07:21:43,009][12033] Avg episode rewards: #0: -1.028, true rewards: #0: -1.028
+[2026-02-12 07:21:43,009][12033] Avg episode reward: -1.028, avg true_objective: -1.028
+[2026-02-12 07:21:43,123][12033] Episode finished for agent 0 at 575 frames. Reward: 0.790, true_objective: 0.790. Kill: 1. Health: 100. Death: 0. Num episode: 18
+[2026-02-12 07:21:43,176][12033] Avg episode rewards: #0: -0.932, true rewards: #0: -0.932
+[2026-02-12 07:21:43,176][12033] Avg episode reward: -0.932, avg true_objective: -0.932
+[2026-02-12 07:21:43,600][12033] Num frames 600...
+[2026-02-12 07:21:44,475][12033] Episode finished for agent 0 at 650 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 19
+[2026-02-12 07:21:44,544][12033] Avg episode rewards: #0: -1.085, true rewards: #0: -1.085
+[2026-02-12 07:21:44,544][12033] Avg episode reward: -1.085, avg true_objective: -1.085
+[2026-02-12 07:21:44,665][12033] Episode finished for agent 0 at 657 frames. Reward: 0.750, true_objective: 0.750. Kill: 1. Health: 100. Death: 0. Num episode: 20
+[2026-02-12 07:21:44,732][12033] Avg episode rewards: #0: -0.998, true rewards: #0: -0.998
+[2026-02-12 07:21:44,733][12033] Avg episode reward: -0.998, avg true_objective: -0.998
+[2026-02-12 07:21:44,775][12033] Episode finished for agent 0 at 659 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 21
+[2026-02-12 07:21:44,828][12033] Avg episode rewards: #0: -0.910, true rewards: #0: -0.910
+[2026-02-12 07:21:44,829][12033] Avg episode reward: -0.910, avg true_objective: -0.910
+[2026-02-12 07:21:44,942][12033] Episode finished for agent 0 at 665 frames. Reward: 0.790, true_objective: 0.790. Kill: 1. Health: 100. Death: 0. Num episode: 22
+[2026-02-12 07:21:44,995][12033] Avg episode rewards: #0: -0.836, true rewards: #0: -0.836
+[2026-02-12 07:21:44,995][12033] Avg episode reward: -0.836, avg true_objective: -0.836
+[2026-02-12 07:21:45,037][12033] Episode finished for agent 0 at 667 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 23
+[2026-02-12 07:21:45,089][12033] Avg episode rewards: #0: -0.761, true rewards: #0: -0.761
+[2026-02-12 07:21:45,090][12033] Avg episode reward: -0.761, avg true_objective: -0.761
+[2026-02-12 07:21:45,371][12033] Episode finished for agent 0 at 683 frames. Reward: 0.290, true_objective: 0.290. Kill: 1. Health: 100. Death: 0. Num episode: 24
+[2026-02-12 07:21:45,423][12033] Avg episode rewards: #0: -0.719, true rewards: #0: -0.719
+[2026-02-12 07:21:45,424][12033] Avg episode reward: -0.719, avg true_objective: -0.719
+[2026-02-12 07:21:45,504][12033] Episode finished for agent 0 at 688 frames. Reward: 0.830, true_objective: 0.830. Kill: 1. Health: 100. Death: 0. Num episode: 25
+[2026-02-12 07:21:45,575][12033] Avg episode rewards: #0: -0.660, true rewards: #0: -0.660
+[2026-02-12 07:21:45,575][12033] Avg episode reward: -0.660, avg true_objective: -0.660
+[2026-02-12 07:21:45,654][12033] Episode finished for agent 0 at 693 frames. Reward: 0.830, true_objective: 0.830. Kill: 1. Health: 100. Death: 0. Num episode: 26
+[2026-02-12 07:21:45,726][12033] Avg episode rewards: #0: -0.604, true rewards: #0: -0.604
+[2026-02-12 07:21:45,727][12033] Avg episode reward: -0.604, avg true_objective: -0.604
+[2026-02-12 07:21:45,834][12033] Num frames 700...
+[2026-02-12 07:21:47,017][12033] Episode finished for agent 0 at 768 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 27
+[2026-02-12 07:21:47,087][12033] Avg episode rewards: #0: -0.726, true rewards: #0: -0.726
+[2026-02-12 07:21:47,088][12033] Avg episode reward: -0.726, avg true_objective: -0.726
+[2026-02-12 07:21:47,164][12033] Episode finished for agent 0 at 772 frames. Reward: 0.870, true_objective: 0.870. Kill: 1. Health: 100. Death: 0. Num episode: 28
+[2026-02-12 07:21:47,217][12033] Avg episode rewards: #0: -0.671, true rewards: #0: -0.671
+[2026-02-12 07:21:47,217][12033] Avg episode reward: -0.671, avg true_objective: -0.671
+[2026-02-12 07:21:47,265][12033] Episode finished for agent 0 at 775 frames. Reward: 0.910, true_objective: 0.910. Kill: 1. Health: 100. Death: 0. Num episode: 29
+[2026-02-12 07:21:47,336][12033] Avg episode rewards: #0: -0.618, true rewards: #0: -0.618
+[2026-02-12 07:21:47,336][12033] Avg episode reward: -0.618, avg true_objective: -0.618
+[2026-02-12 07:21:47,757][12033] Num frames 800...
+[2026-02-12 07:21:48,625][12033] Episode finished for agent 0 at 850 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 30
+[2026-02-12 07:21:48,695][12033] Avg episode rewards: #0: -0.727, true rewards: #0: -0.727
+[2026-02-12 07:21:48,695][12033] Avg episode reward: -0.727, avg true_objective: -0.727
+[2026-02-12 07:21:49,560][12033] Num frames 900...
+[2026-02-12 07:21:49,984][12033] Episode finished for agent 0 at 925 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 31
+[2026-02-12 07:21:50,054][12033] Avg episode rewards: #0: -0.829, true rewards: #0: -0.829
+[2026-02-12 07:21:50,054][12033] Avg episode reward: -0.829, avg true_objective: -0.829
+[2026-02-12 07:21:51,346][12033] Num frames 1000...
+[2026-02-12 07:21:51,346][12033] Episode finished for agent 0 at 1000 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 32
+[2026-02-12 07:21:51,415][12033] Avg episode rewards: #0: -0.925, true rewards: #0: -0.925
+[2026-02-12 07:21:51,415][12033] Avg episode reward: -0.925, avg true_objective: -0.925
+[2026-02-12 07:21:51,498][12033] Episode finished for agent 0 at 1005 frames. Reward: 0.830, true_objective: 0.830. Kill: 1. Health: 100. Death: 0. Num episode: 33
+[2026-02-12 07:21:51,567][12033] Avg episode rewards: #0: -0.874, true rewards: #0: -0.874
+[2026-02-12 07:21:51,568][12033] Avg episode reward: -0.874, avg true_objective: -0.874
+[2026-02-12 07:21:52,835][12033] Episode finished for agent 0 at 1080 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 34
+[2026-02-12 07:21:52,905][12033] Avg episode rewards: #0: -0.963, true rewards: #0: -0.963
+[2026-02-12 07:21:52,905][12033] Avg episode reward: -0.963, avg true_objective: -0.963
+[2026-02-12 07:21:52,985][12033] Episode finished for agent 0 at 1085 frames. Reward: 0.830, true_objective: 0.830. Kill: 1. Health: 100. Death: 0. Num episode: 35
+[2026-02-12 07:21:53,056][12033] Avg episode rewards: #0: -0.913, true rewards: #0: -0.913
+[2026-02-12 07:21:53,056][12033] Avg episode reward: -0.913, avg true_objective: -0.913
+[2026-02-12 07:21:53,299][12033] Num frames 1100...
+[2026-02-12 07:21:54,328][12033] Episode finished for agent 0 at 1160 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 36
+[2026-02-12 07:21:54,397][12033] Avg episode rewards: #0: -0.997, true rewards: #0: -0.997
+[2026-02-12 07:21:54,398][12033] Avg episode reward: -0.997, avg true_objective: -0.997
+[2026-02-12 07:21:54,438][12033] Episode finished for agent 0 at 1162 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 37
+[2026-02-12 07:21:54,491][12033] Avg episode rewards: #0: -0.946, true rewards: #0: -0.946
+[2026-02-12 07:21:54,492][12033] Avg episode reward: -0.946, avg true_objective: -0.946
+[2026-02-12 07:21:55,135][12033] Num frames 1200...
+[2026-02-12 07:21:55,762][12033] Episode finished for agent 0 at 1237 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 38
+[2026-02-12 07:21:55,831][12033] Avg episode rewards: #0: -1.024, true rewards: #0: -1.024
+[2026-02-12 07:21:55,832][12033] Avg episode reward: -1.024, avg true_objective: -1.024
+[2026-02-12 07:21:56,901][12033] Num frames 1300...
+[2026-02-12 07:21:57,121][12033] Episode finished for agent 0 at 1312 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 39
+[2026-02-12 07:21:57,186][12033] Avg episode rewards: #0: -1.098, true rewards: #0: -1.098
+[2026-02-12 07:21:57,186][12033] Avg episode reward: -1.098, avg true_objective: -1.098
+[2026-02-12 07:21:57,300][12033] Episode finished for agent 0 at 1318 frames. Reward: 0.790, true_objective: 0.790. Kill: 1. Health: 100. Death: 0. Num episode: 40
+[2026-02-12 07:21:57,353][12033] Avg episode rewards: #0: -1.052, true rewards: #0: -1.052
+[2026-02-12 07:21:57,354][12033] Avg episode reward: -1.052, avg true_objective: -1.052
+[2026-02-12 07:21:57,474][12033] Episode finished for agent 0 at 1325 frames. Reward: 0.750, true_objective: 0.750. Kill: 1. Health: 100. Death: 0. Num episode: 41
+[2026-02-12 07:21:57,543][12033] Avg episode rewards: #0: -1.009, true rewards: #0: -1.009
+[2026-02-12 07:21:57,543][12033] Avg episode reward: -1.009, avg true_objective: -1.009
+[2026-02-12 07:21:57,622][12033] Episode finished for agent 0 at 1329 frames. Reward: 0.870, true_objective: 0.870. Kill: 1. Health: 100. Death: 0. Num episode: 42
+[2026-02-12 07:21:57,675][12033] Avg episode rewards: #0: -0.966, true rewards: #0: -0.966
+[2026-02-12 07:21:57,675][12033] Avg episode reward: -0.966, avg true_objective: -0.966
+[2026-02-12 07:21:58,896][12033] Num frames 1400...
+[2026-02-12 07:21:58,976][12033] Episode finished for agent 0 at 1404 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 43
+[2026-02-12 07:21:59,044][12033] Avg episode rewards: #0: -1.035, true rewards: #0: -1.035
+[2026-02-12 07:21:59,045][12033] Avg episode reward: -1.035, avg true_objective: -1.035
+[2026-02-12 07:21:59,189][12033] Episode finished for agent 0 at 1412 frames. Reward: 0.710, true_objective: 0.710. Kill: 1. Health: 100. Death: 0. Num episode: 44
+[2026-02-12 07:21:59,242][12033] Avg episode rewards: #0: -0.996, true rewards: #0: -0.996
+[2026-02-12 07:21:59,242][12033] Avg episode reward: -0.996, avg true_objective: -0.996
+[2026-02-12 07:22:00,512][12033] Episode finished for agent 0 at 1487 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 45
+[2026-02-12 07:22:00,585][12033] Avg episode rewards: #0: -1.061, true rewards: #0: -1.061
+[2026-02-12 07:22:00,585][12033] Avg episode reward: -1.061, avg true_objective: -1.061
+[2026-02-12 07:22:00,793][12033] Num frames 1500...
+[2026-02-12 07:22:01,857][12033] Episode finished for agent 0 at 1562 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 46
+[2026-02-12 07:22:01,927][12033] Avg episode rewards: #0: -1.124, true rewards: #0: -1.124
+[2026-02-12 07:22:01,927][12033] Avg episode reward: -1.124, avg true_objective: -1.124
+[2026-02-12 07:22:02,573][12033] Num frames 1600...
+[2026-02-12 07:22:03,196][12033] Episode finished for agent 0 at 1637 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 47
+[2026-02-12 07:22:03,265][12033] Avg episode rewards: #0: -1.184, true rewards: #0: -1.184
+[2026-02-12 07:22:03,265][12033] Avg episode reward: -1.184, avg true_objective: -1.184
+[2026-02-12 07:22:03,312][12033] Episode finished for agent 0 at 1640 frames. Reward: 0.910, true_objective: 0.910. Kill: 1. Health: 100. Death: 0. Num episode: 48
+[2026-02-12 07:22:03,383][12033] Avg episode rewards: #0: -1.141, true rewards: #0: -1.141
+[2026-02-12 07:22:03,383][12033] Avg episode reward: -1.141, avg true_objective: -1.141
+[2026-02-12 07:22:04,402][12033] Num frames 1700...
+[2026-02-12 07:22:04,654][12033] Episode finished for agent 0 at 1715 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 49
+[2026-02-12 07:22:04,724][12033] Avg episode rewards: #0: -1.198, true rewards: #0: -1.198
+[2026-02-12 07:22:04,725][12033] Avg episode reward: -1.198, avg true_objective: -1.198
+[2026-02-12 07:22:06,000][12033] Episode finished for agent 0 at 1790 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 50
+[2026-02-12 07:22:06,069][12033] Avg episode rewards: #0: -1.253, true rewards: #0: -1.253
+[2026-02-12 07:22:06,069][12033] Avg episode reward: -1.253, avg true_objective: -1.253
+[2026-02-12 07:22:06,147][12033] Episode finished for agent 0 at 1794 frames. Reward: 0.870, true_objective: 0.870. Kill: 1. Health: 100. Death: 0. Num episode: 51
+[2026-02-12 07:22:06,200][12033] Avg episode rewards: #0: -1.212, true rewards: #0: -1.212
+[2026-02-12 07:22:06,200][12033] Avg episode reward: -1.212, avg true_objective: -1.212
+[2026-02-12 07:22:06,304][12033] Num frames 1800...
+[2026-02-12 07:22:07,483][12033] Episode finished for agent 0 at 1869 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 52
+[2026-02-12 07:22:07,554][12033] Avg episode rewards: #0: -1.265, true rewards: #0: -1.265
+[2026-02-12 07:22:07,554][12033] Avg episode reward: -1.265, avg true_objective: -1.265
+[2026-02-12 07:22:08,069][12033] Num frames 1900...
+[2026-02-12 07:22:08,830][12033] Episode finished for agent 0 at 1944 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 53
+[2026-02-12 07:22:08,901][12033] Avg episode rewards: #0: -1.315, true rewards: #0: -1.315
+[2026-02-12 07:22:08,901][12033] Avg episode reward: -1.315, avg true_objective: -1.315
+[2026-02-12 07:22:09,012][12033] Episode finished for agent 0 at 1950 frames. Reward: 0.790, true_objective: 0.790. Kill: 1. Health: 100. Death: 0. Num episode: 54
+[2026-02-12 07:22:09,066][12033] Avg episode rewards: #0: -1.277, true rewards: #0: -1.277
+[2026-02-12 07:22:09,066][12033] Avg episode reward: -1.277, avg true_objective: -1.277
+[2026-02-12 07:22:09,871][12033] Episode finished for agent 0 at 1997 frames. Reward: -1.420, true_objective: -1.420. Kill: 1. Health: 100. Death: 0. Num episode: 55
+[2026-02-12 07:22:09,940][12033] Avg episode rewards: #0: -1.280, true rewards: #0: -1.280
+[2026-02-12 07:22:09,941][12033] Avg episode reward: -1.280, avg true_objective: -1.280
+[2026-02-12 07:22:09,980][12033] Num frames 2000...
+[2026-02-12 07:22:10,087][12033] Episode finished for agent 0 at 2005 frames. Reward: 0.710, true_objective: 0.710. Kill: 1. Health: 100. Death: 0. Num episode: 56
+[2026-02-12 07:22:10,140][12033] Avg episode rewards: #0: -1.245, true rewards: #0: -1.245
+[2026-02-12 07:22:10,140][12033] Avg episode reward: -1.245, avg true_objective: -1.245
+[2026-02-12 07:22:11,428][12033] Episode finished for agent 0 at 2080 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 57
+[2026-02-12 07:22:11,496][12033] Avg episode rewards: #0: -1.292, true rewards: #0: -1.292
+[2026-02-12 07:22:11,496][12033] Avg episode reward: -1.292, avg true_objective: -1.292
+[2026-02-12 07:22:11,540][12033] Episode finished for agent 0 at 2082 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 58
+[2026-02-12 07:22:11,593][12033] Avg episode rewards: #0: -1.254, true rewards: #0: -1.254
+[2026-02-12 07:22:11,594][12033] Avg episode reward: -1.254, avg true_objective: -1.254
+[2026-02-12 07:22:11,909][12033] Num frames 2100...
+[2026-02-12 07:22:12,886][12033] Episode finished for agent 0 at 2157 frames. Reward: -4.050, true_objective: -4.050. Kill: 0. Health: 100. Death: 0. Num episode: 59
+[2026-02-12 07:22:12,956][12033] Avg episode rewards: #0: -1.301, true rewards: #0: -1.301
+[2026-02-12 07:22:12,956][12033] Avg episode reward: -1.301, avg true_objective: -1.301
+[2026-02-12 07:22:13,671][12033] Num frames 2200...
+[2026-02-12 07:22:14,222][12033] Episode finished for agent 0 at 2232 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 60
+[2026-02-12 07:22:14,292][12033] Avg episode rewards: #0: -1.345, true rewards: #0: -1.345
+[2026-02-12 07:22:14,292][12033] Avg episode reward: -1.345, avg true_objective: -1.345
+[2026-02-12 07:22:15,463][12033] Num frames 2300...
+[2026-02-12 07:22:15,582][12033] Episode finished for agent 0 at 2307 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 61
+[2026-02-12 07:22:15,650][12033] Avg episode rewards: #0: -1.388, true rewards: #0: -1.388
+[2026-02-12 07:22:15,650][12033] Avg episode reward: -1.388, avg true_objective: -1.388
+[2026-02-12 07:22:15,727][12033] Episode finished for agent 0 at 2311 frames. Reward: 0.870, true_objective: 0.870. Kill: 1. Health: 100. Death: 0. Num episode: 62
+[2026-02-12 07:22:15,780][12033] Avg episode rewards: #0: -1.352, true rewards: #0: -1.352
+[2026-02-12 07:22:15,780][12033] Avg episode reward: -1.352, avg true_objective: -1.352
+[2026-02-12 07:22:17,060][12033] Episode finished for agent 0 at 2386 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 63
+[2026-02-12 07:22:17,130][12033] Avg episode rewards: #0: -1.393, true rewards: #0: -1.393
+[2026-02-12 07:22:17,131][12033] Avg episode reward: -1.393, avg true_objective: -1.393
+[2026-02-12 07:22:17,367][12033] Num frames 2400...
+[2026-02-12 07:22:18,387][12033] Episode finished for agent 0 at 2461 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 64
+[2026-02-12 07:22:18,456][12033] Avg episode rewards: #0: -1.434, true rewards: #0: -1.434
+[2026-02-12 07:22:18,456][12033] Avg episode reward: -1.434, avg true_objective: -1.434
+[2026-02-12 07:22:18,604][12033] Episode finished for agent 0 at 2469 frames. Reward: 0.710, true_objective: 0.710. Kill: 1. Health: 100. Death: 0. Num episode: 65
+[2026-02-12 07:22:18,657][12033] Avg episode rewards: #0: -1.401, true rewards: #0: -1.401
+[2026-02-12 07:22:18,657][12033] Avg episode reward: -1.401, avg true_objective: -1.401
+[2026-02-12 07:22:18,773][12033] Episode finished for agent 0 at 2476 frames. Reward: 0.750, true_objective: 0.750. Kill: 1. Health: 100. Death: 0. Num episode: 66
+[2026-02-12 07:22:18,842][12033] Avg episode rewards: #0: -1.369, true rewards: #0: -1.369
+[2026-02-12 07:22:18,843][12033] Avg episode reward: -1.369, avg true_objective: -1.369
+[2026-02-12 07:22:18,989][12033] Episode finished for agent 0 at 2484 frames. Reward: 0.710, true_objective: 0.710. Kill: 1. Health: 100. Death: 0. Num episode: 67
+[2026-02-12 07:22:19,041][12033] Avg episode rewards: #0: -1.338, true rewards: #0: -1.338
+[2026-02-12 07:22:19,041][12033] Avg episode reward: -1.338, avg true_objective: -1.338
+[2026-02-12 07:22:19,152][12033] Episode finished for agent 0 at 2490 frames. Reward: 0.790, true_objective: 0.790. Kill: 1. Health: 100. Death: 0. Num episode: 68
+[2026-02-12 07:22:19,206][12033] Avg episode rewards: #0: -1.308, true rewards: #0: -1.308
+[2026-02-12 07:22:19,206][12033] Avg episode reward: -1.308, avg true_objective: -1.308
+[2026-02-12 07:22:19,378][12033] Num frames 2500...
+[2026-02-12 07:22:20,483][12033] Episode finished for agent 0 at 2565 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 69
+[2026-02-12 07:22:20,552][12033] Avg episode rewards: #0: -1.346, true rewards: #0: -1.346
+[2026-02-12 07:22:20,553][12033] Avg episode reward: -1.346, avg true_objective: -1.346
+[2026-02-12 07:22:20,595][12033] Episode finished for agent 0 at 2567 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 70
+[2026-02-12 07:22:20,648][12033] Avg episode rewards: #0: -1.314, true rewards: #0: -1.314
+[2026-02-12 07:22:20,648][12033] Avg episode reward: -1.314, avg true_objective: -1.314
+[2026-02-12 07:22:21,206][12033] Num frames 2600...
+[2026-02-12 07:22:21,933][12033] Episode finished for agent 0 at 2642 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 71
+[2026-02-12 07:22:22,003][12033] Avg episode rewards: #0: -1.351, true rewards: #0: -1.351
+[2026-02-12 07:22:22,004][12033] Avg episode reward: -1.351, avg true_objective: -1.351
+[2026-02-12 07:22:22,149][12033] Episode finished for agent 0 at 2650 frames. Reward: 0.710, true_objective: 0.710. Kill: 1. Health: 100. Death: 0. Num episode: 72
+[2026-02-12 07:22:22,203][12033] Avg episode rewards: #0: -1.323, true rewards: #0: -1.323
+[2026-02-12 07:22:22,203][12033] Avg episode reward: -1.323, avg true_objective: -1.323
+[2026-02-12 07:22:23,061][12033] Num frames 2700...
+[2026-02-12 07:22:23,485][12033] Episode finished for agent 0 at 2725 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 73
+[2026-02-12 07:22:23,554][12033] Avg episode rewards: #0: -1.359, true rewards: #0: -1.359
+[2026-02-12 07:22:23,555][12033] Avg episode reward: -1.359, avg true_objective: -1.359
+[2026-02-12 07:22:23,666][12033] Episode finished for agent 0 at 2731 frames. Reward: 0.790, true_objective: 0.790. Kill: 1. Health: 100. Death: 0. Num episode: 74
+[2026-02-12 07:22:23,718][12033] Avg episode rewards: #0: -1.330, true rewards: #0: -1.330
+[2026-02-12 07:22:23,719][12033] Avg episode reward: -1.330, avg true_objective: -1.330
+[2026-02-12 07:22:24,894][12033] Num frames 2800...
+[2026-02-12 07:22:25,006][12033] Episode finished for agent 0 at 2806 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 75
+[2026-02-12 07:22:25,076][12033] Avg episode rewards: #0: -1.365, true rewards: #0: -1.365
+[2026-02-12 07:22:25,076][12033] Avg episode reward: -1.365, avg true_objective: -1.365
+[2026-02-12 07:22:25,126][12033] Episode finished for agent 0 at 2809 frames. Reward: 0.910, true_objective: 0.910. Kill: 1. Health: 100. Death: 0. Num episode: 76
+[2026-02-12 07:22:25,195][12033] Avg episode rewards: #0: -1.336, true rewards: #0: -1.336
+[2026-02-12 07:22:25,195][12033] Avg episode reward: -1.336, avg true_objective: -1.336
+[2026-02-12 07:22:25,244][12033] Episode finished for agent 0 at 2812 frames. Reward: 0.910, true_objective: 0.910. Kill: 1. Health: 100. Death: 0. Num episode: 77
+[2026-02-12 07:22:25,313][12033] Avg episode rewards: #0: -1.307, true rewards: #0: -1.307
+[2026-02-12 07:22:25,313][12033] Avg episode reward: -1.307, avg true_objective: -1.307
+[2026-02-12 07:22:25,357][12033] Episode finished for agent 0 at 2814 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 78
+[2026-02-12 07:22:25,410][12033] Avg episode rewards: #0: -1.278, true rewards: #0: -1.278
+[2026-02-12 07:22:25,411][12033] Avg episode reward: -1.278, avg true_objective: -1.278
+[2026-02-12 07:22:26,700][12033] Episode finished for agent 0 at 2889 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 79
+[2026-02-12 07:22:26,770][12033] Avg episode rewards: #0: -1.312, true rewards: #0: -1.312
+[2026-02-12 07:22:26,771][12033] Avg episode reward: -1.312, avg true_objective: -1.312
+[2026-02-12 07:22:26,944][12033] Num frames 2900...
+[2026-02-12 07:22:28,045][12033] Episode finished for agent 0 at 2964 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 80
+[2026-02-12 07:22:28,115][12033] Avg episode rewards: #0: -1.346, true rewards: #0: -1.346
+[2026-02-12 07:22:28,115][12033] Avg episode reward: -1.346, avg true_objective: -1.346
+[2026-02-12 07:22:28,329][12033] Episode finished for agent 0 at 2976 frames. Reward: 0.480, true_objective: 0.480. Kill: 1. Health: 100. Death: 0. Num episode: 81
+[2026-02-12 07:22:28,381][12033] Avg episode rewards: #0: -1.323, true rewards: #0: -1.323
+[2026-02-12 07:22:28,381][12033] Avg episode reward: -1.323, avg true_objective: -1.323
+[2026-02-12 07:22:28,463][12033] Episode finished for agent 0 at 2981 frames. Reward: 0.830, true_objective: 0.830. Kill: 1. Health: 100. Death: 0. Num episode: 82
+[2026-02-12 07:22:28,532][12033] Avg episode rewards: #0: -1.297, true rewards: #0: -1.297
+[2026-02-12 07:22:28,532][12033] Avg episode reward: -1.297, avg true_objective: -1.297
+[2026-02-12 07:22:28,845][12033] Num frames 3000...
+[2026-02-12 07:22:29,816][12033] Episode finished for agent 0 at 3056 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 83
+[2026-02-12 07:22:29,884][12033] Avg episode rewards: #0: -1.330, true rewards: #0: -1.330
+[2026-02-12 07:22:29,885][12033] Avg episode reward: -1.330, avg true_objective: -1.330
+[2026-02-12 07:22:29,969][12033] Episode finished for agent 0 at 3061 frames. Reward: 0.830, true_objective: 0.830. Kill: 1. Health: 100. Death: 0. Num episode: 84
+[2026-02-12 07:22:30,038][12033] Avg episode rewards: #0: -1.304, true rewards: #0: -1.304
+[2026-02-12 07:22:30,038][12033] Avg episode reward: -1.304, avg true_objective: -1.304
+[2026-02-12 07:22:30,080][12033] Episode finished for agent 0 at 3063 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 85
+[2026-02-12 07:22:30,133][12033] Avg episode rewards: #0: -1.278, true rewards: #0: -1.278
+[2026-02-12 07:22:30,133][12033] Avg episode reward: -1.278, avg true_objective: -1.278
+[2026-02-12 07:22:30,765][12033] Num frames 3100...
+[2026-02-12 07:22:31,434][12033] Episode finished for agent 0 at 3138 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 86
+[2026-02-12 07:22:31,502][12033] Avg episode rewards: #0: -1.309, true rewards: #0: -1.309
+[2026-02-12 07:22:31,502][12033] Avg episode reward: -1.309, avg true_objective: -1.309
+[2026-02-12 07:22:32,582][12033] Num frames 3200...
+[2026-02-12 07:22:32,805][12033] Episode finished for agent 0 at 3213 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 87
+[2026-02-12 07:22:32,873][12033] Avg episode rewards: #0: -1.340, true rewards: #0: -1.340
+[2026-02-12 07:22:32,873][12033] Avg episode reward: -1.340, avg true_objective: -1.340
+[2026-02-12 07:22:34,167][12033] Episode finished for agent 0 at 3288 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 88
+[2026-02-12 07:22:34,238][12033] Avg episode rewards: #0: -1.370, true rewards: #0: -1.370
+[2026-02-12 07:22:34,238][12033] Avg episode reward: -1.370, avg true_objective: -1.370
+[2026-02-12 07:22:34,443][12033] Num frames 3300...
+[2026-02-12 07:22:35,517][12033] Episode finished for agent 0 at 3363 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 89
+[2026-02-12 07:22:35,586][12033] Avg episode rewards: #0: -1.399, true rewards: #0: -1.399
+[2026-02-12 07:22:35,586][12033] Avg episode reward: -1.399, avg true_objective: -1.399
+[2026-02-12 07:22:36,211][12033] Num frames 3400...
+[2026-02-12 07:22:36,873][12033] Episode finished for agent 0 at 3438 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 90
+[2026-02-12 07:22:36,944][12033] Avg episode rewards: #0: -1.428, true rewards: #0: -1.428
+[2026-02-12 07:22:36,944][12033] Avg episode reward: -1.428, avg true_objective: -1.428
+[2026-02-12 07:22:38,013][12033] Num frames 3500...
+[2026-02-12 07:22:38,231][12033] Episode finished for agent 0 at 3513 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 91
+[2026-02-12 07:22:38,298][12033] Avg episode rewards: #0: -1.456, true rewards: #0: -1.456
+[2026-02-12 07:22:38,298][12033] Avg episode reward: -1.456, avg true_objective: -1.456
+[2026-02-12 07:22:39,574][12033] Episode finished for agent 0 at 3588 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 92
+[2026-02-12 07:22:39,643][12033] Avg episode rewards: #0: -1.483, true rewards: #0: -1.483
+[2026-02-12 07:22:39,643][12033] Avg episode reward: -1.483, avg true_objective: -1.483
+[2026-02-12 07:22:39,849][12033] Num frames 3600...
+[2026-02-12 07:22:40,942][12033] Episode finished for agent 0 at 3663 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 93
+[2026-02-12 07:22:41,010][12033] Avg episode rewards: #0: -1.510, true rewards: #0: -1.510
+[2026-02-12 07:22:41,010][12033] Avg episode reward: -1.510, avg true_objective: -1.510
+[2026-02-12 07:22:41,124][12033] Episode finished for agent 0 at 3669 frames. Reward: 0.790, true_objective: 0.790. Kill: 1. Health: 100. Death: 0. Num episode: 94
+[2026-02-12 07:22:41,177][12033] Avg episode rewards: #0: -1.485, true rewards: #0: -1.485
+[2026-02-12 07:22:41,177][12033] Avg episode reward: -1.485, avg true_objective: -1.485
+[2026-02-12 07:22:41,294][12033] Episode finished for agent 0 at 3676 frames. Reward: 0.750, true_objective: 0.750. Kill: 1. Health: 100. Death: 0. Num episode: 95
+[2026-02-12 07:22:41,364][12033] Avg episode rewards: #0: -1.462, true rewards: #0: -1.462
+[2026-02-12 07:22:41,364][12033] Avg episode reward: -1.462, avg true_objective: -1.462
+[2026-02-12 07:22:41,782][12033] Num frames 3700...
+[2026-02-12 07:22:42,660][12033] Episode finished for agent 0 at 3751 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 96
+[2026-02-12 07:22:42,731][12033] Avg episode rewards: #0: -1.488, true rewards: #0: -1.488
+[2026-02-12 07:22:42,731][12033] Avg episode reward: -1.488, avg true_objective: -1.488
+[2026-02-12 07:22:43,552][12033] Num frames 3800...
+[2026-02-12 07:22:44,009][12033] Episode finished for agent 0 at 3826 frames. Reward: -4.000, true_objective: -4.000. Kill: 0. Health: 100. Death: 0. Num episode: 97
+[2026-02-12 07:22:44,079][12033] Avg episode rewards: #0: -1.514, true rewards: #0: -1.514
+[2026-02-12 07:22:44,079][12033] Avg episode reward: -1.514, avg true_objective: -1.514
+[2026-02-12 07:22:44,123][12033] Episode finished for agent 0 at 3828 frames. Reward: 0.950, true_objective: 0.950. Kill: 1. Health: 100. Death: 0. Num episode: 98
+[2026-02-12 07:22:44,176][12033] Avg episode rewards: #0: -1.489, true rewards: #0: -1.489
+[2026-02-12 07:22:44,177][12033] Avg episode reward: -1.489, avg true_objective: -1.489
+[2026-02-12 07:22:44,291][12033] Episode finished for agent 0 at 3834 frames. Reward: 0.790, true_objective: 0.790. Kill: 1. Health: 100. Death: 0. Num episode: 99
+[2026-02-12 07:22:44,344][12033] Avg episode rewards: #0: -1.466, true rewards: #0: -1.466
+[2026-02-12 07:22:44,344][12033] Avg episode reward: -1.466, avg true_objective: -1.466
+(0, -1.466298975944519)

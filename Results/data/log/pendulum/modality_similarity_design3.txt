@@ -1,0 +1,3 @@
+image_sound_sim 0.8288121819496155
+image_joint_sim 0.9839299917221069
+sound_joint_sim 0.8732626438140869

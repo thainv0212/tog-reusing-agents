@@ -1,0 +1,22 @@
+diff --git a/README.md b/README.md
+index 32de9da..db77753 100644
+--- a/README.md
++++ b/README.md
+@@ -23,3 +23,10 @@ Run the following command to start a training run on the basic scenario
+ All scenarios are available [here](sf_examples/vizdoom/doom/doom_utils.py).
+ 
+ Training data for all scenarios is available [here.](https://drive.proton.me/urls/187JD4X2PC#kgaCjTpyEzp9).
++
++/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/trained_models/vizdoom/gmc_vizdoom0_model.pth.tar
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_basic_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_gmc --encoder_type=gmc --gmc_model_file=/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/trained_models/vizdoom/gmc_vizdoom0_model.pth.tar --use_sound
++
++
++python -m sf_examples.vizdoom.train_vizdoom --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --num_workers=36 --num_envs_per_worker=8 --num_policies=1 --batch_size=2048 --wide_aspect_ratio=False  --env=doom_basic_new_design_2 --use_sound --audio_encoder=fft --train_dir=train_dir/basic_new_design_2_normal_sound_only --encoder_conv_architecture=none
+\ No newline at end of file
+diff --git a/sf_examples/vizdoom/doom/gmc/__pycache__/gmc.cpython-312.pyc b/sf_examples/vizdoom/doom/gmc/__pycache__/gmc.cpython-312.pyc
+index c404a29..654f5dd 100644
+Binary files a/sf_examples/vizdoom/doom/gmc/__pycache__/gmc.cpython-312.pyc and b/sf_examples/vizdoom/doom/gmc/__pycache__/gmc.cpython-312.pyc differ
+diff --git a/sf_examples/vizdoom/doom/gmc/__pycache__/gmc_networks.cpython-312.pyc b/sf_examples/vizdoom/doom/gmc/__pycache__/gmc_networks.cpython-312.pyc
+index 203fb18..bf6426c 100644
+Binary files a/sf_examples/vizdoom/doom/gmc/__pycache__/gmc_networks.cpython-312.pyc and b/sf_examples/vizdoom/doom/gmc/__pycache__/gmc_networks.cpython-312.pyc differ

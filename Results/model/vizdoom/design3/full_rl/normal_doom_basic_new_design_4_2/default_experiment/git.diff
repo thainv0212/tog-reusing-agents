@@ -1,0 +1,2932 @@
+diff --git a/README.md b/README.md
+index 32de9da..62a3ff4 100644
+--- a/README.md
++++ b/README.md
+@@ -23,3 +23,95 @@ Run the following command to start a training run on the basic scenario
+ All scenarios are available [here](sf_examples/vizdoom/doom/doom_utils.py).
+ 
+ Training data for all scenarios is available [here.](https://drive.proton.me/urls/187JD4X2PC#kgaCjTpyEzp9).
++
++/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/trained_models/vizdoom/gmc_vizdoom0_model.pth.tar
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_basic_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_gmc --encoder_type=gmc --gmc_model_file=/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/trained_models/vizdoom/gmc_vizdoom0_model.pth.tar --use_sound
++
++
++python -m sf_examples.vizdoom.train_vizdoom --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --num_workers=36 --num_envs_per_worker=8 --num_policies=1 --batch_size=2048 --wide_aspect_ratio=False  --env=doom_basic_new_design_2 --use_sound --audio_encoder=fft --train_dir=train_dir/basic_new_design_2_normal_sound_only --encoder_conv_architecture=none
++
++python -m sf_examples.vizdoom.train_vizdoom --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --num_workers=36 --num_envs_per_worker=8 --num_policies=1 --batch_size=2048 --wide_aspect_ratio=False  --env=doom_basic_new_design_3 --use_sound --audio_encoder=fft --train_dir=train_dir/basic_new_design_3_normal_sound_only --encoder_conv_architecture=none
++
++python -m sf_examples.vizdoom.train_vizdoom --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --num_workers=36 --num_envs_per_worker=8 --num_policies=1 --batch_size=2048 --wide_aspect_ratio=False  --env=doom_basic_new_design_4 --use_sound --audio_encoder=fft --train_dir=train_dir/basic_new_design_4_normal_sound_only --encoder_conv_architecture=none
++
++# my way home comm
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_comm_my_way_home_new_design --encoder_type=comm --comm_model_file=/mnt/SAMSUNG870/Thai/sonic_doom_gmc/comm_model/checkpoint_20251203/version_37/checkpoints/epoch=99-step=50000.ckpt --use_sound
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_gmc_my_way_home_new_design --encoder_type=gmc --gmc_model_file=/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/evaluation/gmc_vizdoom5/log_0/saved_models/gmc_vizdoom5_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_comm2_my_way_home_new_design --encoder_type=comm2 --comm_model_file=/mnt/SAMSUNG870/Thai/sonic_doom_gmc/comm_model/checkpoint_20251203_comm2/version_38/checkpoints/epoch=99-step=50000.ckpt --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_comm_weighted_my_way_home_new_design --encoder_type=comm_weighted --comm_model_file=/mnt/SAMSUNG870/Thai/sonic_doom_gmc/comm_model/my_way_home_version2_weighted_comm_20251205/version_2/checkpoints/epoch=99-step=50000.ckpt --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_comm_weighted2_my_way_home_new_design --encoder_type=comm_weighted2 --comm_model_file=/mnt/SAMSUNG870/Thai/sonic_doom_gmc/comm_model/mywayhome_version_2_weighted2_20251207/version_2/checkpoints/epoch=99-step=50000.ckpt --use_sound
++
++# deadly corridor
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_comm2_deadly_corridor_new_design --encoder_type=comm2 --comm_model_file=/mnt/SAMSUNG870/Thai/sonic_doom_gmc/comm_model/deadly_corridor_version44_20251205/version_44/checkpoints/epoch=99-step=50000.ckpt --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_comm_weighted_deadly_corridor_new_design --encoder_type=comm_weighted --comm_model_file=/mnt/SAMSUNG870/Thai/sonic_doom_gmc/comm_model/deadly_corridor_weighted_version10_20251205/version_10/checkpoints/epoch=99-step=50000.ckpt --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_gmc_deadly_corridor_new_design --encoder_type=gmc --gmc_model_file=/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/evaluation/gmc_vizdoom6/log_0/saved_models/gmc_vizdoom6_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_gmc2_deadly_corridor_new_design --encoder_type=gmc --gmc_model_file=/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/evaluation/gmc_vizdoom6/log_0/saved_models/gmc_vizdoom6_model.pth.tar --use_sound
++
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_comm_weighted__deadly_corridor_new_design --encoder_type=comm_weighted --comm_model_file=/mnt/SAMSUNG870/Thai/sonic_doom_gmc/comm_model/deadly_corridor_version1_weighted_comm_20251205/version_1/checkpoints/epoch=99-step=50000.ckpt --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/vizdoom0_comm_weighted2_deadly_corridor_new_design --encoder_type=comm_weighted2 --comm_model_file=/mnt/SAMSUNG870/Thai/sonic_doom_gmc/comm_model/deadly_corridor_version1_weighted2_20251207/version_1/checkpoints/epoch=99-step=50000.ckpt --use_sound
++
++
++/mnt/SAMSUNG870/Thai/sonic_doom_gmc/comm_model/checkpoint_20251203_comm2/version_38/checkpoints
++/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/evaluation/gmc_vizdoom5/log_0/saved_models/gmc_vizdoom5_model.pth.tar
++
++
++/mnt/SAMSUNG870/Thai/gmc_all_games/gmc_code/rl/evaluation/gmc_vizdoom6/log_0/saved_models/gmc_vizdoom6_model.pth.tar
++/mnt/SAMSUNG870/Thai/sonic_doom_gmc/comm_model/deadly_corridor_version1_weighted2_20251207/version_1/checkpoints/epoch=99-step=50000.ckpt
++
++
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc3_my_way_home_new_design --encoder_type=gmc3 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc3_vizdoom5/log_0/saved_models/gmc3_vizdoom5_model.pth.tar --use_sound
++
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc4_my_way_home_new_design_correct --encoder_type=gmc4 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc4_vizdoom5/log_0/saved_models/gmc_vizdoom5_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc4_deadly_corridor_new_design_correct --encoder_type=gmc4 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc4_vizdoom6/log_0/saved_models/gmc_vizdoom6_model.pth.tar --use_sound
++
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc5_my_way_home_new_design_correct --encoder_type=gmc5 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc5_vizdoom5/log_0/saved_models/gmc_vizdoom5_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc5_deadly_corridor_new_design_correct --encoder_type=gmc5 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc5_vizdoom6/log_0/saved_models/gmc_vizdoom6_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc6_my_way_home_new_design_correct --encoder_type=gmc6 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc6_vizdoom5/log_0/saved_models/gmc_vizdoom5_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc6_deadly_corridor_new_design_correct --encoder_type=gmc6 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc6_vizdoom6/log_0/saved_models/gmc_vizdoom6_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc7_my_way_home_new_design_correct --encoder_type=gmc7 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc7_vizdoom5/log_0/saved_models/gmc_vizdoom5_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc7_deadly_corridor_new_design_correct --encoder_type=gmc7 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc7_vizdoom6/log_0/saved_models/gmc_vizdoom6_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_my_way_home_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc8_my_way_home_new_design_correct --encoder_type=gmc8 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc8_vizdoom5/log_0/saved_models/gmc_vizdoom5_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc7_deadly_corridor_new_design_correct --encoder_type=gmc7 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc7_vizdoom6/log_0/saved_models/gmc_vizdoom6_model.pth.tar --use_sound
++
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc6_defend_the_center --encoder_type=gmc6 --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc6_vizdoom7/log_0/saved_models/gmc_vizdoom7_model.pth.tar --use_sound
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_deadly_corridor_new_design --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc_defend_the_center --encoder_type=gmc --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/evaluation/gmc_vizdoom7/log_0/saved_models/gmc_vizdoom7_model.pth.tar --use_sound
++
++
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_basic_new_design_5 --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/normal_doom_basic_new_design_5 --encoder_type=normal --use_sound  --encoder_conv_architecture=none --audio_encoder=fft
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_basic_new_design_5 --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc_doom_basic_new_design_5  --encoder_type=gmc --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/trained_models/vizdoom10/gmc_vizdoom10_model.pth.tar  --audio_encoder=fft
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_basic_new_design_6 --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/normal_doom_basic_new_design_6 --encoder_type=normal --use_sound  --encoder_conv_architecture=none --audio_encoder=fft
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_basic_new_design_7 --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc_doom_basic_new_design_7  --encoder_type=gmc --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/trained_models/vizdoom12/gmc_vizdoom12_model.pth.tar  --audio_encoder=fft
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_basic_new_design_7 --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/normal_doom_basic_new_design_7 --encoder_type=normal --use_sound  --encoder_conv_architecture=none --audio_encoder=fft
++
++
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_basic_new_design_4_2 --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/gmc_doom_basic_new_design_4_2  --encoder_type=gmc --gmc_model_file=/mnt/DATA/Thai/gmc_improve/gmc_code/rl/trained_models/vizdoom13/gmc_vizdoom13_model.pth.tar  --audio_encoder=fft
++
++python -m sf_examples.vizdoom.train_vizdoom --env=doom_basic_new_design_4_2 --train_for_env_steps=500000000 --algo=APPO --env_frameskip=4 --use_rnn=True --wide_aspect_ratio=False --num_workers=36 --num_envs_per_worker=8 --decorrelate_envs_on_one_worker=False --train_dir=train_dir/normal_doom_basic_new_design_4_2 --encoder_type=normal --use_sound  --encoder_conv_architecture=none --audio_encoder=fft
+\ No newline at end of file
+diff --git a/sample_factory/algo/learning/learner.py b/sample_factory/algo/learning/learner.py
+index 7ab32f0..1962c1b 100644
+--- a/sample_factory/algo/learning/learner.py
++++ b/sample_factory/algo/learning/learner.py
+@@ -211,7 +211,7 @@ class Learner(Configurable):
+ 
+         # trainable torch module
+         self.actor_critic = create_actor_critic(self.cfg, self.env_info.obs_space, self.env_info.action_space)
+-        if self.cfg.encoder_type == "gmc":
++        if "gmc" in self.cfg.encoder_type:
+             self.actor_critic.encoders[0].gmc.load_state_dict(torch.load(self.cfg.gmc_model_file)['state_dict'])
+         log.debug("Created Actor Critic model with architecture:")
+         log.debug(self.actor_critic)
+@@ -230,7 +230,7 @@ class Learner(Configurable):
+         # noinspection PyProtectedMember
+         self.actor_critic._apply(share_mem)
+         self.actor_critic.train()
+-        if self.cfg.encoder_type == "gmc":
++        if "gmc" in self.cfg.encoder_type:
+             self.actor_critic.encoders[0].eval()
+             self.actor_critic.encoders[0].freeze_weights()
+ 
+@@ -289,7 +289,7 @@ class Learner(Configurable):
+                 # noinspection PyBroadException
+                 try:
+                     log.warning("Loading state from checkpoint %s...", latest_checkpoint)
+-                    checkpoint_dict = torch.load(latest_checkpoint, map_location=device)
++                    checkpoint_dict = torch.load(latest_checkpoint, map_location=device, weights_only=False)
+                     return checkpoint_dict
+                 except Exception:
+                     log.exception(f"Could not load from checkpoint, attempt {attempt}")
+@@ -966,7 +966,7 @@ class Learner(Configurable):
+             # ensure we're in train mode so that normalization statistics are updated
+             if not self.actor_critic.training:
+                 self.actor_critic.train()
+-                if self.cfg.encoder_type == "gmc":
++                if "gmc" in self.cfg.encoder_type:
+                     self.actor_critic.encoders[0].eval()
+                     self.actor_critic.encoders[0].freeze_weights()
+ 
+diff --git a/sample_factory/cfg/cfg.py b/sample_factory/cfg/cfg.py
+index a676b91..23bedbd 100644
+--- a/sample_factory/cfg/cfg.py
++++ b/sample_factory/cfg/cfg.py
+@@ -694,7 +694,7 @@ def add_eval_args(parser):
+     )
+     parser.add_argument("--video_name", default=None, type=str, help="Name of video to save")
+     parser.add_argument("--max_num_frames", default=1e9, type=int, help="Maximum number of frames for evaluation")
+-    parser.add_argument("--max_num_episodes", default=1e9, type=int, help="Maximum number of episodes for evaluation")
++    parser.add_argument("--max_num_episodes", default=100, type=int, help="Maximum number of episodes for evaluation")
+ 
+     parser.add_argument("--push_to_hub", action="store_true", help="Push experiment folder to HuggingFace Hub")
+     parser.add_argument(
+@@ -869,6 +869,12 @@ def add_pbt_args(p: ArgumentParser):
+         type=str,
+         help="Where to load the GMC model",
+     )
++    p.add_argument(
++        "--comm_model_file",
++        default=None,
++        type=str,
++        help="Where to load the CoMM model"
++    )
+     p.add_argument(
+         "--gmc_freeze",
+         default=True,
+diff --git a/sample_factory/enjoy.py b/sample_factory/enjoy.py
+index 7922005..5cccde3 100644
+--- a/sample_factory/enjoy.py
++++ b/sample_factory/enjoy.py
+@@ -6,6 +6,7 @@ import gymnasium as gym
+ import numpy as np
+ import torch
+ from torch import Tensor
++import json
+ 
+ from sample_factory.algo.learning.learner import Learner
+ from sample_factory.algo.sampling.batched_sampling import preprocess_actions
+@@ -93,6 +94,7 @@ def load_state_dict(cfg: Config, actor_critic: ActorCritic, device: torch.device
+     policy_id = cfg.policy_index
+     name_prefix = dict(latest="checkpoint", best="best")[cfg.load_checkpoint_kind]
+     checkpoints = Learner.get_checkpoints(Learner.checkpoint_dir(cfg, policy_id), f"{name_prefix}_*")
++    print("load checkpoint", checkpoints)
+     checkpoint_dict = Learner.load_checkpoint(checkpoints, device)
+     if checkpoint_dict:
+         actor_critic.load_state_dict(checkpoint_dict["model"])
+@@ -101,7 +103,7 @@ def load_state_dict(cfg: Config, actor_critic: ActorCritic, device: torch.device
+ 
+ 
+ def enjoy(cfg: Config) -> Tuple[StatusCode, float]:
+-    verbose = False
++    verbose = True
+ 
+     cfg = load_from_checkpoint(cfg)
+ 
+@@ -120,6 +122,7 @@ def enjoy(cfg: Config) -> Tuple[StatusCode, float]:
+         render_mode = "rgb_array"
+     elif cfg.no_render:
+         render_mode = None
++    experiment_name = cfg.train_dir.split('/')[-1]
+ 
+     env = make_env(cfg, render_mode=render_mode)
+     env_info = extract_env_info(env, cfg)
+@@ -137,9 +140,15 @@ def enjoy(cfg: Config) -> Tuple[StatusCode, float]:
+     load_state_dict(cfg, actor_critic, device)
+     if cfg.encoder_type == 'gmc':
+         actor_critic.encoders[0].gmc.load_state_dict(torch.load(cfg.gmc_model_file)['state_dict'])
++    if 'comm' in cfg.encoder_type:
++        actor_critic.encoders[0].comm.load_state_dict(torch.load(cfg.comm_model_file, weights_only=False)['state_dict'])
+ 
+     episode_rewards = [deque([], maxlen=100) for _ in range(env.num_agents)]
+     true_objectives = [deque([], maxlen=100) for _ in range(env.num_agents)]
++    healths = [deque([], maxlen=100) for _ in range(env.num_agents)]
++    kills = [deque([], maxlen=100) for _ in range(env.num_agents)]
++    deaths = [deque([], maxlen=100) for _ in range(env.num_agents)]
++    ep_lens = [deque([], maxlen=100) for _ in range(env.num_agents)]
+     num_frames = 0
+ 
+     last_render_start = time.time()
+@@ -157,7 +166,7 @@ def enjoy(cfg: Config) -> Tuple[StatusCode, float]:
+ 
+     video_frames = []
+     num_episodes = 0
+-
++    log.info('test for %d episode', cfg.max_num_episodes)
+     with torch.no_grad():
+         while not max_frames_reached(num_frames):
+             normalized_obs = prepare_and_normalize_obs(actor_critic, obs)
+@@ -208,27 +217,40 @@ def enjoy(cfg: Config) -> Tuple[StatusCode, float]:
+                         true_objective = rew
+                         if isinstance(infos, (list, tuple)):
+                             true_objective = infos[agent_i].get("true_objective", rew)
++                            kill = infos[agent_i]['episode_extra_stats'].get("kills", 0)
++                            health = infos[agent_i]['episode_extra_stats'].get("health", -100)
++                            death = infos[agent_i]['episode_extra_stats'].get("death", 0)
++                            ep_len = infos[agent_i]['episode_extra_stats'].get("length", 0)
+                         true_objectives[agent_i].append(true_objective)
++                        kills[agent_i].append(kill)
++                        healths[agent_i].append(health)
++                        deaths[agent_i].append(death)
++                        ep_lens[agent_i].append(ep_len)
+ 
+                         if verbose:
+                             log.info(
+-                                "Episode finished for agent %d at %d frames. Reward: %.3f, true_objective: %.3f",
++                                "Episode finished for agent %d at %d frames. Reward: %.3f, true_objective: %.3f. Kill: %d. Health: %d. Death: %d. Num episode: %d",
+                                 agent_i,
+                                 num_frames,
+                                 episode_reward[agent_i],
+                                 true_objectives[agent_i][-1],
++                                kills[agent_i][-1],
++                                healths[agent_i][-1],
++                                deaths[agent_i][-1],
++                                num_episodes
+                             )
+                         rnn_states[agent_i] = torch.zeros([get_rnn_size(cfg)], dtype=torch.float32, device=device)
+                         episode_reward[agent_i] = 0
+-
+-                        if cfg.use_record_episode_statistics:
+-                            # we want the scores from the full episode not a single agent death (due to EpisodicLifeEnv wrapper)
+-                            if "episode" in infos[agent_i].keys():
+-                                num_episodes += 1
+-                                reward_list.append(infos[agent_i]["episode"]["r"])
+-                        else:
+-                            num_episodes += 1
+-                            reward_list.append(true_objective)
++                        num_episodes += 1
++                        reward_list.append(true_objective)
++                        # if cfg.use_record_episode_statistics:
++                        #     # we want the scores from the full episode not a single agent death (due to EpisodicLifeEnv wrapper)
++                        #     if "episode" in infos[agent_i].keys():
++                        #         num_episodes += 1
++                        #         reward_list.append(infos[agent_i]["episode"]["r"])
++                        # else:
++                        #     num_episodes += 1
++                        #     reward_list.append(true_objective)
+ 
+                 # if episode terminated synchronously for all agents, pause a bit before starting a new one
+                 if all(dones):
+@@ -268,8 +290,15 @@ def enjoy(cfg: Config) -> Tuple[StatusCode, float]:
+ 
+             if num_episodes >= cfg.max_num_episodes:
+                 break
+-
+     env.close()
++    with open(f'{experiment_name}.txt', 'w') as f:
++        f.write(json.dumps(
++            {'lengths': [list(i) for i in ep_lens],
++             'healths': [list(i) for i in healths],
++             'kills': [list(i) for i in kills],
++             'deaths': [list(i) for i in deaths]
++             }
++        ))
+ 
+     if cfg.save_video:
+         if cfg.fps > 0:
+diff --git a/sample_factory/model/actor_critic.py b/sample_factory/model/actor_critic.py
+index b56d97e..56ecbbd 100644
+--- a/sample_factory/model/actor_critic.py
++++ b/sample_factory/model/actor_critic.py
+@@ -19,7 +19,8 @@ from sample_factory.model.action_parameterization import (
+ from sample_factory.model.model_utils import model_device
+ from sample_factory.utils.normalize import ObservationNormalizer
+ from sample_factory.utils.typing import ActionSpace, Config, ObsSpace
+-from sf_examples.vizdoom.doom.gmc.gmc import VizdoomGMC, VizdoomGMCWrapper
++from sf_examples.vizdoom.doom.gmc.gmc import VizdoomGMC, VizdoomGMCWrapper, VizdoomGMC2Wrapper, VizdoomGMC3Wrapper, VizdoomGMC4Wrapper, VizdoomGMC5Wrapper, VizdoomGMC6Wrapper, VizdoomGMC7Wrapper, VizdoomGMC8Wrapper
++from sf_examples.vizdoom.doom.comm.comm import VizdoomCoMMWrapper
+ 
+ 
+ class ActorCritic(nn.Module, Configurable):
+@@ -44,7 +45,7 @@ class ActorCritic(nn.Module, Configurable):
+         self.cfg = cfg
+ 
+     def train(self: T, mode: bool = True) -> T:
+-        if self.cfg.encoder_type == "gmc":
++        if "gmc" in self.cfg.encoder_type:
+             super().train(mode=mode)
+             self.encoders[0].freeze_weights()
+         else:
+@@ -169,7 +170,9 @@ class ActorCriticSharedWeights(ActorCritic):
+         self.apply(self.initialize_weights)
+ 
+     def forward_head(self, normalized_obs_dict: Dict[str, Tensor]) -> Tensor:
+-        if isinstance(self.encoder, VizdoomGMCWrapper):
++        if isinstance(self.encoder, VizdoomGMCWrapper) or isinstance(self.encoder, VizdoomCoMMWrapper) or isinstance(self.encoder, VizdoomGMC2Wrapper) or isinstance(self.encoder, VizdoomGMC3Wrapper)\
++            or isinstance(self.encoder, VizdoomGMC4Wrapper) or isinstance(self.encoder, VizdoomGMC5Wrapper) or isinstance(self.encoder, VizdoomGMC6Wrapper) or isinstance(self.encoder, VizdoomGMC7Wrapper)\
++                or isinstance(self.encoder, VizdoomGMC8Wrapper):
+             with torch.no_grad():
+                 lst_input = [normalized_obs_dict.get('img', None),
+                              normalized_obs_dict.get('sound', None)]
+@@ -297,7 +300,8 @@ class ActorCriticSeparateWeights(ActorCritic):
+     def forward_head(self, normalized_obs_dict: Dict):
+         head_outputs = []
+         for enc in self.encoders:
+-            if isinstance(enc, VizdoomGMCWrapper):
++            if isinstance(enc, VizdoomGMCWrapper) or isinstance(enc, VizdoomCoMMWrapper) or isinstance(enc, VizdoomGMC2Wrapper) or isinstance(enc, VizdoomGMC3Wrapper)\
++            or isinstance(enc, VizdoomGMC4Wrapper) or isinstance(enc, VizdoomGMC5Wrapper) or isinstance(enc, VizdoomGMC6Wrapper):
+                 with torch.no_grad():
+                     head_outputs.append(enc(normalized_obs_dict))
+             else:
+diff --git a/sf_examples/vizdoom/doom/comm/base.py b/sf_examples/vizdoom/doom/comm/base.py
+index 3bf6874..4c12677 100644
+--- a/sf_examples/vizdoom/doom/comm/base.py
++++ b/sf_examples/vizdoom/doom/comm/base.py
+@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
+ import torch
+ import math
+ import sys
+-from utils import set_weight_decay_per_param, LinearWarmupCosineAnnealingLR
++from sf_examples.vizdoom.doom.comm.utils import set_weight_decay_per_param, LinearWarmupCosineAnnealingLR
+ 
+ 
+ class BaseModel(ABC, LightningModule):
+diff --git a/sf_examples/vizdoom/doom/comm/comm.py b/sf_examples/vizdoom/doom/comm/comm.py
+index 5507efb..4d5a9b5 100644
+--- a/sf_examples/vizdoom/doom/comm/comm.py
++++ b/sf_examples/vizdoom/doom/comm/comm.py
+@@ -4,9 +4,11 @@ from collections import OrderedDict
+ from typing import Dict, List
+ # Local imports
+ from sf_examples.vizdoom.doom.comm.base import BaseModel
+-from sf_examples.vizdoom.doom.comm.comm_loss import CoMMLoss
++from sf_examples.vizdoom.doom.comm.comm_loss import CoMMLoss, CoMMWeightedLoss, CoMMWeightedLoss2
+ from sf_examples.vizdoom.doom.comm.mmfusion import MMFusion
+ from sample_factory.model.encoder import Encoder
++from sf_examples.vizdoom.doom.comm.vizdoom_encoder import VizdoomConvEncoder, VizdoomFFTEncoder
++from sf_examples.vizdoom.doom.comm.input_adapters import FeaturesInputAdapter, SimpleFeaturesInputAdapter
+ 
+ 
+ class CoMM(BaseModel):
+@@ -106,26 +108,133 @@ class CoMM(BaseModel):
+         torch.cuda.empty_cache()
+         return torch.stack(X, dim=0).to(self.device), torch.stack(y, dim=0).to(self.device)
+ 
++class WeightedCoMM(CoMM):
++    def __init__(self,
++                 encoder: MMFusion,
++                 projection: nn.Module,
++                 optim_kwargs: Dict,
++                 loss_kwargs: Dict):
++        """
++        Args:
++            encoder: Multi-modal fusion encoder
++            projection: MLP projector to the latent space
++            optim_kwargs: Optimization hyper-parameters
++            loss_kwargs: Hyper-parameters for the CoMM loss.
++        """
++        super(WeightedCoMM, self).__init__(encoder, projection, optim_kwargs, loss_kwargs)
++
++        # create the encoder
++        self.encoder = encoder
++
++        # build a 3-layers projector
++        self.head = projection
++
++        # Build the loss
++        self.loss = CoMMWeightedLoss(**loss_kwargs)
++
++class WeightedCoMM2(CoMM):
++    def __init__(self,
++                 encoder: MMFusion,
++                 projection: nn.Module,
++                 optim_kwargs: Dict,
++                 loss_kwargs: Dict):
++        """
++        Args:
++            encoder: Multi-modal fusion encoder
++            projection: MLP projector to the latent space
++            optim_kwargs: Optimization hyper-parameters
++            loss_kwargs: Hyper-parameters for the CoMM loss.
++        """
++        super(WeightedCoMM2, self).__init__(encoder, projection, optim_kwargs, loss_kwargs)
++
++        # create the encoder
++        self.encoder = encoder
++
++        # build a 3-layers projector
++        self.head = projection
++
++        # Build the loss
++        self.loss = CoMMWeightedLoss2(**loss_kwargs)
+ 
+ class VizdoomCoMMWrapper(Encoder, nn.Module):
+-    def __init__(self, cfg, name):
++    def __init__(self, cfg, adapter=1, model=1):
+         super(VizdoomCoMMWrapper, self).__init__(cfg)
+         # self.comm = VizdoomGMC(name, cfg.gmc_common_dim, cfg.gmc_latent_dim, cfg.gmc_loss_type, None,
+         #                       cfg.gmc_freeze,
+         #                       cfg.gmc_model_file)
++        if model == 1:
++            m = CoMM
++        elif model == 2:
++            m = WeightedCoMM
++        elif model == 3:
++            m = WeightedCoMM2
++        else:
++            raise Exception("Unknown Comm model")
++
++        if adapter ==1:
++            self.comm = m(
++                encoder=MMFusion(
++                    encoders=[  # Symmetric visual encoders
++                        VizdoomConvEncoder(),
++                        VizdoomFFTEncoder()
++                    ],
++                    input_adapters=[  # Pach adapters for multimodal fusion
++                        FeaturesInputAdapter(n_features=512, dim_tokens=512),
++                        FeaturesInputAdapter(n_features=512, dim_tokens=512)
++                    ],
++                    embed_dim=512
++                ),
++                projection=CoMM._build_mlp(512, 512, 256),
++                optim_kwargs=dict(lr=3e-4, weight_decay=1e-4),
++                loss_kwargs=dict(temperature=0.1)
++            )
++        elif adapter == 2:
++            self.comm = m(
++                encoder=MMFusion(
++                    encoders=[  # Symmetric visual encoders
++                        VizdoomConvEncoder(),
++                        VizdoomFFTEncoder()
++                    ],
++                    input_adapters=[  # Pach adapters for multimodal fusion
++                        SimpleFeaturesInputAdapter(),
++                        SimpleFeaturesInputAdapter()
++                    ],
++                    embed_dim=512
++                ),
++                projection=m._build_mlp(512, 512, 256),
++                optim_kwargs=dict(lr=3e-4, weight_decay=1e-4),
++                loss_kwargs=dict(temperature=0.1)
++            )
+         self.cfg = cfg
++        print("Loading CoMM model file")
++        state_dict = torch.load(cfg.comm_model_file, weights_only=False)
++        new_state_dict = {}
++        for k,v in state_dict["state_dict"].items():
++            if not k.startswith("comm."):
++                new_state_dict["comm." + k] = v
++            else:
++                new_state_dict[k] = v
++        # self.load_state_dict(state_dict["state_dict"])
++        print(self.load_state_dict(new_state_dict))
+ 
+     def encode(self, x):
+-        return self.comm.encode(x)
++        masks = []
++        for mod in x:
++            if mod is not None:
++                masks.append(True)
++            else:
++                masks.append(False)
++        return self.comm.encoder(x)
+ 
+     def get_out_size(self) -> int:
+-        return self.cfg.gmc_latent_dim
++        return 512
+ 
+     def freeze_weights(self):
+-        self.gmc.eval()
+-        freeze_module(self.gmc)
++        self.comm.eval()
++        freeze_module(self.comm)
+ 
+ 
+ def freeze_module(module):
+     for param in module.parameters():
+         param.requires_grad = False
++
+diff --git a/sf_examples/vizdoom/doom/comm/comm_loss.py b/sf_examples/vizdoom/doom/comm/comm_loss.py
+index a6e9ff4..7269881 100644
+--- a/sf_examples/vizdoom/doom/comm/comm_loss.py
++++ b/sf_examples/vizdoom/doom/comm/comm_loss.py
+@@ -1,7 +1,7 @@
+ import torch.nn.functional as func
+ import torch
+ import torch.nn as nn
+-from utils import all_gather_batch_with_grad
++from sf_examples.vizdoom.doom.comm.utils import all_gather_batch_with_grad
+ 
+ 
+ class CoMMLoss(nn.Module):
+@@ -19,9 +19,126 @@ class CoMMLoss(nn.Module):
+ 
+     def infonce(self, z1, z2):
+         N = len(z1)
+-        sim_zii= (z1 @ z1.T) / self.temperature # dim [N, N] => Upper triangle contains incorrect pairs
+-        sim_zjj = (z2 @ z2.T) / self.temperature # dim [N, N] => Upper triangle contains incorrect pairs
+-        sim_zij = (z1 @ z2.T) / self.temperature # dim [N, N] => the diag contains the correct pairs (i,j)
++        sim_zii = (z1 @ z1.T) / self.temperature  # dim [N, N] => Upper triangle contains incorrect pairs
++        sim_zjj = (z2 @ z2.T) / self.temperature  # dim [N, N] => Upper triangle contains incorrect pairs
++        sim_zij = (z1 @ z2.T) / self.temperature  # dim [N, N] => the diag contains the correct pairs (i,j)
++        # 'Remove' the diag terms by penalizing it (exp(-inf) = 0)
++        sim_zii = sim_zii - self.INF * torch.eye(N, device=z1.device)
++        sim_zjj = sim_zjj - self.INF * torch.eye(N, device=z1.device)
++        sim_Z = torch.cat([
++            torch.cat([sim_zij, sim_zii], dim=1),
++            torch.cat([sim_zjj, sim_zij.T], dim=1)], dim=0)
++        log_sim_Z = func.log_softmax(sim_Z, dim=1)
++        loss = - torch.diag(log_sim_Z).mean()
++        # compute SSL accuracy
++        with torch.no_grad():
++            pred = torch.argmax(sim_zij, dim=1)
++            correct = pred.eq(torch.arange(N, device=z1.device)).sum()
++            acc = 100 * correct / N
++        return loss, acc
++
++    def forward(self, outputs):
++        """
++        :param outputs: Dict
++            Dictionary with keys:
++                - "aug1_embed", List of tensors with shape (bsize, feature_dim), 1st aug.
++                - "aug2_embed", List of tensors with shape (bsize, feature_dim), 2nd aug.
++                - "prototype", integer indicating where the multimodal representation Z 
++                    is stored in "aug1_embed" and "aug2_embed".
++        :return: {"loss": torch.Tensor(float), "ssl_acc": torch.Tensor(float)}
++        """
++        # Prepare embeddings (normalize + gather across all GPU)
++        z1, z2, prototype = outputs["aug1_embed"], outputs["aug2_embed"], outputs["prototype"]
++        assert len(z1) == len(z2)
++        n_emb = len(z1)
++        z1 = [func.normalize(z, p=2, dim=-1) for z in z1]
++        z2 = [func.normalize(z, p=2, dim=-1) for z in z2]
++        Z = all_gather_batch_with_grad(z1 + z2)
++        z1, z2 = Z[:n_emb], Z[n_emb:]
++
++        # Apply InfoNCE between a "prototype embedding" and all the others
++        loss = []
++        acc = []
++        for i in range(n_emb):
++            loss1, acc1 = self.infonce(z1[i], z2[prototype])
++            loss2, acc2 = self.infonce(z2[i], z1[prototype])
++            loss.append((loss1 + loss2) / 2.)
++            acc.append((acc1 + acc2) / 2.)
++        ssl_acc = {"ssl_acc_%i" % i: acc_ for i, acc_ in enumerate(acc)}
++        losses = {"ssl_loss_%i" % i: l for i, l in enumerate(loss)}
++        if self.weights is not None:
++            loss = torch.mean(torch.stack(loss) * torch.tensor(self.weights, device=z1[0].device))
++        else:
++            loss = torch.mean(torch.stack(loss))
++        acc = torch.mean(torch.stack(acc))
++        return {"loss": loss, "ssl_acc": acc, **ssl_acc, **losses}
++
++    def __str__(self):
++        return "{}(temp={})".format(type(self).__name__, self.temperature)
++
++
++save_num1 = []
++save_num2 = []
++save_num3 = []
++save_num4 = []
++
++
++class AutomaticWeightedLoss(nn.Module):
++    """automatically weighted multi-task loss
++
++    Params：
++        num: int，the number of loss
++        x: multi-task loss
++    Examples：
++        loss1=1
++        loss2=2
++        awl = AutomaticWeightedLoss(2)
++        loss_sum = awl(loss1, loss2)
++    """
++
++    def __init__(self, num=2):
++        super(AutomaticWeightedLoss, self).__init__()
++        params = torch.ones(num, requires_grad=True)
++        self.params = torch.nn.Parameter(params)
++
++    def forward(self, *x):
++        loss_sum = 0
++        save_num1.append(x[0].detach().cpu().numpy())
++        save_num2.append(x[1].detach().cpu().numpy())
++        save_num3.append(self.params[0].detach().clone().cpu().numpy())
++        save_num4.append(self.params[1].detach().clone().cpu().numpy())
++        # global save_i
++        # save_i+=1
++        # if(save_i%100==0):
++        #     np.save('loss1.npy',np.array(save_num1))
++        #     np.save('loss2.npy',np.array(save_num2))
++        #     np.save('a1.npy',np.array(save_num3))
++        #     np.save('a2.npy',np.array(save_num4))
++
++        for i, loss in enumerate(x):
++            loss_sum += 0.5 / (self.params[i] ** 2) * loss + torch.log(1 + self.params[i] ** 2)
++        return loss_sum
++
++
++class CoMMWeightedLoss(nn.Module):
++    """
++        Normalized Temperature Cross-Entropy Loss for Multi-Modal Contrastive Learning as defined in CoMM [1]
++
++        [1] What to align in multimodal contrastive learning, Dufumier & Castillo-Navarro et al., ICLR 2025
++    """
++
++    def __init__(self, temperature=0.1, weights=None):
++        super().__init__()
++        self.temperature = temperature
++        self.weights = weights
++        self.INF = 1e8
++        self.awl = AutomaticWeightedLoss(3)
++
++    def infonce(self, z1, z2):
++        N = len(z1)
++        sim_zii = (z1 @ z1.T) / self.temperature  # dim [N, N] => Upper triangle contains incorrect pairs
++        sim_zjj = (z2 @ z2.T) / self.temperature  # dim [N, N] => Upper triangle contains incorrect pairs
++        sim_zij = (z1 @ z2.T) / self.temperature  # dim [N, N] => the diag contains the correct pairs (i,j)
+         # 'Remove' the diag terms by penalizing it (exp(-inf) = 0)
+         sim_zii = sim_zii - self.INF * torch.eye(N, device=z1.device)
+         sim_zjj = sim_zjj - self.INF * torch.eye(N, device=z1.device)
+@@ -63,13 +180,103 @@ class CoMMLoss(nn.Module):
+             loss1, acc1 = self.infonce(z1[i], z2[prototype])
+             loss2, acc2 = self.infonce(z2[i], z1[prototype])
+             loss.append((loss1 + loss2) / 2.)
++            # loss.append(self.awl.forward(loss1, loss2))
+             acc.append((acc1 + acc2) / 2.)
+-        ssl_acc = {"ssl_acc_%i"%i: acc_ for i, acc_ in enumerate(acc)}
+-        losses = {"ssl_loss_%i"%i: l for i, l in enumerate(loss)}
++        ssl_acc = {"ssl_acc_%i" % i: acc_ for i, acc_ in enumerate(acc)}
++        losses = {"ssl_loss_%i" % i: l for i, l in enumerate(loss)}
++        if self.weights is not None:
++            loss = torch.mean(torch.stack(loss) * torch.tensor(self.weights, device=z1[0].device))
++        else:
++            # loss = torch.mean(torch.stack(loss))
++            loss = self.awl.forward(*loss)
++        acc = torch.mean(torch.stack(acc))
++        return {"loss": loss, "ssl_acc": acc, **ssl_acc, **losses}
++
++    def __str__(self):
++        return "{}(temp={})".format(type(self).__name__, self.temperature)
++
++
++class CoMMWeightedLoss2(nn.Module):
++    """
++        Normalized Temperature Cross-Entropy Loss for Multi-Modal Contrastive Learning as defined in CoMM [1]
++
++        [1] What to align in multimodal contrastive learning, Dufumier & Castillo-Navarro et al., ICLR 2025
++    """
++
++    def __init__(self, temperature=0.1, weights=None):
++        super().__init__()
++        self.temperature = temperature
++        self.weights = weights
++        self.INF = 1e8
++        self.awl = AutomaticWeightedLoss(2)
++
++    def infonce(self, z1, z2):
++        N = len(z1)
++        sim_zii = (z1 @ z1.T) / self.temperature  # dim [N, N] => Upper triangle contains incorrect pairs
++        sim_zjj = (z2 @ z2.T) / self.temperature  # dim [N, N] => Upper triangle contains incorrect pairs
++        sim_zij = (z1 @ z2.T) / self.temperature  # dim [N, N] => the diag contains the correct pairs (i,j)
++        # 'Remove' the diag terms by penalizing it (exp(-inf) = 0)
++        sim_zii = sim_zii - self.INF * torch.eye(N, device=z1.device)
++        sim_zjj = sim_zjj - self.INF * torch.eye(N, device=z1.device)
++        sim_Z = torch.cat([
++            torch.cat([sim_zij, sim_zii], dim=1),
++            torch.cat([sim_zjj, sim_zij.T], dim=1)], dim=0)
++        log_sim_Z = func.log_softmax(sim_Z, dim=1)
++        loss = - torch.diag(log_sim_Z).mean()
++        # compute SSL accuracy
++        with torch.no_grad():
++            pred = torch.argmax(sim_zij, dim=1)
++            correct = pred.eq(torch.arange(N, device=z1.device)).sum()
++            acc = 100 * correct / N
++        return loss, acc
++
++    def forward(self, outputs):
++        """
++        :param outputs: Dict
++            Dictionary with keys:
++                - "aug1_embed", List of tensors with shape (bsize, feature_dim), 1st aug.
++                - "aug2_embed", List of tensors with shape (bsize, feature_dim), 2nd aug.
++                - "prototype", integer indicating where the multimodal representation Z
++                    is stored in "aug1_embed" and "aug2_embed".
++        :return: {"loss": torch.Tensor(float), "ssl_acc": torch.Tensor(float)}
++        """
++        # Prepare embeddings (normalize + gather across all GPU)
++        z1, z2, prototype = outputs["aug1_embed"], outputs["aug2_embed"], outputs["prototype"]
++        assert len(z1) == len(z2)
++        n_emb = len(z1)
++        z1 = [func.normalize(z, p=2, dim=-1) for z in z1]
++        z2 = [func.normalize(z, p=2, dim=-1) for z in z2]
++        Z = all_gather_batch_with_grad(z1 + z2)
++        z1, z2 = Z[:n_emb], Z[n_emb:]
++
++        # Apply InfoNCE between a "prototype embedding" and all the others
++        loss = []
++        acc = []
++        for i in range(n_emb - 1):
++            loss1, acc1 = self.infonce(z1[i], z2[prototype])
++            loss2, acc2 = self.infonce(z2[i], z1[prototype])
++            loss.append((loss1 + loss2) / 2.)
++            # loss.append(self.awl.forward(loss1, loss2))
++            acc.append((acc1 + acc2) / 2.)
++        ssl_acc = {"ssl_acc_%i" % i: acc_ for i, acc_ in enumerate(acc)}
++        losses = {"ssl_loss_%i" % i: l for i, l in enumerate(loss)}
+         if self.weights is not None:
+             loss = torch.mean(torch.stack(loss) * torch.tensor(self.weights, device=z1[0].device))
+         else:
+             loss = torch.mean(torch.stack(loss))
++            # loss = self.awl.forward(*loss)
++
++        # 1st loss component
++        loss_1st = 0
++        i = n_emb - 1
++        loss1, acc1 = self.infonce(z1[i], z2[prototype])
++        loss2, acc2 = self.infonce(z2[i], z1[prototype])
++        loss_1st = (loss1 + loss2) / 2.
++        acc.append((acc1 + acc2) / 2.)
++        ssl_acc["ssl_acc_%i" % i] = (acc1 + acc2) / 2.
++        losses["ssl_loss_%i" % i] = loss_1st
++        # weighted loss
++        loss = self.awl.forward(loss_1st, loss)
+         acc = torch.mean(torch.stack(acc))
+         return {"loss": loss, "ssl_acc": acc, **ssl_acc, **losses}
+ 
+diff --git a/sf_examples/vizdoom/doom/comm/input_adapters.py b/sf_examples/vizdoom/doom/comm/input_adapters.py
+index e69de29..3761a05 100644
+--- a/sf_examples/vizdoom/doom/comm/input_adapters.py
++++ b/sf_examples/vizdoom/doom/comm/input_adapters.py
+@@ -0,0 +1,241 @@
++from typing import Optional, Tuple, Union
++import torch
++import math, warnings
++import torch.nn as nn
++import torch.nn.functional as F
++from einops import rearrange
++
++
++def pair(t):
++    return t if isinstance(t, tuple) else (t, t)
++
++
++def build_1d_sincos_posemb(max_seq_len: int, embed_dim: int=1024):
++    """ Build positional embedding matrix with `batch_first`
++    :param max_seq_len: maximum length of the input sequence
++    :param embed_dim: dimension of each token
++    :return: Tensor with shape (1, max_seq_length, embed_dim)
++    """
++    if embed_dim % 2 != 0:
++        raise ValueError("Cannot use sin/cos positional encoding with "
++                         "odd dim (got dim={:d})".format(embed_dim))
++    pe = torch.zeros(max_seq_len, embed_dim)
++    position = torch.arange(0, max_seq_len).unsqueeze(1)
++    div_term = torch.exp((torch.arange(0, embed_dim, 2, dtype=torch.float) *
++                          -(math.log(10000.0) / embed_dim)))
++    pe[:, 0::2] = torch.sin(position.float() * div_term)
++    pe[:, 1::2] = torch.cos(position.float() * div_term)
++    pe = pe[None, :, :]
++    return pe
++
++
++def build_2d_sincos_posemb(h, w, embed_dim=1024, temperature=10000.):
++    """Sine-cosine positional embeddings from MoCo-v3
++
++    Source: https://github.com/facebookresearch/moco-v3/blob/main/vits.py
++    """
++    grid_w = torch.arange(w, dtype=torch.float32)
++    grid_h = torch.arange(h, dtype=torch.float32)
++    grid_w, grid_h = torch.meshgrid(grid_w, grid_h)
++    assert embed_dim % 4 == 0, 'Embed dimension must be divisible by 4 for 2D sin-cos position embedding'
++    pos_dim = embed_dim // 4
++    omega = torch.arange(pos_dim, dtype=torch.float32) / pos_dim
++    omega = 1. / (temperature ** omega)
++    out_w = torch.einsum('m,d->md', [grid_w.flatten(), omega])
++    out_h = torch.einsum('m,d->md', [grid_h.flatten(), omega])
++    pos_emb = torch.cat([torch.sin(out_w), torch.cos(out_w), torch.sin(out_h), torch.cos(out_h)], dim=1)[None, :, :]
++    pos_emb = rearrange(pos_emb, 'b (h w) d -> b d h w', h=h, w=w, d=embed_dim)
++    return pos_emb
++
++
++def _no_grad_trunc_normal_(tensor, mean, std, a, b):
++    # Cut & paste from PyTorch official master until it's in a few official releases - RW
++    # Method based on https://people.sc.fsu.edu/~jburkardt/presentations/truncated_normal.pdf
++    def norm_cdf(x):
++        # Computes standard normal cumulative distribution function
++        return (1. + math.erf(x / math.sqrt(2.))) / 2.
++
++    if (mean < a - 2 * std) or (mean > b + 2 * std):
++        warnings.warn("mean is more than 2 std from [a, b] in nn.init.trunc_normal_. "
++                      "The distribution of values may be incorrect.",
++                      stacklevel=2)
++
++    with torch.no_grad():
++        # Values are generated by using a truncated uniform distribution and
++        # then using the inverse CDF for the normal distribution.
++        # Get upper and lower cdf values
++        l = norm_cdf((a - mean) / std)
++        u = norm_cdf((b - mean) / std)
++
++        # Uniformly fill tensor with values from [l, u], then translate to
++        # [2l-1, 2u-1].
++        tensor.uniform_(2 * l - 1, 2 * u - 1)
++
++        # Use inverse cdf transform for normal distribution to get truncated
++        # standard normal
++        tensor.erfinv_()
++
++        # Transform to proper mean, std
++        tensor.mul_(std * math.sqrt(2.))
++        tensor.add_(mean)
++
++        # Clamp to ensure it's in the proper range
++        tensor.clamp_(min=a, max=b)
++        return tensor
++
++
++def trunc_normal_(tensor, mean=0., std=1., a=-2., b=2.):
++    # type: (Tensor, float, float, float, float) -> Tensor
++    r"""Fills the input Tensor with values drawn from a truncated
++    normal distribution. The values are effectively drawn from the
++    normal distribution :math:`\mathcal{N}(\text{mean}, \text{std}^2)`
++    with values outside :math:`[a, b]` redrawn until they are within
++    the bounds. The method used for generating the random values works
++    best when :math:`a \leq \text{mean} \leq b`.
++    Args:
++        tensor: an n-dimensional `torch.Tensor`
++        mean: the mean of the normal distribution
++        std: the standard deviation of the normal distribution
++        a: the minimum cutoff value
++        b: the maximum cutoff value
++    Examples:
++        >>> w = torch.empty(3, 5)
++        >>> nn.init.trunc_normal_(w)
++    """
++    return _no_grad_trunc_normal_(tensor, mean, std, a, b)
++
++
++class FeaturesInputAdapter(nn.Module):
++    """Adapter for 1D vectors, like tabular data.
++     Creates tokens from each component over the 1D vector.
++     It was introduced in [1] as "Feature Tokenizer".
++     [1] Revisiting Deep Learning Models for Tabular Data, NeurIPS 2021
++     """
++
++    def __init__(self,
++                 n_features: int,
++                 dim_tokens: int, **kwargs):
++        super().__init__()
++        self.n_features = n_features
++        self.dim_tokens = dim_tokens
++        self.weight = nn.Parameter(torch.randn(self.n_features, self.dim_tokens))
++        self.bias = nn.Parameter(torch.randn(self.n_features, self.dim_tokens))
++
++    def forward(self, x):
++        """Forward pass through input adapter, transforming 1D vector to sequence of tokens.
++        :param x: Input tabular tensor, shape (*, `n_features`)
++        Returns tensor of shape (*, `n_features`, `dim_tokens`)
++        """
++        if x.ndim == 2:
++            x = rearrange(x, 'b n -> b n 1')
++        elif x.ndim == 3:
++            x = rearrange(x, 'b n l-> b (n l) 1')
++        else:
++            raise ValueError(f"Unexpected dim: {x.shape}")
++        # Features -> tokens projection
++        x = x * self.weight + self.bias
++        return x
++
++
++class SimpleFeaturesInputAdapter(nn.Module):
++    """Adapter for 1D vectors, like tabular data without learnable weights.
++    It directly maps the input vector to a 1-length sequence
++    """
++    def forward(self, x):
++        assert x.ndim == 2, f"Expected 2D tensors, got {x.shape}"
++        x = rearrange(x, 'b n -> b 1 n')
++        return x
++
++
++class PatchedInputAdapter(nn.Module):
++    """Adapter for spatial inputs, like images or feature maps.
++    Creates tokens from patches over the image.
++
++    :param num_channels: Number of input channels of the image/feature map
++    :param stride_level: Stride level compared to the full-sized image.
++        E.g. 4 for 1/4th the size of the image.
++    :param patch_size_full: Int or tuple of the patch size over the full image size.
++        Patch size for smaller inputs will be computed accordingly.
++    :param dim_tokens: Dimension of output tokens. Can be set using init method.
++    :param sincos_pos_emb: Set to True (default) to use fixed 2D sin-cos positional embeddings
++    :param learnable_pos_emb: Set to True to learn positional embeddings instead
++    :param image_size: Default image size. Used to initialize size of positional embeddings.
++    """
++    def __init__(self,
++                 num_channels: int,
++                 stride_level: int,
++                 patch_size_full: Union[int, Tuple[int,int]],
++                 dim_tokens: Optional[int] = None,
++                 sincos_pos_emb: bool = True,
++                 learnable_pos_emb: bool = False,
++                 image_size: Union[int, Tuple[int]] = 224):
++
++        super().__init__()
++        self.num_channels = num_channels
++        self.stride_level = stride_level
++        self.patch_size_full = pair(patch_size_full)
++        self.dim_tokens = dim_tokens
++        self.sincos_pos_emb = sincos_pos_emb
++        self.learnable_pos_emb = learnable_pos_emb
++        self.image_size = pair(image_size)
++        self.num_patches = (self.image_size[0] // patch_size_full) * (self.image_size[1] // patch_size_full)
++
++        # Actual patch height and width, taking into account stride of input
++        self.P_H = max(1, self.patch_size_full[0] // stride_level)
++        self.P_W = max(1, self.patch_size_full[1] // stride_level)
++
++        if self.dim_tokens is not None:
++            self.init(dim_tokens=dim_tokens)
++
++    def init(self, dim_tokens: int = 768):
++        """
++        Initialize parts of encoder that are dependent on dimension of tokens.
++        :param dim_tokens: Dimension of tokens
++        """
++        self.dim_tokens = dim_tokens
++
++        # Task embedding identifying from which task a given token comes from
++        # Fixed-size positional embeddings. Can be interpolated to different input sizes
++        h_posemb = self.image_size[0] // (self.stride_level * self.P_H)
++        w_posemb = self.image_size[1] // (self.stride_level * self.P_W)
++        if self.sincos_pos_emb:
++            self.pos_emb = build_2d_sincos_posemb(h=h_posemb, w=w_posemb, embed_dim=self.dim_tokens)
++            self.pos_emb = nn.Parameter(self.pos_emb, requires_grad=self.learnable_pos_emb)
++        else:
++            self.pos_emb = nn.Parameter(torch.zeros(1, self.dim_tokens, h_posemb, w_posemb))
++            trunc_normal_(self.pos_emb, std=0.02)
++
++        # Image -> tokens projection
++        self.proj = nn.Conv2d(
++            in_channels=self.num_channels, out_channels=self.dim_tokens,
++            kernel_size=(self.P_H, self.P_W), stride=(self.P_H, self.P_W)
++        )
++
++    @torch.jit.ignore
++    def no_weight_decay(self):
++        return {'pos_emb'}
++
++    def forward(self, x):
++        """
++        Forward pass through input adapter, transforming image to sequence of tokens.
++        Adds task and positional encodings.
++
++        :param x: Input image tensor
++        """
++        B, C, H, W = x.shape
++        assert self.dim_tokens is not None, 'Need to call init(dim_tokens) function first'
++        assert (H % self.P_H == 0) and (W % self.P_W == 0), f'Image sizes {H}x{W} must be divisible by patch sizes {self.P_H}x{self.P_W}'
++        N_H, N_W = H // self.P_H, W // self.P_W # Number of patches in height and width
++
++        # Create patches [B, C, H, W] -> [B, (H*W), C]
++        x_patch = rearrange(self.proj(x), 'b d nh nw -> b (nh nw) d')
++
++        # Create positional embedding
++        x_pos_emb = F.interpolate(self.pos_emb, size=(N_H, N_W), mode='bicubic', align_corners=False)
++        x_pos_emb = rearrange(x_pos_emb, 'b d nh nw -> b (nh nw) d')
++
++        # Add patches and positional embeddings
++        x = x_patch + x_pos_emb
++
++        return x
++
+diff --git a/sf_examples/vizdoom/doom/comm/mmfusion.py b/sf_examples/vizdoom/doom/comm/mmfusion.py
+index e71c6b0..26ca75e 100644
+--- a/sf_examples/vizdoom/doom/comm/mmfusion.py
++++ b/sf_examples/vizdoom/doom/comm/mmfusion.py
+@@ -5,7 +5,8 @@ from typing import List, Optional, Union
+ from einops import repeat
+ from collections import OrderedDict
+ # Local import
+-from models.mlp import MLP
++from sf_examples.vizdoom.doom.comm.mlp import MLP
++from sf_examples.vizdoom.doom.comm.vizdoom_encoder import VizdoomConvEncoder
+ 
+ class QuickGELU(nn.Module):
+     def forward(self, x: torch.Tensor):
+@@ -247,6 +248,8 @@ class MMFusion(nn.Module):
+         # 1. Encode input modalities
+         z = []
+         for (enc, xi) in zip(encoders, x):
++            if xi is None and isinstance(enc, VizdoomConvEncoder):
++                xi = torch.zeros([1, 3, 72, 128]).cuda()
+             embedding = enc(xi)
+             attn_mask_ = None
+             if isinstance(embedding, dict):  # attention mask must be considered
+diff --git a/sf_examples/vizdoom/doom/comm/vizdoom_encoder.py b/sf_examples/vizdoom/doom/comm/vizdoom_encoder.py
+index e69de29..d1c519c 100644
+--- a/sf_examples/vizdoom/doom/comm/vizdoom_encoder.py
++++ b/sf_examples/vizdoom/doom/comm/vizdoom_encoder.py
+@@ -0,0 +1,218 @@
++from typing import List
++import torch
++import torch.nn as nn
++import torch.nn.functional as F
++from torch.nn.utils import spectral_norm
++from abc import ABC, abstractmethod
++
++
++# noinspection PyMethodMayBeStatic,PyUnusedLocal
++class VizdoomEncoder(nn.Module):
++    def __init__(self):
++        super().__init__()
++
++    def get_out_size(self) -> int:
++        raise NotImplementedError()
++
++    def model_to_device(self, device):
++        """Default implementation, can be overridden in derived classes."""
++        self.to(device)
++
++    def type_for_input_tensor(self, input_tensor_name: str) -> torch.dtype:
++        return torch.float32
++
++
++class VizdoomConvEncoder(VizdoomEncoder):
++    def __init__(self, obs_shape=(3, 72, 128), conv_architecture="convnet_simple", mpl_layers=[512], non_linear="elu"):
++        super().__init__()
++
++        input_channels = obs_shape[0]
++        print(f"{VizdoomConvEncoder.__name__}: {input_channels=}")
++
++        if conv_architecture == "convnet_simple":
++            conv_filters = [[input_channels, 32, 8, 4], [32, 64, 4, 2], [64, 128, 3, 2]]
++        elif conv_architecture == "convnet_impala":
++            conv_filters = [[input_channels, 16, 8, 4], [16, 32, 4, 2]]
++        elif conv_architecture == "convnet_atari":
++            conv_filters = [[input_channels, 32, 8, 4], [32, 64, 4, 2], [64, 64, 3, 1]]
++        else:
++            raise NotImplementedError(f"Unknown encoder architecture {conv_architecture}")
++
++        activation = nonlinearity(non_linear)
++        extra_mlp_layers: List[int] = mpl_layers
++        enc = ConvEncoderImpl(obs_shape, conv_filters, extra_mlp_layers, activation)
++        self.enc = torch.jit.script(enc)
++
++        self.encoder_out_size = calc_num_elements(self.enc, obs_shape)
++        print(f"Conv encoder output size: {self.encoder_out_size}")
++
++    def get_out_size(self) -> int:
++        return self.encoder_out_size
++
++    def forward(self, obs: torch.Tensor) -> torch.Tensor:
++        return self.enc(obs)
++
++
++class ConvEncoderImpl(nn.Module):
++    """
++    After we parse all the configuration and figure out the exact architecture of the model,
++    we devote a separate module to it to be able to use torch.jit.script (hopefully benefit from some layer
++    fusion).
++    """
++
++    def __init__(self, obs_shape, conv_filters: List, extra_mlp_layers: List[int], activation: nn.Module):
++        super().__init__()
++
++        conv_layers = []
++        for layer in conv_filters:
++            if layer == "maxpool_2x2":
++                conv_layers.append(nn.MaxPool2d((2, 2)))
++            elif isinstance(layer, (list, tuple)):
++                inp_ch, out_ch, filter_size, stride = layer
++                conv_layers.append(nn.Conv2d(inp_ch, out_ch, filter_size, stride=stride))
++                conv_layers.append(activation)
++            else:
++                raise NotImplementedError(f"Layer {layer} not supported!")
++
++        self.conv_head = nn.Sequential(*conv_layers)
++        self.conv_head_out_size = calc_num_elements(self.conv_head, obs_shape)
++        self.mlp_layers = create_mlp(extra_mlp_layers, self.conv_head_out_size, activation)
++
++    def forward(self, obs: torch.Tensor) -> torch.Tensor:
++        x = self.conv_head(obs)
++        x = x.contiguous().view(-1, self.conv_head_out_size)
++        x = self.mlp_layers(x)
++        return x
++
++
++class VizdoomImageProcessor(nn.Module):
++    def __init__(self, common_dim, finetune=None):
++        super().__init__()
++        self.common_dim = common_dim
++        self.features = VizdoomConvEncoder()
++        self.linear = nn.Linear(self.features.encoder_out_size, self.common_dim)
++        self.finetune = finetune
++
++    def forward(self, x: torch.Tensor) -> torch.Tensor:
++        if self.finetune is not None and self.finetune != "image":
++            with torch.no_grad():
++                x = self.features(x)
++                x = self.linear(x)
++                return x
++        x = self.features(x)
++        x = self.linear(x)
++        return x
++
++
++class VizdoomBaseSoundEncoder(VizdoomEncoder, ABC):
++    def __init__(self, sampling_rate=22050, fps=35, frame_skip=4):
++        super(VizdoomBaseSoundEncoder, self).__init__()
++        self.sampling_rate = sampling_rate
++        self.FPS = fps
++        self.frame_skip = frame_skip
++
++    def forward(self, x: torch.Tensor) -> torch.Tensor:
++        # left side
++        if isinstance(x, List):
++            x = x[0]
++        left = x[:, :, 0]
++        left = self.encode_single_channel(left)
++        # right side
++        right = x[:, :, 1]
++        right = self.encode_single_channel(right)
++        return torch.cat((left, right), dim=1)
++
++    @abstractmethod
++    def encode_single_channel(self, data: torch.Tensor) -> torch.Tensor:
++        pass
++
++
++class VizdoomFFTEncoder(VizdoomBaseSoundEncoder):
++    def __init__(self, obs_shape=(2520, 2), sampling_rate=22050, fps=35, frame_skip=4):
++        super(VizdoomFFTEncoder, self).__init__()
++        self.num_to_subsample = 8
++        self.num_samples = (self.sampling_rate / self.FPS) * self.frame_skip
++        self.num_frequencies = self.num_samples / 2
++        assert int(self.num_samples) == self.num_samples
++        self.num_samples = int(self.num_samples)
++        self.num_frequencies = int(self.num_frequencies)
++
++        self.hamming_window = torch.hamming_window(self.num_samples)
++
++        # Subsampler
++        self.pool = torch.nn.MaxPool1d(self.num_to_subsample)
++
++        # Encoder (small MLP)
++        self.linear1 = torch.nn.Linear(int(self.num_frequencies / self.num_to_subsample), 256)
++        self.linear2 = torch.nn.Linear(256, 256)
++        self.encoder_out_size = calc_num_elements(self, obs_shape)
++
++    def _torch_1d_fft_magnitude(self, x: torch.Tensor):
++        """Perform 1D FFT on x with shape (batch_size, num_samples), and return magnitudes"""
++        # Apply hamming window
++        if x.device != self.hamming_window.device:
++            self.hamming_window = self.hamming_window.to(x.device)
++        x = x * self.hamming_window
++        # Add zero imaginery parts
++        x = torch.stack((x, torch.zeros_like(x)), dim=-1)
++        c = torch.view_as_complex(x)
++        ffts = torch.fft.fft(c)
++        ffts = torch.view_as_real(ffts)
++        # Remove mirrored part
++        ffts = ffts[:, :(ffts.shape[1] // 2), :]
++        # To magnitudes
++        mags = torch.sqrt(ffts[..., 0] ** 2 + ffts[..., 1] ** 2)
++        return mags
++
++    def get_out_size(self) -> int:
++        return self.encoder_out_size
++
++    def encode_single_channel(self, data: torch.Tensor) -> torch.Tensor:
++        """Shape of x: [batch_size, num_samples]"""
++        mags = self._torch_1d_fft_magnitude(data)
++        mags = torch.log(mags + 1e-5)
++
++        # Add and remove "channel" dim...
++        x = self.pool(mags[:, None, :])[:, 0, :]
++        x = F.relu(self.linear1(x))
++        x = F.relu(self.linear2(x))
++        return x
++
++
++def create_mlp(layer_sizes: List[int], input_size: int, activation: nn.Module) -> nn.Module:
++    """Sequential fully connected layers."""
++    layers = []
++    for i, size in enumerate(layer_sizes):
++        layers.extend([fc_layer(input_size, size), activation])
++        input_size = size
++
++    if len(layers) > 0:
++        return nn.Sequential(*layers)
++    else:
++        return nn.Identity()
++
++
++def fc_layer(in_features: int, out_features: int, bias=True, spec_norm=False) -> nn.Module:
++    layer = nn.Linear(in_features, out_features, bias)
++    if spec_norm:
++        layer = spectral_norm(layer)
++
++    return layer
++
++
++def calc_num_elements(module, module_input_shape):
++    shape_with_batch_dim = (1,) + module_input_shape
++    some_input = torch.rand(shape_with_batch_dim)
++    num_elements = module(some_input).numel()
++    return num_elements
++
++
++def nonlinearity(non_linear, inplace: bool = False) -> nn.Module:
++    if non_linear == "elu":
++        return nn.ELU(inplace=inplace)
++    elif non_linear == "relu":
++        return nn.ReLU(inplace=inplace)
++    elif non_linear == "tanh":
++        return nn.Tanh()
++    else:
++        raise Exception(f"Unknown {non_linear=}")
+diff --git a/sf_examples/vizdoom/doom/doom_gym.py b/sf_examples/vizdoom/doom/doom_gym.py
+index fd2318a..dc0bc85 100644
+--- a/sf_examples/vizdoom/doom/doom_gym.py
++++ b/sf_examples/vizdoom/doom/doom_gym.py
+@@ -83,18 +83,18 @@ def key_to_action_default(key):
+ 
+ class VizdoomEnv(gym.Env):
+     def __init__(
+-        self,
+-        action_space,
+-        config_file,
+-        coord_limits=None,
+-        max_histogram_length=200,
+-        show_automap=False,
+-        skip_frames=1,
+-        async_mode=False,
+-        record_to=None,
+-        render_mode: Optional[str] = None,
+-        use_auto_aim_support: bool = False,
+-        use_sonic_aim_support: bool = False,
++            self,
++            action_space,
++            config_file,
++            coord_limits=None,
++            max_histogram_length=200,
++            show_automap=False,
++            skip_frames=1,
++            async_mode=False,
++            record_to=None,
++            render_mode: Optional[str] = None,
++            use_auto_aim_support: bool = False,
++            use_sonic_aim_support: bool = False,
+     ):
+         self.initialized = False
+ 
+@@ -181,6 +181,7 @@ class VizdoomEnv(gym.Env):
+         self.use_auto_aim_support = use_auto_aim_support
+         self.use_sonic_aim_support = use_sonic_aim_support
+         self.last_sonic_time = time.time()
++        self.step_count = 0
+ 
+     def seed(self, seed: Optional[int] = None):
+         """
+@@ -188,7 +189,7 @@ class VizdoomEnv(gym.Env):
+         If None is passed, the seed is generated randomly.
+         """
+         self.rng, self.curr_seed = seeding.np_random(seed=seed)
+-        self.curr_seed = self.curr_seed % (2**32)  # Doom only supports 32-bit seeds
++        self.curr_seed = self.curr_seed % (2 ** 32)  # Doom only supports 32-bit seeds
+         return [self.curr_seed, self.rng]
+ 
+     def calc_observation_space(self):
+@@ -421,7 +422,7 @@ class VizdoomEnv(gym.Env):
+         self._prev_info = None
+ 
+         self._num_episodes += 1
+-
++        self.step_count = 0
+         return {
+             "img": np.transpose(img, (1, 2, 0)),
+             "sound": audio,
+@@ -500,11 +501,45 @@ class VizdoomEnv(gym.Env):
+ 
+         return {"img": observation, "sound": audio_buffer}, done, info
+ 
++    # def step(self, actions) -> Tuple[np.ndarray, float, bool, bool, Dict]:
++    #     """
++    #     Action is either a single value (discrete, one-hot), or a tuple with an action for each of the
++    #     discrete action subspaces.
++    #     """
++    #     if self._actions_flattened is not None:
++    #         # provided externally, e.g. via human play
++    #         actions_flattened = self._actions_flattened
++    #         self._actions_flattened = None
++    #     else:
++    #         actions_flattened = self._convert_actions(actions)
++    #
++    #     if self.use_auto_aim_support:
++    #         turn_left, turn_right = auto_aim(
++    #             -1, 45, self.game.get_state().objects, P_Name="DoomPlayer"
++    #         )
++    #         turn_delta = (turn_right - turn_left) * 3
++    #         actions_flattened += [turn_delta]
++    #     if self.use_sonic_aim_support:
++    #         self.last_sonic_time = sonic_aim(
++    #             500, 45, self.game.get_state().objects, self.game, self.last_sonic_time
++    #         )
++    #     default_info = {"num_frames": self.skip_frames}
++    #     reward = self.game.make_action(actions_flattened, self.skip_frames)
++    #     state = self.game.get_state()
++    #     done = self.game.is_episode_finished()
++    #
++    #     observation, done, info = self._process_game_step(state, done, default_info)
++    #
++    #     # Gym 0.26.0 changes
++    #     terminated = done
++    #     truncated = False
++    #     return observation, reward, terminated, truncated, info
+     def step(self, actions) -> Tuple[np.ndarray, float, bool, bool, Dict]:
+         """
+         Action is either a single value (discrete, one-hot), or a tuple with an action for each of the
+         discrete action subspaces.
+         """
++        self.step_count += 1
+         if self._actions_flattened is not None:
+             # provided externally, e.g. via human play
+             actions_flattened = self._actions_flattened
+@@ -513,15 +548,11 @@ class VizdoomEnv(gym.Env):
+             actions_flattened = self._convert_actions(actions)
+ 
+         if self.use_auto_aim_support:
+-            turn_left, turn_right = auto_aim(
+-                -1, 45, self.game.get_state().objects, P_Name="DoomPlayer"
+-            )
++            turn_left, turn_right = auto_aim(-1, 45, self.game.get_state().objects, P_Name="DoomPlayer")
+             turn_delta = (turn_right - turn_left) * 3
+             actions_flattened += [turn_delta]
+         if self.use_sonic_aim_support:
+-            self.last_sonic_time = sonic_aim(
+-                500, 45, self.game.get_state().objects, self.game, self.last_sonic_time
+-            )
++            self.last_sonic_time = sonic_aim(500, 45, self.game.get_state().objects, self.game, self.last_sonic_time)
+         default_info = {"num_frames": self.skip_frames}
+         reward = self.game.make_action(actions_flattened, self.skip_frames)
+         state = self.game.get_state()
+@@ -532,6 +563,18 @@ class VizdoomEnv(gym.Env):
+         # Gym 0.26.0 changes
+         terminated = done
+         truncated = False
++        # episode_info = info.get('episode', {})
++        # episode_info['r'] = reward
++        # info['episode'] = episode_info
++        if done:
++            extras = info.get("episode_extra_stats", {}) or {}
++            extras.update({
++                "kills": self.game.get_game_variable(vzd.GameVariable.KILLCOUNT),
++                "health": self.game.get_game_variable(vzd.GameVariable.HEALTH),
++                "death": int(self.game.get_game_variable(vzd.GameVariable.HEALTH) <= 0),
++                "length": self.step_count
++            })
++            info['episode_extra_stats'] = extras
+         return observation, reward, terminated, truncated, info
+ 
+     def render(self) -> Optional[np.ndarray]:
+@@ -634,10 +677,10 @@ class VizdoomEnv(gym.Env):
+ 
+         # Get agent coordinates normalized to [0, 1]
+         dx = (agent_x - self.coord_limits[0]) / (
+-            self.coord_limits[2] - self.coord_limits[0]
++                self.coord_limits[2] - self.coord_limits[0]
+         )
+         dy = (agent_y - self.coord_limits[1]) / (
+-            self.coord_limits[3] - self.coord_limits[1]
++                self.coord_limits[3] - self.coord_limits[1]
+         )
+ 
+         # Rescale coordinates to histogram dimensions
+@@ -682,7 +725,7 @@ class VizdoomEnv(gym.Env):
+         # noinspection PyProtectedMember
+         def start_listener():
+             with Listener(
+-                on_press=doom._keyboard_on_press, on_release=doom._keyboard_on_release
++                    on_press=doom._keyboard_on_press, on_release=doom._keyboard_on_release
+             ) as listener:
+                 listener.join()
+ 
+@@ -872,14 +915,14 @@ def auto_aim(Distance_T, Angle_T, objects, P_Name="DoomPlayer"):
+ 
+             # Ensure enemy detection is within allowed range
+             if (Distance_T == -1 or distance <= Distance_T) and (
+-                Angle_T == -1 or abs(angle_diff) <= Angle_T
++                    Angle_T == -1 or abs(angle_diff) <= Angle_T
+             ):
+                 # Get enemy base HP
+                 enemy_hp = ENEMY_HEALTH[obj.name]
+ 
+                 # Prioritize closest first, then highest HP if distances are equal
+                 if distance < Target_Distance or (
+-                    distance == Target_Distance and enemy_hp > Target_HP
++                        distance == Target_Distance and enemy_hp > Target_HP
+                 ):
+                     Target_Enemy = obj
+                     Target_Distance = distance
+@@ -971,14 +1014,14 @@ def sonic_aim(Distance_T, Angle_T, objects, game, last_play_time, P_Name="DoomPl
+ 
+             # Ensure enemy detection is within allowed range
+             if (Distance_T == -1 or distance <= Distance_T) and (
+-                Angle_T == -1 or abs(angle_diff) <= Angle_T
++                    Angle_T == -1 or abs(angle_diff) <= Angle_T
+             ):
+                 # Get enemy base HP
+                 enemy_hp = ENEMY_HEALTH[obj.name]
+ 
+                 # Prioritize closest first, then highest HP if distances are equal
+                 if distance < Target_Distance or (
+-                    distance == Target_Distance and enemy_hp > Target_HP
++                        distance == Target_Distance and enemy_hp > Target_HP
+                 ):
+                     Target_Enemy = obj
+                     Target_Distance = distance
+@@ -992,7 +1035,7 @@ def sonic_aim(Distance_T, Angle_T, objects, game, last_play_time, P_Name="DoomPl
+     current_time = time.time()
+ 
+     if abs(Target_Angle) <= Angle_T and (
+-        current_time - last_play_time >= sound_duration
++            current_time - last_play_time >= sound_duration
+     ):
+         # Choose the closest sound file based on angle alignment
+         volume_index = round(
+diff --git a/sf_examples/vizdoom/doom/doom_model.py b/sf_examples/vizdoom/doom/doom_model.py
+index 479a14e..663165e 100644
+--- a/sf_examples/vizdoom/doom/doom_model.py
++++ b/sf_examples/vizdoom/doom/doom_model.py
+@@ -6,7 +6,9 @@ from sample_factory.model.encoder import Encoder, make_img_encoder, make_sound_e
+ from sample_factory.model.model_utils import nonlinearity
+ from sample_factory.utils.typing import Config, ObsSpace
+ from sample_factory.utils.utils import log
+-from sf_examples.vizdoom.doom.gmc.gmc import VizdoomGMC, VizdoomGMCWrapper
++from sf_examples.vizdoom.doom.gmc.gmc import VizdoomGMC, VizdoomGMC2Wrapper, VizdoomGMCWrapper, VizdoomGMC3Wrapper, VizdoomGMC4Wrapper, VizdoomGMC5Wrapper, VizdoomGMC6Wrapper, VizdoomGMC7Wrapper, \
++VizdoomGMC8Wrapper
++from sf_examples.vizdoom.doom.comm.comm import VizdoomCoMMWrapper
+ 
+ 
+ class VizdoomEncoder(Encoder):
+@@ -68,5 +70,28 @@ def make_vizdoom_encoder(cfg: Config, obs_space: ObsSpace) -> Encoder:
+     """Factory function as required by the API."""
+     if cfg.encoder_type == "normal":
+         return VizdoomEncoder(cfg, obs_space)
+-    else:
++    elif cfg.encoder_type == "gmc":
+         return VizdoomGMCWrapper(cfg, "gmc")
++    elif cfg.encoder_type == "gmc2":
++        return VizdoomGMC2Wrapper(cfg, "gmc2")
++    elif cfg.encoder_type == "gmc3":
++        return VizdoomGMC3Wrapper(cfg, "gmc3")
++    elif cfg.encoder_type == "gmc4":
++        return VizdoomGMC4Wrapper(cfg, "gmc4")
++    elif cfg.encoder_type == "gmc5":
++        return VizdoomGMC5Wrapper(cfg, "gmc5")
++    elif cfg.encoder_type == "gmc6":
++        return VizdoomGMC6Wrapper(cfg, "gmc6")
++    elif cfg.encoder_type == "gmc7":
++        return VizdoomGMC7Wrapper(cfg, "gmc7")
++    elif cfg.encoder_type == "gmc8":
++        return VizdoomGMC8Wrapper(cfg, "gmc7")
++    elif cfg.encoder_type == "comm":
++        return VizdoomCoMMWrapper(cfg)
++    elif cfg.encoder_type == "comm2":
++        return VizdoomCoMMWrapper(cfg, adapter=2)
++    elif cfg.encoder_type == "comm_weighted":
++        return VizdoomCoMMWrapper(cfg, adapter=2, model=2)
++    elif cfg.encoder_type == "comm_weighted2":
++        return VizdoomCoMMWrapper(cfg, adapter=2, model=3)
++
+diff --git a/sf_examples/vizdoom/doom/doom_utils.py b/sf_examples/vizdoom/doom/doom_utils.py
+index 574f21f..763b2d7 100644
+--- a/sf_examples/vizdoom/doom/doom_utils.py
++++ b/sf_examples/vizdoom/doom/doom_utils.py
+@@ -129,7 +129,35 @@ DOOM_ENVS = [
+     DoomSpec("doom_take_cover_new_design", "take_cover_new_design.cfg", Discrete(1 + 2), 1.0, -1),
+     DoomSpec("doom_predict_position", "predict_position.cfg", Discrete(1 + 3), 1.0, 300),
+     DoomSpec("doom_predict_position_new_design", "predict_position_new_design.cfg", Discrete(1 + 3), 1.0, 300),
+-
++    DoomSpec("doom_defend_the_center", "defend_the_center.cfg", doom_turn_and_attack_only(), 1.0),
++    DoomSpec(
++        "doom_basic_new_design_5",
++        "basic_new_design_5.cfg",
++        Discrete(1 + 3),  # idle, left, right, attack
++        reward_scaling=0.01,
++        default_timeout=300,
++    ),
++    DoomSpec(
++        "doom_basic_new_design_6",
++        "basic_new_design_6.cfg",
++        Discrete(1 + 3),  # idle, left, right, attack
++        reward_scaling=0.01,
++        default_timeout=300,
++    ),
++    DoomSpec(
++        "doom_basic_new_design_7",
++        "basic_new_design_7.cfg",
++        Discrete(1 + 3),  # idle, left, right, attack
++        reward_scaling=0.01,
++        default_timeout=300,
++    ),
++    DoomSpec(
++        "doom_basic_new_design_4_2",
++        "basic_new_design_4_2.cfg",
++        Discrete(1 + 3),  # idle, left, right, attack
++        reward_scaling=0.01,
++        default_timeout=300,
++    ),
+ ]
+ 
+ 
+diff --git a/sf_examples/vizdoom/doom/gmc/__pycache__/gmc.cpython-312.pyc b/sf_examples/vizdoom/doom/gmc/__pycache__/gmc.cpython-312.pyc
+index c404a29..654f5dd 100644
+Binary files a/sf_examples/vizdoom/doom/gmc/__pycache__/gmc.cpython-312.pyc and b/sf_examples/vizdoom/doom/gmc/__pycache__/gmc.cpython-312.pyc differ
+diff --git a/sf_examples/vizdoom/doom/gmc/__pycache__/gmc_networks.cpython-312.pyc b/sf_examples/vizdoom/doom/gmc/__pycache__/gmc_networks.cpython-312.pyc
+index 203fb18..bf6426c 100644
+Binary files a/sf_examples/vizdoom/doom/gmc/__pycache__/gmc_networks.cpython-312.pyc and b/sf_examples/vizdoom/doom/gmc/__pycache__/gmc_networks.cpython-312.pyc differ
+diff --git a/sf_examples/vizdoom/doom/gmc/gmc.py b/sf_examples/vizdoom/doom/gmc/gmc.py
+index c39644b..0e7bf5f 100755
+--- a/sf_examples/vizdoom/doom/gmc/gmc.py
++++ b/sf_examples/vizdoom/doom/gmc/gmc.py
+@@ -4,7 +4,11 @@ from torch import Tensor
+ from sf_examples.vizdoom.doom.gmc.gmc_networks import *
+ from torch.utils.flop_counter import FlopCounterMode
+ from sample_factory.model.encoder import Encoder
+-
++from torchvision import transforms
++from PIL import ImageFilter
++import random
++from torchvision.transforms.functional import to_pil_image
++import math
+ 
+ class GMC(LightningModule):
+     def __init__(self, name, common_dim, latent_dim, loss_type="infonce"):
+@@ -326,20 +330,1289 @@ class VizdoomGMC(GMC):
+         return self.latent_dim
+ 
+ 
+-class VizdoomGMCWrapper(Encoder, nn.Module):
+-    def __init__(self, cfg, name):
+-        super(VizdoomGMCWrapper, self).__init__(cfg)
+-        self.gmc = VizdoomGMC(name, cfg.gmc_common_dim, cfg.gmc_latent_dim, cfg.gmc_loss_type, None,
+-                              cfg.gmc_freeze,
+-                              cfg.gmc_model_file)
+-        self.cfg = cfg
++class GMC2(GMC):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None):
++        super(GMC2, self).__init__(name, common_dim, latent_dim, loss_type="infonce")
+ 
+-    def encode(self, x):
+-        return self.gmc.encode(x)
++        self.name = name
++        self.common_dim = common_dim
++        self.latent_dim = latent_dim
++        self.loss_type = loss_type
+ 
+-    def get_out_size(self) -> int:
+-        return self.cfg.gmc_latent_dim
++        self.image_processor = None
++        self.label_processor = None
++        self.joint_processor = None
++        self.processors = [
++            self.image_processor,
++            self.label_processor,
++            self.joint_processor,
++        ]
+ 
+-    def freeze_weights(self):
+-        self.gmc.eval()
+-        freeze_module(self.gmc)
++        self.encoder = None
++        self.finetune = None
++        self.loss_weights = None
++        self.augmentations = None
++        self.sound_latent_reconstruct = None
++
++    def forward(self, x):
++
++        # Forward pass through the modality specific encoders
++        batch_representations = []
++        mod_presentations = []
++        for processor_idx in range(len(self.processors) - 1):
++            # print(x[processor_idx].shape)
++            mod_presentations.append(
++                self.processors[processor_idx](x[processor_idx]))
++            mod_fused_representations = self.encoder(
++                mod_presentations[-1]
++            )
++            batch_representations.append(mod_fused_representations)
++
++        # Forward pass through the joint encoder
++        # if self.finetune is not None:
++        #     with torch.no_grad():
++        #         joint_representation = self.encoder(self.processors[-1](x))
++        # else:
++        #     joint_representation = self.encoder(self.processors[-1](x))
++        joint_representation = self.encoder(self.processors[-1](x))
++        batch_representations.append(joint_representation)
++        return batch_representations, mod_presentations
++
++    def training_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0].shape[0]
++
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data)
++
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        reconstructed_sound_latent = self.sound_latent_reconstruct(batch_representations[1])
++        latent_reconstruction_loss = F.mse_loss(mod_representations[1], reconstructed_sound_latent)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        tqdm_dict["latent_reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, latent_reconstruction_loss)
++        tqdm_dict['weighted_loss'] = loss
++        return loss, tqdm_dict
++
++    def validation_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0].shape[0]
++
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data)
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        reconstructed_sound_latent = self.sound_latent_reconstruct(batch_representations[1])
++        latent_reconstruction_loss = F.mse_loss(mod_representations[1], reconstructed_sound_latent)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        tqdm_dict["latent_reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, latent_reconstruction_loss)
++        tqdm_dict['weighted_loss'] = loss
++        return tqdm_dict
++
++class VizdoomGMC2(GMC2):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None, freeze=False,
++                 model_path=None):
++        super(VizdoomGMC2, self).__init__(
++            name, common_dim, latent_dim, loss_type="infonce"
++        )
++
++        self.image_processor = VizdoomImageProcessor(common_dim=common_dim)
++        self.sound_processor = VizdoomSoundProcessor(common_dim=common_dim)
++        self.joint_processor = VizdoomJointProcessor(common_dim=common_dim, finetune=finetune)
++        self.processors = [
++            self.image_processor,
++            self.sound_processor,
++            self.joint_processor,
++        ]
++        self.loss_type = loss_type
++        if finetune is not None:
++            if finetune != "image":
++                self.image_processor.eval()
++                freeze_module(self.image_processor)
++            elif finetune != "sound":
++                self.sound_processor.eval()
++                freeze_module(self.sound_processor)
++
++        self.encoder = HyperhotCommonEncoder(
++            common_dim=common_dim, latent_dim=latent_dim
++        )
++        if finetune is not None:
++            self.encoder.eval()
++            freeze_module(self.encoder)
++        # normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
++        #                                      std=[0.229, 0.224, 0.225])
++        # self.augmentations = []
++        # self.augmentations.append(transforms.Compose([
++        #     transforms.ToPILImage(),
++        #     transforms.RandomResizedCrop((72, 128), scale=(0.08, 1.)),
++        #     transforms.RandomApply([
++        #         transforms.ColorJitter(0.4, 0.4, 0.4, 0.1)  # not strengthened
++        #     ], p=0.8),
++        #     transforms.RandomGrayscale(p=0.2),
++        #     transforms.RandomApply([GaussianBlur([.1, 2.])], p=0.5),
++        #     transforms.RandomHorizontalFlip(),
++        #     transforms.ToTensor(),
++        #     normalize,
++        # ]))
++        # self.augmentations.append(self.noise)
++        self.loss_weights = AutomaticWeightedLoss(2)
++        self.sound_latent_reconstruct = SoundLatentReconstructor(latent_dim=latent_dim, common_dim=common_dim)
++
++        if model_path is not None:
++            info = self.load_state_dict(torch.load(model_path)['state_dict'])
++            print('Loading gmc info', info)
++        if freeze:
++            self.eval()
++            freeze_module(self)
++
++    def noise(self, x, std=0.1):
++        # return [x_ + np.random.randn(*x_.shape).astype(np.float32) * std for x_ in x]
++        return [x_ + torch.randn(*x_.shape).type(torch.float32) * std for x_ in x]
++
++class GMC3(GMC):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None):
++        super(GMC3, self).__init__(name, common_dim, latent_dim, loss_type="infonce")
++
++        self.name = name
++        self.common_dim = common_dim
++        self.latent_dim = latent_dim
++        self.loss_type = loss_type
++
++        self.image_processor = None
++        self.label_processor = None
++        self.joint_processor = None
++        self.processors = [
++            self.image_processor,
++            self.label_processor,
++            self.joint_processor,
++        ]
++
++        self.encoder = None
++        self.finetune = None
++        self.loss_weights = None
++        self.augmentations = None
++        self.sound_reconstruct = None
++
++    def forward(self, x):
++
++        # Forward pass through the modality specific encoders
++        batch_representations = []
++        mod_presentations = []
++        for processor_idx in range(len(self.processors) - 1):
++            # print(x[processor_idx].shape)
++            mod_presentations.append(
++                self.processors[processor_idx](x[processor_idx]))
++            mod_fused_representations = self.encoder(
++                mod_presentations[-1]
++            )
++            batch_representations.append(mod_fused_representations)
++
++        # Forward pass through the joint encoder
++        # if self.finetune is not None:
++        #     with torch.no_grad():
++        #         joint_representation = self.encoder(self.processors[-1](x))
++        # else:
++        #     joint_representation = self.encoder(self.processors[-1](x))
++        joint_representation = self.encoder(self.processors[-1](x))
++        batch_representations.append(joint_representation)
++        return batch_representations, mod_presentations
++
++    def training_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0].shape[0]
++
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data)
++
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        # reconstructed_sound_latent = self.sound_latent_reconstruct(batch_representations[1])
++        reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        latent_reconstruction_loss = F.mse_loss(data[1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, latent_reconstruction_loss)
++        tqdm_dict['weighted_loss'] = loss
++        return loss, tqdm_dict
++
++    def validation_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0].shape[0]
++
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data)
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        latent_reconstruction_loss = F.mse_loss(data[1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, latent_reconstruction_loss)
++        tqdm_dict['weighted_loss'] = loss
++        return tqdm_dict
++
++class GMC4(GMC):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None):
++        super(GMC4, self).__init__(name, common_dim, latent_dim, loss_type="infonce")
++
++        self.name = name
++        self.common_dim = common_dim
++        self.latent_dim = latent_dim
++        self.loss_type = loss_type
++
++        self.image_processor = None
++        self.label_processor = None
++        self.joint_processor = None
++        self.processors = [
++            self.image_processor,
++            self.label_processor,
++            self.joint_processor,
++        ]
++
++        self.encoder = None
++        self.finetune = None
++        self.loss_weights = None
++        self.augmentations = None
++        self.sound_reconstruct = None
++
++    def forward(self, x):
++
++        # Forward pass through the modality specific encoders
++        batch_representations = []
++        mod_presentations = []
++        for processor_idx in range(len(self.processors) - 1):
++            # print(x[processor_idx].shape)
++            mod_presentations.append(
++                self.processors[processor_idx](x[processor_idx]))
++            mod_fused_representations = self.encoder(
++                mod_presentations[-1]
++            )
++            batch_representations.append(mod_fused_representations)
++
++        # Forward pass through the joint encoder
++        # if self.finetune is not None:
++        #     with torch.no_grad():
++        #         joint_representation = self.encoder(self.processors[-1](x))
++        # else:
++        #     joint_representation = self.encoder(self.processors[-1](x))
++        joint_representation = self.encoder(self.processors[-1](x))
++        batch_representations.append(joint_representation)
++        return batch_representations, mod_presentations
++
++    def training_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0][0].shape[0]
++        data_augmented = data[0]
++        data_original = data[1]
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data_augmented)
++
++        batch_representations_original, mod_representations_original = self.forward(data_original)
++
++        mixed_representations = batch_representations_original[:-1] + [batch_representations[-1]]
++
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce_with_joints_as_negatives(mixed_representations, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce(mixed_representations, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        # reconstructed_sound_latent = self.sound_latent_reconstruct(batch_representations[1])
++        reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        latent_reconstruction_loss = F.mse_loss(data[0][1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, loss2, latent_reconstruction_loss)
++        tqdm_dict['weighted_loss'] = loss
++        return loss, tqdm_dict
++
++    def validation_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0][0].shape[0]
++        data_augmented = data[0]
++        data_original = data[1]
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data_augmented)
++
++        batch_representations_original, mod_representations_original = self.forward(data_original)
++
++        mixed_representations = batch_representations_original[:-1] + [batch_representations[-1]]
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce_with_joints_as_negatives(mixed_representations, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce(mixed_representations, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        latent_reconstruction_loss = F.mse_loss(data[0][1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, loss2, latent_reconstruction_loss)
++        tqdm_dict['weighted_loss'] = loss
++        return tqdm_dict
++
++class GMC5(GMC):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None):
++        super(GMC5, self).__init__(name, common_dim, latent_dim, loss_type="infonce")
++
++        self.name = name
++        self.common_dim = common_dim
++        self.latent_dim = latent_dim
++        self.loss_type = loss_type
++
++        self.image_processor = None
++        self.label_processor = None
++        self.joint_processor = None
++        self.processors = [
++            self.image_processor,
++            self.label_processor,
++            self.joint_processor,
++        ]
++
++        self.encoder = None
++        self.finetune = None
++        self.loss_weights = None
++        self.augmentations = None
++        # self.sound_reconstruct = None
++
++    def forward(self, x):
++
++        # Forward pass through the modality specific encoders
++        batch_representations = []
++        mod_presentations = []
++        for processor_idx in range(len(self.processors) - 1):
++            # print(x[processor_idx].shape)
++            mod_presentations.append(
++                self.processors[processor_idx](x[processor_idx]))
++            mod_fused_representations = self.encoder(
++                mod_presentations[-1]
++            )
++            batch_representations.append(mod_fused_representations)
++
++        # Forward pass through the joint encoder
++        # if self.finetune is not None:
++        #     with torch.no_grad():
++        #         joint_representation = self.encoder(self.processors[-1](x))
++        # else:
++        #     joint_representation = self.encoder(self.processors[-1](x))
++        joint_representation = self.encoder(self.processors[-1](x))
++        batch_representations.append(joint_representation)
++        return batch_representations, mod_presentations
++
++    def training_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0][0].shape[0]
++        data_augmented = data[0]
++        data_original = data[1]
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data_augmented)
++
++        batch_representations_original, mod_representations_original = self.forward(data_original)
++
++        mixed_representations = batch_representations_original[:-1] + [batch_representations[-1]]
++
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce_with_joints_as_negatives(mixed_representations, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce(mixed_representations, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        # reconstructed_sound_latent = self.sound_latent_reconstruct(batch_representations[1])
++        # reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        # latent_reconstruction_loss = F.mse_loss(data[0][1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        # tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, loss2)
++        tqdm_dict['weighted_loss'] = loss
++        return loss, tqdm_dict
++
++    def validation_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0][0].shape[0]
++        data_augmented = data[0]
++        data_original = data[1]
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data_augmented)
++
++        batch_representations_original, mod_representations_original = self.forward(data_original)
++
++        mixed_representations = batch_representations_original[:-1] + [batch_representations[-1]]
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce_with_joints_as_negatives(mixed_representations, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce(mixed_representations, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        # reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        # latent_reconstruction_loss = F.mse_loss(data[0][1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        # tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, loss2)
++        tqdm_dict['weighted_loss'] = loss
++        return tqdm_dict
++
++class GMC6(GMC):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None):
++        super(GMC6, self).__init__(name, common_dim, latent_dim, loss_type="infonce")
++
++        self.name = name
++        self.common_dim = common_dim
++        self.latent_dim = latent_dim
++        self.loss_type = loss_type
++
++        self.image_processor = None
++        self.label_processor = None
++        self.joint_processor = None
++        self.processors = [
++            self.image_processor,
++            self.label_processor,
++            self.joint_processor,
++        ]
++
++        self.encoder = None
++        self.finetune = None
++        self.loss_weights = None
++        self.augmentations = None
++        # self.sound_reconstruct = None
++
++    def forward(self, x):
++
++        # Forward pass through the modality specific encoders
++        batch_representations = []
++        mod_presentations = []
++        for processor_idx in range(len(self.processors) - 1):
++            # print(x[processor_idx].shape)
++            mod_presentations.append(
++                self.processors[processor_idx](x[processor_idx]))
++            mod_fused_representations = self.encoder(
++                mod_presentations[-1]
++            )
++            batch_representations.append(mod_fused_representations)
++
++        # Forward pass through the joint encoder
++        # if self.finetune is not None:
++        #     with torch.no_grad():
++        #         joint_representation = self.encoder(self.processors[-1](x))
++        # else:
++        #     joint_representation = self.encoder(self.processors[-1](x))
++        joint_representation = self.encoder(self.processors[-1](x))
++        batch_representations.append(joint_representation)
++        return batch_representations, mod_presentations
++
++    def training_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0][0].shape[0]
++        data_augmented = data[0]
++        data_original = data[1]
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data_augmented)
++
++        batch_representations_original, mod_representations_original = self.forward(data_original)
++
++        # mixed_representations = batch_representations_original[:-1] + [batch_representations[-1]]
++        mixed_representations = batch_representations[:-1] + [batch_representations_original[-1]]
++
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce_with_joints_as_negatives(mixed_representations, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce(mixed_representations, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        # reconstructed_sound_latent = self.sound_latent_reconstruct(batch_representations[1])
++        # reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        # latent_reconstruction_loss = F.mse_loss(data[0][1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        # tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, loss2)
++        tqdm_dict['weighted_loss'] = loss
++        return loss, tqdm_dict
++
++    def validation_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0][0].shape[0]
++        data_augmented = data[0]
++        data_original = data[1]
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data_augmented)
++
++        batch_representations_original, mod_representations_original = self.forward(data_original)
++
++        mixed_representations = batch_representations_original[:-1] + [batch_representations[-1]]
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce_with_joints_as_negatives(mixed_representations, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce(mixed_representations, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        # reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        # latent_reconstruction_loss = F.mse_loss(data[0][1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        # tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, loss2)
++        tqdm_dict['weighted_loss'] = loss
++        return tqdm_dict
++
++class GMC7(GMC):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None):
++        super(GMC7, self).__init__(name, common_dim, latent_dim, loss_type="infonce")
++
++        self.name = name
++        self.common_dim = common_dim
++        self.latent_dim = latent_dim
++        self.loss_type = loss_type
++
++        self.image_processor = None
++        self.label_processor = None
++        self.joint_processor = None
++        self.processors = [
++            self.image_processor,
++            self.label_processor,
++            self.joint_processor,
++        ]
++
++        self.encoder = None
++        self.finetune = None
++        self.loss_weights = None
++        self.augmentations = None
++        # self.sound_reconstruct = None
++
++    def forward(self, x):
++
++        # Forward pass through the modality specific encoders
++        batch_representations = []
++        mod_presentations = []
++        for processor_idx in range(len(self.processors) - 1):
++            # print(x[processor_idx].shape)
++            mod_presentations.append(
++                self.processors[processor_idx](x[processor_idx]))
++            mod_fused_representations = self.encoder(
++                mod_presentations[-1]
++            )
++            batch_representations.append(mod_fused_representations)
++
++        # Forward pass through the joint encoder
++        # if self.finetune is not None:
++        #     with torch.no_grad():
++        #         joint_representation = self.encoder(self.processors[-1](x))
++        # else:
++        #     joint_representation = self.encoder(self.processors[-1](x))
++        joint_representation = self.encoder(self.processors[-1](x))
++        batch_representations.append(joint_representation)
++        return batch_representations, mod_presentations
++
++    def training_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0][0].shape[0]
++        data_augmented = data[0]
++        data_original = data[1]
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data_augmented)
++
++        batch_representations_original, mod_representations_original = self.forward(data_original)
++
++        # mixed_representations = batch_representations_original[:-1] + [batch_representations[-1]]
++        mixed_representations = batch_representations[:-1] + [batch_representations_original[-1]]
++
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce_with_joints_as_negatives(mixed_representations, temperature, batch_size)
++            loss3, tqdm_dict3 = self.infonce_with_joints_as_negatives(batch_representations_original, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce(mixed_representations, temperature, batch_size)
++            loss3, tqdm_dict3 = self.infonce(batch_representations_original, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        # reconstructed_sound_latent = self.sound_latent_reconstruct(batch_representations[1])
++        # reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        # latent_reconstruction_loss = F.mse_loss(data[0][1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        # tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, loss2, loss3)
++        tqdm_dict['weighted_loss'] = loss
++        return loss, tqdm_dict
++
++    def validation_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0][0].shape[0]
++        data_augmented = data[0]
++        data_original = data[1]
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data_augmented)
++
++        batch_representations_original, mod_representations_original = self.forward(data_original)
++
++        mixed_representations = batch_representations_original[:-1] + [batch_representations[-1]]
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce_with_joints_as_negatives(mixed_representations, temperature, batch_size)
++            loss3, tqdm_dict3 = self.infonce_with_joints_as_negatives(batch_representations_original, temperature, batch_size)
++        else:
++            loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce(mixed_representations, temperature, batch_size)
++            loss3, tqdm_dict3 = self.infonce(batch_representations_original, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        # reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        # latent_reconstruction_loss = F.mse_loss(data[0][1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        # tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss
++        loss = self.loss_weights(loss, loss2, loss3)
++        tqdm_dict['weighted_loss'] = loss
++        return tqdm_dict
++    
++
++class VizdoomGMC3(GMC3):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None):
++        super(VizdoomGMC3, self).__init__(
++            name, common_dim, latent_dim, loss_type="infonce"
++        )
++
++        self.image_processor = VizdoomImageProcessor(common_dim=common_dim, finetune=finetune)
++        self.sound_processor = VizdoomSoundProcessor(common_dim=common_dim)
++        self.joint_processor = VizdoomJointProcessor(common_dim=common_dim, finetune=finetune)
++        self.processors = [
++            self.image_processor,
++            self.sound_processor,
++            self.joint_processor,
++        ]
++        self.loss_type = loss_type
++        if finetune is not None:
++            if finetune != "image":
++                self.image_processor.eval()
++                freeze_module(self.image_processor)
++            elif finetune != "sound":
++                self.sound_processor.eval()
++                freeze_module(self.sound_processor)
++
++        self.encoder = HyperhotCommonEncoder(
++            common_dim=common_dim, latent_dim=latent_dim
++        )
++        if finetune is not None:
++            self.encoder.eval()
++            freeze_module(self.encoder)
++        self.loss_weights = AutomaticWeightedLoss(2)
++        self.sound_reconstruct = SoundReconstructor(latent_dim=latent_dim)
++
++class GaussianBlur(object):
++    """Gaussian blur augmentation in SimCLR https://arxiv.org/abs/2002.05709"""
++
++    def __init__(self, sigma=[.1, 2.]):
++        self.sigma = sigma
++
++    def pil_like_gaussian_blur(self, sigma, x):
++        kernel_size = 2 * math.ceil(3 * sigma) + 1  # same as PIL's default
++        kernel_size = max(kernel_size, 3)  # minimum 3x3
++        return transforms.GaussianBlur(kernel_size=kernel_size, sigma=sigma)(x)
++    def __call__(self, x):
++        sigma = random.uniform(self.sigma[0], self.sigma[1])
++        if isinstance(x, torch.Tensor):
++            if len(x.shape) == 4:
++                x = to_pil_image(x[0].byte())
++            else:
++                x = to_pil_image(x.byte())
++        # else:
++        x = x.filter(ImageFilter.GaussianBlur(radius=sigma))
++        return x
++    
++class VizdoomGMCWrapper(Encoder, nn.Module):
++    def __init__(self, cfg, name):
++        super(VizdoomGMCWrapper, self).__init__(cfg)
++        self.gmc = VizdoomGMC(name, cfg.gmc_common_dim, cfg.gmc_latent_dim, cfg.gmc_loss_type, None,
++                              cfg.gmc_freeze,
++                              cfg.gmc_model_file)
++        self.cfg = cfg
++
++    def encode(self, x):
++        return self.gmc.encode(x)
++
++    def get_out_size(self) -> int:
++        return self.cfg.gmc_latent_dim
++
++    def freeze_weights(self):
++        self.gmc.eval()
++        freeze_module(self.gmc)
++
++class VizdoomGMC2Wrapper(Encoder, nn.Module):
++    def __init__(self, cfg, name):
++        super(VizdoomGMC2Wrapper, self).__init__(cfg)
++        self.gmc = VizdoomGMC2(name, cfg.gmc_common_dim, cfg.gmc_latent_dim, cfg.gmc_loss_type, None,
++                              cfg.gmc_freeze,
++                              cfg.gmc_model_file)
++        self.cfg = cfg
++
++    def encode(self, x):
++        return self.gmc.encode(x)
++
++    def get_out_size(self) -> int:
++        return self.cfg.gmc_latent_dim
++
++    def freeze_weights(self):
++        self.gmc.eval()
++        freeze_module(self.gmc)
++
++class VizdoomGMC3(GMC3):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None, freeze=False,
++                 model_path=None):
++        super(VizdoomGMC3, self).__init__(
++            name, common_dim, latent_dim, loss_type="infonce"
++        )
++
++        self.image_processor = VizdoomImageProcessor(common_dim=common_dim)
++        self.sound_processor = VizdoomSoundProcessor(common_dim=common_dim)
++        self.joint_processor = VizdoomJointProcessor(common_dim=common_dim, finetune=finetune)
++        self.processors = [
++            self.image_processor,
++            self.sound_processor,
++            self.joint_processor,
++        ]
++        self.loss_type = loss_type
++        if finetune is not None:
++            if finetune != "image":
++                self.image_processor.eval()
++                freeze_module(self.image_processor)
++            elif finetune != "sound":
++                self.sound_processor.eval()
++                freeze_module(self.sound_processor)
++
++        self.encoder = HyperhotCommonEncoder(
++            common_dim=common_dim, latent_dim=latent_dim
++        )
++        if finetune is not None:
++            self.encoder.eval()
++            freeze_module(self.encoder)
++        self.loss_weights = AutomaticWeightedLoss(2)
++        self.sound_reconstruct = SoundReconstructor(latent_dim=latent_dim)
++        if model_path is not None:
++            info = self.load_state_dict(torch.load(model_path)['state_dict'])
++            print('Loading gmc3 info', info)
++        if freeze:
++            self.eval()
++            freeze_module(self)
++
++class VizdoomGMC3Wrapper(Encoder, nn.Module):
++    def __init__(self, cfg, name):
++        super(VizdoomGMC3Wrapper, self).__init__(cfg)
++        self.gmc = VizdoomGMC3(name, cfg.gmc_common_dim, cfg.gmc_latent_dim, cfg.gmc_loss_type, None,
++                              cfg.gmc_freeze,
++                              cfg.gmc_model_file)
++        self.cfg = cfg
++
++    def encode(self, x):
++        return self.gmc.encode(x)
++
++    def get_out_size(self) -> int:
++        return self.cfg.gmc_latent_dim
++
++    def freeze_weights(self):
++        self.gmc.eval()
++        freeze_module(self.gmc)
++
++class VizdoomGMC4(GMC4):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None, freeze=False,
++                 model_path=None):
++        super(VizdoomGMC4, self).__init__(
++            name, common_dim, latent_dim, loss_type="infonce"
++        )
++
++        self.image_processor = VizdoomImageProcessor(common_dim=common_dim, finetune=finetune)
++        self.sound_processor = VizdoomSoundProcessor(common_dim=common_dim)
++        self.joint_processor = VizdoomJointProcessor(common_dim=common_dim, finetune=finetune)
++        self.processors = [
++            self.image_processor,
++            self.sound_processor,
++            self.joint_processor,
++        ]
++        self.loss_type = loss_type
++        if finetune is not None:
++            if finetune != "image":
++                self.image_processor.eval()
++                freeze_module(self.image_processor)
++            elif finetune != "sound":
++                self.sound_processor.eval()
++                freeze_module(self.sound_processor)
++
++        self.encoder = HyperhotCommonEncoder(
++            common_dim=common_dim, latent_dim=latent_dim
++        )
++        if finetune is not None:
++            self.encoder.eval()
++            freeze_module(self.encoder)
++        self.loss_weights = AutomaticWeightedLoss(3)
++        self.sound_reconstruct = SoundReconstructor(latent_dim=latent_dim)
++        if model_path is not None:
++            info = self.load_state_dict(torch.load(model_path)['state_dict'])
++            print('Loading gmc4 info', info)
++        if freeze:
++            self.eval()
++            freeze_module(self)
++        # 
++
++class VizdoomGMC4Wrapper(Encoder, nn.Module):
++    def __init__(self, cfg, name):
++        super(VizdoomGMC4Wrapper, self).__init__(cfg)
++        self.gmc = VizdoomGMC4(name, cfg.gmc_common_dim, cfg.gmc_latent_dim, cfg.gmc_loss_type, None,
++                              cfg.gmc_freeze,
++                              cfg.gmc_model_file)
++        self.cfg = cfg
++
++    def encode(self, x):
++        return self.gmc.encode(x)
++
++    def get_out_size(self) -> int:
++        return self.cfg.gmc_latent_dim
++
++    def freeze_weights(self):
++        self.gmc.eval()
++        freeze_module(self.gmc)
++
++class VizdoomGMC5(GMC5):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None, freeze=False,
++                 model_path=None):
++        super(VizdoomGMC5, self).__init__(
++            name, common_dim, latent_dim, loss_type="infonce"
++        )
++
++        self.image_processor = VizdoomImageProcessor(common_dim=common_dim, finetune=finetune)
++        self.sound_processor = VizdoomSoundProcessor(common_dim=common_dim)
++        self.joint_processor = VizdoomJointProcessor(common_dim=common_dim, finetune=finetune)
++        self.processors = [
++            self.image_processor,
++            self.sound_processor,
++            self.joint_processor,
++        ]
++        self.loss_type = loss_type
++        if finetune is not None:
++            if finetune != "image":
++                self.image_processor.eval()
++                freeze_module(self.image_processor)
++            elif finetune != "sound":
++                self.sound_processor.eval()
++                freeze_module(self.sound_processor)
++
++        self.encoder = HyperhotCommonEncoder(
++            common_dim=common_dim, latent_dim=latent_dim
++        )
++        if finetune is not None:
++            self.encoder.eval()
++            freeze_module(self.encoder)
++        self.loss_weights = AutomaticWeightedLoss(2)
++        if model_path is not None:
++            info = self.load_state_dict(torch.load(model_path)['state_dict'])
++            print('Loading gmc5 info', info)
++        if freeze:
++            self.eval()
++            freeze_module(self)
++        # self.sound_reconstruct = SoundReconstructor(latent_dim=latent_dim)
++
++class VizdoomGMC5Wrapper(Encoder, nn.Module):
++    def __init__(self, cfg, name):
++        super(VizdoomGMC5Wrapper, self).__init__(cfg)
++        self.gmc = VizdoomGMC5(name, cfg.gmc_common_dim, cfg.gmc_latent_dim, cfg.gmc_loss_type, None,
++                              cfg.gmc_freeze,
++                              cfg.gmc_model_file)
++        self.cfg = cfg
++
++    def encode(self, x):
++        return self.gmc.encode(x)
++
++    def get_out_size(self) -> int:
++        return self.cfg.gmc_latent_dim
++
++    def freeze_weights(self):
++        self.gmc.eval()
++        freeze_module(self.gmc)
++
++class VizdoomGMC6(GMC6):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None, freeze=False,
++                 model_path=None):
++        super(VizdoomGMC6, self).__init__(
++            name, common_dim, latent_dim, loss_type="infonce"
++        )
++
++        self.image_processor = VizdoomImageProcessor(common_dim=common_dim, finetune=finetune)
++        self.sound_processor = VizdoomSoundProcessor(common_dim=common_dim)
++        self.joint_processor = VizdoomJointProcessor(common_dim=common_dim, finetune=finetune)
++        self.processors = [
++            self.image_processor,
++            self.sound_processor,
++            self.joint_processor,
++        ]
++        self.loss_type = loss_type
++        if finetune is not None:
++            if finetune != "image":
++                self.image_processor.eval()
++                freeze_module(self.image_processor)
++            elif finetune != "sound":
++                self.sound_processor.eval()
++                freeze_module(self.sound_processor)
++
++        self.encoder = HyperhotCommonEncoder(
++            common_dim=common_dim, latent_dim=latent_dim
++        )
++        if finetune is not None:
++            self.encoder.eval()
++            freeze_module(self.encoder)
++        self.loss_weights = AutomaticWeightedLoss(2)
++
++        if model_path is not None:
++            info = self.load_state_dict(torch.load(model_path)['state_dict'])
++            print('Loading gmc6 info', info)
++        if freeze:
++            self.eval()
++            freeze_module(self)
++
++class VizdoomGMC6Wrapper(Encoder, nn.Module):
++    def __init__(self, cfg, name):
++        super(VizdoomGMC6Wrapper, self).__init__(cfg)
++        self.gmc = VizdoomGMC6(name, cfg.gmc_common_dim, cfg.gmc_latent_dim, cfg.gmc_loss_type, None,
++                              cfg.gmc_freeze,
++                              cfg.gmc_model_file)
++        self.cfg = cfg
++
++    def encode(self, x):
++        return self.gmc.encode(x)
++
++    def get_out_size(self) -> int:
++        return self.cfg.gmc_latent_dim
++
++    def freeze_weights(self):
++        self.gmc.eval()
++        freeze_module(self.gmc)
++
++class VizdoomGMC7(GMC7):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None, freeze=False,
++                 model_path=None):
++        super(VizdoomGMC7, self).__init__(
++            name, common_dim, latent_dim, loss_type="infonce"
++        )
++
++        self.image_processor = VizdoomImageProcessor(common_dim=common_dim, finetune=finetune)
++        self.sound_processor = VizdoomSoundProcessor(common_dim=common_dim)
++        self.joint_processor = VizdoomJointProcessor(common_dim=common_dim, finetune=finetune)
++        self.processors = [
++            self.image_processor,
++            self.sound_processor,
++            self.joint_processor,
++        ]
++        self.loss_type = loss_type
++        if finetune is not None:
++            if finetune != "image":
++                self.image_processor.eval()
++                freeze_module(self.image_processor)
++            elif finetune != "sound":
++                self.sound_processor.eval()
++                freeze_module(self.sound_processor)
++
++        self.encoder = HyperhotCommonEncoder(
++            common_dim=common_dim, latent_dim=latent_dim
++        )
++        if finetune is not None:
++            self.encoder.eval()
++            freeze_module(self.encoder)
++        self.loss_weights = AutomaticWeightedLoss(3)
++        
++        if model_path is not None:
++            info = self.load_state_dict(torch.load(model_path)['state_dict'])
++            print('Loading gmc7 info', info)
++        if freeze:
++            self.eval()
++            freeze_module(self)
++
++class VizdoomGMC7Wrapper(Encoder, nn.Module):
++    def __init__(self, cfg, name):
++        super(VizdoomGMC7Wrapper, self).__init__(cfg)
++        self.gmc = VizdoomGMC7(name, cfg.gmc_common_dim, cfg.gmc_latent_dim, cfg.gmc_loss_type, None,
++                              cfg.gmc_freeze,
++                              cfg.gmc_model_file)
++        self.cfg = cfg
++
++    def encode(self, x):
++        return self.gmc.encode(x)
++
++    def get_out_size(self) -> int:
++        return self.cfg.gmc_latent_dim
++
++    def freeze_weights(self):
++        self.gmc.eval()
++        freeze_module(self.gmc)
++
++class GMC8(GMC):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None):
++        super(GMC8, self).__init__(name, common_dim, latent_dim, loss_type="infonce")
++
++        self.name = name
++        self.common_dim = common_dim
++        self.latent_dim = latent_dim
++        self.loss_type = loss_type
++
++        self.image_processor = None
++        self.label_processor = None
++        self.joint_processor = None
++        self.processors = [
++            self.image_processor,
++            self.label_processor,
++            self.joint_processor,
++        ]
++
++        self.encoder = None
++        self.finetune = None
++        self.loss_weights = None
++        self.augmentations = None
++        # self.sound_reconstruct = None
++
++    def forward(self, x):
++
++        # Forward pass through the modality specific encoders
++        batch_representations = []
++        mod_presentations = []
++        for processor_idx in range(len(self.processors) - 1):
++            # print(x[processor_idx].shape)
++            mod_presentations.append(
++                self.processors[processor_idx](x[processor_idx]))
++            mod_fused_representations = self.encoder(
++                mod_presentations[-1]
++            )
++            batch_representations.append(mod_fused_representations)
++
++        # Forward pass through the joint encoder
++        # if self.finetune is not None:
++        #     with torch.no_grad():
++        #         joint_representation = self.encoder(self.processors[-1](x))
++        # else:
++        #     joint_representation = self.encoder(self.processors[-1](x))
++        joint_representation = self.encoder(self.processors[-1](x))
++        batch_representations.append(joint_representation)
++        return batch_representations, mod_presentations
++
++    def training_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0][0].shape[0]
++        data_augmented = data[0]
++        data_original = data[1]
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data_augmented)
++
++        batch_representations_original, mod_representations_original = self.forward(data_original)
++
++        # mixed_representations = batch_representations_original[:-1] + [batch_representations[-1]]
++        mixed_representations = batch_representations[:-1] + [batch_representations_original[-1]]
++
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            # loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce_with_joints_as_negatives(mixed_representations, temperature, batch_size)
++            loss3, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations_original, temperature, batch_size)
++        else:
++            # loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce(mixed_representations, temperature, batch_size)
++            loss3, tqdm_dict = self.infonce(batch_representations_original, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        # reconstructed_sound_latent = self.sound_latent_reconstruct(batch_representations[1])
++        # reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        # latent_reconstruction_loss = F.mse_loss(data[0][1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        # tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss3
++        loss = self.loss_weights(loss2, loss3)
++        tqdm_dict['weighted_loss'] = loss
++        return loss, tqdm_dict
++
++    def validation_step(self, data, train_params):
++
++        temperature = train_params["temperature"]
++        batch_size = data[0][0].shape[0]
++        data_augmented = data[0]
++        data_original = data[1]
++        # Forward pass through the encoders
++        batch_representations, mod_representations = self.forward(data_augmented)
++
++        batch_representations_original, mod_representations_original = self.forward(data_original)
++
++        mixed_representations = batch_representations_original[:-1] + [batch_representations[-1]]
++        # Compute contrastive loss
++        if self.loss_type == "infonce_with_joints_as_negatives":
++            # loss, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce_with_joints_as_negatives(mixed_representations, temperature, batch_size)
++            loss3, tqdm_dict = self.infonce_with_joints_as_negatives(batch_representations_original, temperature, batch_size)
++        else:
++            # loss, tqdm_dict = self.infonce(batch_representations, temperature, batch_size)
++            loss2, tqdm_dict2 = self.infonce(mixed_representations, temperature, batch_size)
++            loss3, tqdm_dict = self.infonce(batch_representations_original, temperature, batch_size)
++        image_sound_sim = F.cosine_similarity(batch_representations[0], batch_representations[1], dim=1).mean()
++        image_joint_sim = F.cosine_similarity(batch_representations[0], batch_representations[2], dim=1).mean()
++        sound_joint_sim = F.cosine_similarity(batch_representations[1], batch_representations[2], dim=1).mean()
++        # reconstructed_sound_latent = self.sound_latent_reconstruct(batch_representations[1])
++        # reconstructed_sound = self.sound_reconstruct(batch_representations[1])
++        # latent_reconstruction_loss = F.mse_loss(data[0][1], reconstructed_sound)
++        tqdm_dict["image_sound_sim"] = image_sound_sim
++        tqdm_dict["image_joint_sim"] = image_joint_sim
++        tqdm_dict["sound_joint_sim"] = sound_joint_sim
++        # tqdm_dict["reconstruction_loss_sound"] = latent_reconstruction_loss
++        tqdm_dict["gmc_loss"] = loss3
++        loss = self.loss_weights(loss2, loss3)
++        tqdm_dict['weighted_loss'] = loss
++        return tqdm_dict
++
++class VizdoomGMC8(GMC8):
++    def __init__(self, name, common_dim, latent_dim, loss_type="infonce", finetune=None, freeze=False,
++                 model_path=None):
++        super(VizdoomGMC8, self).__init__(
++            name, common_dim, latent_dim, loss_type="infonce"
++        )
++
++        self.image_processor = VizdoomImageProcessor(common_dim=common_dim, finetune=finetune)
++        self.sound_processor = VizdoomSoundProcessor(common_dim=common_dim)
++        self.joint_processor = VizdoomJointProcessor(common_dim=common_dim, finetune=finetune)
++        self.processors = [
++            self.image_processor,
++            self.sound_processor,
++            self.joint_processor,
++        ]
++        self.loss_type = loss_type
++        if finetune is not None:
++            if finetune != "image":
++                self.image_processor.eval()
++                freeze_module(self.image_processor)
++            elif finetune != "sound":
++                self.sound_processor.eval()
++                freeze_module(self.sound_processor)
++
++        self.encoder = HyperhotCommonEncoder(
++            common_dim=common_dim, latent_dim=latent_dim
++        )
++        if finetune is not None:
++            self.encoder.eval()
++            freeze_module(self.encoder)
++        self.loss_weights = AutomaticWeightedLoss(2)
++        if model_path is not None:
++            info = self.load_state_dict(torch.load(model_path)['state_dict'])
++            print('Loading gmc7 info', info)
++        if freeze:
++            self.eval()
++            freeze_module(self)
++
++class VizdoomGMC8Wrapper(Encoder, nn.Module):
++    def __init__(self, cfg, name):
++        super(VizdoomGMC8Wrapper, self).__init__(cfg)
++        self.gmc = VizdoomGMC8(name, cfg.gmc_common_dim, cfg.gmc_latent_dim, cfg.gmc_loss_type, None,
++                              cfg.gmc_freeze,
++                              cfg.gmc_model_file)
++        self.cfg = cfg
++
++    def encode(self, x):
++        return self.gmc.encode(x)
++
++    def get_out_size(self) -> int:
++        return self.cfg.gmc_latent_dim
++
++    def freeze_weights(self):
++        self.gmc.eval()
++        freeze_module(self.gmc)
+\ No newline at end of file
+diff --git a/sf_examples/vizdoom/doom/gmc/gmc_networks.py b/sf_examples/vizdoom/doom/gmc/gmc_networks.py
+index ddd86e9..050d066 100755
+--- a/sf_examples/vizdoom/doom/gmc/gmc_networks.py
++++ b/sf_examples/vizdoom/doom/gmc/gmc_networks.py
+@@ -326,7 +326,7 @@ class ConvEncoderImpl(nn.Module):
+ 
+ 
+ class VizdoomImageProcessor(nn.Module):
+-    def __init__(self, common_dim):
++    def __init__(self, common_dim, finetune=None):
+         super().__init__()
+         self.common_dim = common_dim
+         self.features = VizdoomConvEncoder()
+@@ -523,3 +523,44 @@ def calc_num_elements(module, module_input_shape):
+     some_input = torch.rand(shape_with_batch_dim)
+     num_elements = module(some_input).numel()
+     return num_elements
++
++class SoundLatentReconstructor(nn.Module):
++    def __init__(self, latent_dim, common_dim):
++        super().__init__()
++        self.fc = nn.Sequential(nn.Linear(latent_dim, 128), Swish(), nn.Linear(128, common_dim))
++
++    def forward(self, x):
++        return self.fc(x)
++    
++class SoundReconstructor(nn.Module):
++    def __init__(self, latent_dim):
++        super().__init__()
++        self.fc = nn.Sequential(nn.Linear(latent_dim, 512), Swish(), nn.Linear(512, 5040))
++    def forward(self, x):
++        output = self.fc(x)
++        return output.view(-1, 2520, 2)
++
++class AutomaticWeightedLoss(nn.Module):
++    """automatically weighted multi-task loss
++
++    Params：
++        num: int，the number of loss
++        x: multi-task loss
++    Examples：
++        loss1=1
++        loss2=2
++        awl = AutomaticWeightedLoss(2)
++        loss_sum = awl(loss1, loss2)
++    """
++
++    def __init__(self, num=2):
++        super(AutomaticWeightedLoss, self).__init__()
++        params = torch.ones(num, requires_grad=True)
++        self.params = torch.nn.Parameter(params)
++
++    def forward(self, *x):
++        loss_sum = 0
++
++        for i, loss in enumerate(x):
++            loss_sum += 0.5 / (self.params[i] ** 2) * loss + torch.log(1 + self.params[i] ** 2)
++        return loss_sum

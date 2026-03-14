@@ -60,6 +60,23 @@ def pendulum3():
     train_vae = 0
 
 @scenario_ingredient.named_config
+def pendulum4():
+    scenario = 'pendulum4'
+    data_dir = './dataset/'
+    image_side = 60
+    n_stack = 2
+    sound_frequency = 440.
+    sound_velocity = 20.
+    # sound_receivers = ['LEFT_BOTTOM', 'RIGHT_BOTTOM', 'MIDDLE_TOP']
+    sound_receivers = ["LEFT_TOP", "RIGHT_TOP", "MIDDLE_BOTTOM"]
+
+    train_samples = 20000
+    test_samples = 2000
+    random_seed = 42
+    finetune = "sound"
+    train_vae = 0
+
+@scenario_ingredient.named_config
 def hyperhot():
     scenario = "hyperhot"
     data_dir='./dataset/hyperhot'

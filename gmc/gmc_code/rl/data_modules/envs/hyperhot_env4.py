@@ -197,25 +197,26 @@ class GameSound():
         :return:
         """
 
-        # Distance
-        distance = np.sqrt(
-            np.power(source_pos[0] - observer_pos[0], 2) + np.power(
-                source_pos[1] - observer_pos[1], 2))
-
-        # Amplitude
-        amplitude = self.og_amplitude * np.exp(-self.gamma * distance)
-
-        # print("Computing distance:")
-        # print("Source Coordinates = " + str(source_pos[0]) + ", " + str(source_pos[1]))
-        # print("Observer Coordinates = " + str(observer_pos[0]) + ", " + str(observer_pos[1]))
-        # print("Distance = " + str(distance))
-        # print("New amplitude = " + str(amplitude))
-
-        # Just for checks
-        if amplitude < 0.0:
-            amplitude = 0.0
-
-        return amplitude
+        # # Distance
+        # distance = np.sqrt(
+        #     np.power(source_pos[0] - observer_pos[0], 2) + np.power(
+        #         source_pos[1] - observer_pos[1], 2))
+        #
+        # # Amplitude
+        # amplitude = self.og_amplitude * np.exp(-self.gamma * distance)
+        #
+        # # print("Computing distance:")
+        # # print("Source Coordinates = " + str(source_pos[0]) + ", " + str(source_pos[1]))
+        # # print("Observer Coordinates = " + str(observer_pos[0]) + ", " + str(observer_pos[1]))
+        # # print("Distance = " + str(distance))
+        # # print("New amplitude = " + str(amplitude))
+        #
+        # # Just for checks
+        # if amplitude < 0.0:
+        #     amplitude = 0.0
+        #
+        # return amplitude
+        return 0.05
 
     def generate_wave_at_observer(self, scaling_factor, observer_pos,
                                   observer_vel, source_pos, source_vel,
@@ -540,7 +541,7 @@ class Ship():
 
 
 class Bullet():
-    def __init__(self, x, y, from_player, bullet_note):
+    def __init__(self, x, y, from_player, bullet_note, no_sound=False):
 
         self.is_alive = True
         self.from_player = from_player
@@ -557,7 +558,10 @@ class Bullet():
 
         # Sound variables
         self.bullet_note = bullet_note
-        self.sound = GameSound(note=bullet_note, wave_type='square')
+        if no_sound:
+            self.sound = GameSound(note=bullet_note, wave_type='square', amplitude=0)
+        else:
+            self.sound = GameSound(note=bullet_note, wave_type='square')
 
         # Color variable
         if from_player:
@@ -569,6 +573,7 @@ class Bullet():
         # self.rect = self.image.get_rect()
         # self.rect.centerx = x
         # self.rect.centery = y
+        # self.no_sound = no_sound
 
     def update(self):
 
@@ -646,7 +651,10 @@ class Enemy():
         # Sound variables
         self.note = enemy_note
         self.bullet_note = enemy_bullet_note
-        self.sound = GameSound(note=enemy_note, wave_type='square')
+        if id % 2 == 0:
+            self.sound = GameSound(note=enemy_note, wave_type='square', amplitude=0)
+        else:
+            self.sound = GameSound(note=enemy_note, wave_type='square')
 
         self.is_alive = True
         self.move_right = move_right
@@ -696,12 +704,20 @@ class Enemy():
 
     def shoot(self):
         if len(self.shots) < self.max_shots:
-            self.shots.append(
-                Bullet(
-                    self.rect.centerx,
-                    self.rect.bottom,
-                    from_player=False,
-                    bullet_note=self.bullet_note))
+            if self.id % 2 == 1:
+                self.shots.append(
+                    Bullet(
+                        self.rect.centerx,
+                        self.rect.bottom,
+                        from_player=False,
+                        bullet_note=self.bullet_note))
+            else:
+                self.shots.append(
+                    Bullet(
+                        self.rect.centerx,
+                        self.rect.bottom,
+                        from_player=False,
+                        bullet_note=self.bullet_note, no_sound=True))
 
     def is_shooting(self):
         if len(self.shots) == 0:
@@ -785,14 +801,14 @@ class HyperhotEnv(gym.Env):
         # Observation Variables
         self.sound_set_dic = {
             'ship': 'do',
-            'ship_bullet': 'la#',
+            'ship_bullet': 'do',
             'enemy': {
                 0: 'do',
                 1: 'do',
-                2: 'mi',
-                3: 'mi'
+                2: 'do',
+                3: 'do'
             },
-            'enemy_bullet': 'sol'
+            'enemy_bullet': 'do'
         }
 
         self.observation_space = spaces.Box(
@@ -1153,19 +1169,13 @@ class HyperhotEnv(gym.Env):
                 source_poss.append(s.get_current_pos())
                 source_vels.append(s.get_current_vel())
 
-            enemy_max = 1
-            tmp = 0
             # For the enemies and their bullets
             for j in range(len(self.enemies)):
                 if self.alive_enemies[j] == 1:
-                    if tmp < enemy_max:
-                        source_waves.append(self.enemies[j].get_sound())
-                        source_poss.append(self.enemies[j].get_current_pos())
-                        source_vels.append(self.enemies[j].get_current_vel())
-                        tmp += 1
-                    else:
-                        source_poss.append(np.array([0, 0]))
-                        source_vels.append(np.array([0, 0]))
+                    source_waves.append(self.enemies[j].get_sound())
+                    source_poss.append(self.enemies[j].get_current_pos())
+                    source_vels.append(self.enemies[j].get_current_vel())
+
                 for en_s in self.enemies[j].get_shots():
                     source_waves.append(en_s.get_sound())
                     source_poss.append(en_s.get_current_pos())
@@ -1182,6 +1192,9 @@ class HyperhotEnv(gym.Env):
                 sample_length=self.sample_length)
 
             self.sound[i, :] = sound_receiver_wave
+            x_pos = obs_pos[1]
+            if 60 <= x_pos <= 100:
+                self.sound[i, :] = np.zeros(self.sample_length)
 
         return
 

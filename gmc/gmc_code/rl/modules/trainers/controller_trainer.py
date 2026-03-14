@@ -81,7 +81,7 @@ class ControllerLearner(LightningModule):
     # Setup Processor
     def setup_processor(self, train_config, scenario_config):
         if scenario_config["scenario"] == "pendulum" or scenario_config["scenario"] == "pendulum2" or scenario_config[
-            "scenario"] == "pendulum3":
+            "scenario"] == "pendulum3" or scenario_config["scenario"] == "pendulum4":
             pend_processor = PendulumProcessor(mods=self.modalities)
 
             # Load Sound Normalization from dataset
@@ -103,7 +103,7 @@ class ControllerLearner(LightningModule):
     # Setup Memory
     def setup_memory(self, train_config, scenario_config):
         if scenario_config["scenario"] == "pendulum" or scenario_config["scenario"] == "pendulum2" or scenario_config[
-            "scenario"] == "pendulum3":
+            "scenario"] == "pendulum3" or scenario_config["scenario"] == "pendulum4":
             return PendulumReplayMemory(capacity=train_config["memory_size"])
         else:
             raise ValueError(
@@ -114,7 +114,7 @@ class ControllerLearner(LightningModule):
     # Setup Memory
     def setup_policy(self, env, model, train_config, scenario_config):
         if scenario_config["scenario"] == "pendulum" or scenario_config["scenario"] == "pendulum2" or scenario_config[
-            "scenario"] == "pendulum3":
+            "scenario"] == "pendulum3" or scenario_config["scenario"] == "pendulum4":
             return PendulumPolicy(
                 policy_net=model.actor,
                 action_space=env.action_space,

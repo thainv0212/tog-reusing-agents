@@ -15,7 +15,7 @@ Setup functions
 
 def setup_model(scenario, model, model_config, scenario_config, finetune=False):
     if model == "gmc":
-        if scenario == "pendulum" or scenario == "pendulum2" or scenario == "pendulum3":
+        if scenario == "pendulum" or scenario == "pendulum2" or scenario == "pendulum3" or scenario == "pendulum4":
             return PendulumGMC(
                 name=model_config["model"],
                 common_dim=model_config["common_dim"],
@@ -45,7 +45,7 @@ def setup_model(scenario, model, model_config, scenario_config, finetune=False):
                 + str(scenario)
             )
     if model == "sound":
-        if scenario == "pendulum" or scenario == "pendulum2" or scenario == "pendulum3":
+        if scenario == "pendulum" or scenario == "pendulum2" or scenario == "pendulum3" or scenario == "pendulum4":
             return PendulumNullModel()
         else:
             raise ValueError(
@@ -67,7 +67,7 @@ def setup_data_module(scenario, experiment_config, scenario_config, train_config
             data_config=train_config,
         )
 
-    elif scenario == "pendulum" or scenario == "pendulum2" or scenario == "pendulum3":
+    elif scenario == "pendulum" or scenario == "pendulum2" or scenario == "pendulum3" or scenario == "pendulum4":
         return MultiAtariDataModule(
             dataset=scenario,
             data_dir=scenario_config["data_dir"],
@@ -106,7 +106,7 @@ def setup_dca_evaluation_trainer(model, machine_path, scenario, config):
 
 
 def setup_downstream_controller(scenario, model_config, n_actions, layer_sizes):
-    if scenario == "pendulum" or scenario == "pendulum2" or scenario == "pendulum3":
+    if scenario == "pendulum" or scenario == "pendulum2" or scenario == "pendulum3" or scenario == "pendulum4":
         if model_config["learner"] == "ddpg":
             return DDPG(
                 model_config["latent_dim"], n_actions=n_actions, layer_sizes=layer_sizes
@@ -132,7 +132,7 @@ def setup_downstream_controller(scenario, model_config, n_actions, layer_sizes):
 def setup_downstream_controller_trainer(
         scenario, model, controller, env, scenario_config, train_config, logger, modalities
 ):
-    if scenario == "pendulum" or scenario == "pendulum2" or scenario == "pendulum3":  # Classification
+    if scenario == "pendulum" or scenario == "pendulum2" or scenario == "pendulum3" or scenario == "pendulum4":  # Classification
         return DDPGLearner(
             model=model,
             controller=controller,

@@ -120,7 +120,7 @@ def train_model(_config, _run):
     checkpoint_callback.FILE_EXTENSION = ".pth"
 
     # Callbacks
-    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3":
+    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3" or exp_cfg["scenario"] == "pendulum4":
         end_callback = OnEndModelTrainingPendulum(exp_cfg["scenario"])
     elif exp_cfg["scenario"] in ("hyperhot", "hyperhot2", "hyperhot3", "hyperhot4",):
         end_callback = OnEndModelTrainingPendulum(exp_cfg["scenario"])
@@ -224,7 +224,7 @@ def train_downstream_controller(_config, _run):
     # Callbacks
     checkpoint_dir = log_dir_path("rl_checkpoints")
 
-    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3":
+    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3" or exp_cfg["scenario"] == "pendulum4":
         post_cb = OnEndControllerTrainingPendulumPostEvalCb(
             model=model_cfg["model"],
             controller=controller,
@@ -289,7 +289,7 @@ def finetune_rl(_config, _run):
     # Callbacks
     checkpoint_dir = log_dir_path("rl_checkpoints")
 
-    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3":
+    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3" or exp_cfg["scenario"] == "pendulum4":
         post_cb = OnEndControllerTrainingPendulumPostEvalCb(
             model=model_cfg["model"],
             controller=controller,
@@ -366,7 +366,7 @@ def eval_downstream_controller(_config, _run):
     sacred_logger = SacredLogger(sacred_experiment=ex)
 
     # Callbacks
-    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3":
+    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3" or exp_cfg["scenario"] == "pendulum4":
         post_cb = OnControllerEvalPendulumPostEvalCb(
             model=model_cfg["model"],
             controller=controller,
@@ -389,7 +389,7 @@ def eval_downstream_controller(_config, _run):
     )
 
     # Train
-    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3":
+    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3" or exp_cfg["scenario"] == "pendulum4":
         rl_trainer.evaluate_controller(
             max_episodes=down_eval_cfg["max_evaluation_episodes"],
             max_episode_length=down_eval_cfg["max_evaluation_episode_length"],
@@ -464,7 +464,7 @@ def finetune(_config, _run):
     checkpoint_callback.FILE_EXTENSION = ".pth"
 
     # Callbacks
-    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3":
+    if exp_cfg["scenario"] == "pendulum" or exp_cfg["scenario"] == "pendulum2" or exp_cfg["scenario"] == "pendulum3" or exp_cfg["scenario"] == "pendulum4":
         end_callback = OnEndModelTrainingPendulum(exp_cfg["scenario"])
     elif exp_cfg["scenario"] in ("hyperhot", "hyperhot2", "hyperhot3", "hyperhot4",):
         end_callback = OnEndModelTrainingPendulum(exp_cfg["scenario"])

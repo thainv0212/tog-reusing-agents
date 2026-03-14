@@ -53,6 +53,13 @@ def exp_config():
         dca_evaluation_config = sacred_dca.pendulum()
         model_config = sacred_model.gmc_pendulum()
         model_train_config = sacred_model.gmc_pendulum_train()
+    if scenario == "pendulum4":
+        scenario_config = sacred_scenario.pendulum4()
+        down_train_config = sacred_down.pendulum()
+        down_eval_config = sacred_down.pendulum_eval()
+        dca_evaluation_config = sacred_dca.pendulum()
+        model_config = sacred_model.gmc_pendulum()
+        model_train_config = sacred_model.gmc_pendulum_train()
     if scenario == "hyperhot":
         scenario_config = sacred_scenario.hyperhot()
         model_config = sacred_model.gmc_hyperhot()

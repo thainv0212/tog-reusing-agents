@@ -1,7 +1,0 @@
-Validation DataLoader 0: 100%|██████████| 63/63 [00:00<00:00, 78.88it/s]loss 6.8654351234436035
-image_sound_sim 0.49010005593299866
-image_joint_sim 0.5275910496711731
-sound_joint_sim 0.9714392423629761
-weighted_loss 6.8654351234436035
-Validation DataLoader 0: 100%|██████████| 63/63 [00:00<00:00, 78.33it/s]
-Execution time: 2.310132 seconds
